@@ -1,9 +1,15 @@
 import React from 'react'
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
-import { TokenDapp } from '@/components/TokenDapp'
+import { TokenDapp } from '@/components/FaucetDapp'
 import { AlephiumConnectButton, useAccount } from '@alephium/web3-react'
 import { tokenFaucetConfig } from '@/services/utils'
+
+// Notes / Storage
+// {!!account && <TokenDapp config={tokenFaucetConfig} />}
+
+//todo Navigation Bar
+//todo CSS and Formatting
 
 export default function Home() {
   const { account } = useAccount()
@@ -18,8 +24,6 @@ export default function Home() {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-
-        {!!account && <TokenDapp config={tokenFaucetConfig} />}
       </div>
     </>
   )

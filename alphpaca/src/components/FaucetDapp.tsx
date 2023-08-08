@@ -15,6 +15,8 @@ export const TokenDapp: FC<{
   const [withdrawAmount, setWithdrawAmount] = useState('')
   const [ongoingTxId, setOngoingTxId] = useState<string>()
 
+
+  // Handle of Withdraw
   const handleWithdrawSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (context.signerProvider) {
@@ -23,6 +25,7 @@ export const TokenDapp: FC<{
     }
   }
 
+  // Gets the TX and updates according to status on chain
   const txStatusCallback = (status: node.TxStatus, numberOfChecks: number): Promise<any> => {
     if ((status.type === 'Confirmed' && numberOfChecks > 2) || (status.type === 'TxNotFound' && numberOfChecks > 3)) {
       setOngoingTxId(undefined)
@@ -32,6 +35,8 @@ export const TokenDapp: FC<{
   }
 
   console.log('ongoing..', ongoingTxId)
+
+  // Form submit to insert values and receive input
   return (
     <>
       {ongoingTxId && <TxStatus txId={ongoingTxId} txStatusCallback={txStatusCallback} />}

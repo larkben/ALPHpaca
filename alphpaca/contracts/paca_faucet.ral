@@ -1,0 +1,72 @@
+Contract Faucet (
+    tokenId: ByteVec,
+    mut balance: U256,
+    owner: Address
+) {
+
+    event Topup(from: Address, amount: U256)
+    event Sendout(to: Address, amount: U256)
+    event Destroy(to: Address)
+
+    enum ErrorCodes {
+        InvalidWithdraw = 1
+        InvalidTopup = 2
+        InvalidCaller = 3
+    }
+
+    pub fn getTokenId() -> ByteVec {
+        return tokenId
+    }
+
+    pub fn getBalance() -> U256 {
+        return balance
+    }
+
+    pub fn getSymbol() -> ByteVec {
+        return tokenId
+    }
+
+    pub fn getName() -> ByteVec {
+        return tokenId
+    }
+
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn topup(amount: U256) -> () {
+
+        assert!(amount > 0, ErrorCodes.InvalidTopup)
+
+        transferToken!(callerAddress!(), selfAddress!(), getTokenId(), amount)
+
+        balance = balance + amount // Tokens Added to Contract
+
+        emit Topup(callerAddress!(), amount)
+        
+
+    }
+
+    @using(assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn sendout(amount: U256) -> () {
+
+        assert!(amount <= 250, ErrorCodes.InvalidWithdraw)
+
+        transferToken!(selfAddress!(), callerAddress!(), getTokenId(), amount)
+
+        balance = balance - amount // Tokens Left in Contract
+
+        emit Sendout(callerAddress!(), amount)
+
+    }
+
+    @using(assetsInContract = true, updateFields = false, checkExternalCaller = true)
+    pub fn destroy() -> () {
+
+        let caller = callerAddress!()
+
+        checkCaller!(owner == caller, ErrorCodes.InvalidCaller)
+
+        destroySelf!(owner)
+
+        emit Destroy(owner)
+    }
+
+}

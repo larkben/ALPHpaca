@@ -17,8 +17,6 @@ export default function Home() {
   const { account } = useAccount()
 
   return (
-
-
       <div className={styles.pagecolor}>
         <style>
           @import url('https://fonts.googleapis.com/css2?family=Tektur&display=swap');
@@ -27,7 +25,5 @@ export default function Home() {
           <NavBar></NavBar>
         </div>
       </div>
-
-
   )
 }

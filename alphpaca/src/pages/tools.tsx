@@ -5,7 +5,7 @@ import { TokenDapp } from '@/components/FaucetDapp'
 import { AlephiumConnectButton, useAccount } from '@alephium/web3-react'
 import { tokenFaucetConfig } from '@/services/utils'
 
-export default function WhitePaper() {
+export default function Tools() {
   
     return (
         <div>

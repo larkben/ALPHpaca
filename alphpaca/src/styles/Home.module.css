@@ -1,5 +1,25 @@
 .pagecolor {
-    background-color: #f30707;
+    background-color: #080808;
+}
+
+.alignCenter {
+    margin-left: 30%;
+}
+
+.textBox {
+    width: 50%;
+    height: auto;
+}
+
+.whitepaperText {
+    color: #00fa85;
+    font-family: 'Tektur', cursive;
+    font-size: 25px;
+}
+
+.whitepaperHeading {
+    font-size: 40px;
+    font-family: 'Tektur', cursive;
 }
 
 /* 

@@ -35,7 +35,7 @@ export default function WhitePaper() {
                 
                 <i style={{fontSize: 35, color: 'orange'}}> The Utility </i>: what can I do with $PACA? <br/> <br/> 
                 Users who decide to hold $PACA should be under the impression and knowledge that $PACA is part alpaca, part meme, part ecosystem and part coin. <br/> <br/> 
-                With that said users can use $PACA to buy ALPHpacas at mint early and see reduced fees when using tooling and or potential dapps.</p>
+                With that said users can use $PACA to buy ALPHpacas and mint early. $PACA holders can also see reduced fees when using tooling and or potential dapps.</p>
                 <br/>
                 <br/>
                 <p className={styles.whitepaperText} style={{color: 'cyan'}}> <i style={{fontSize: 35, color: 'blue'}}> ALPHpaca's </i> are the NFT component of our ecosystem. </p> <br/>
@@ -45,10 +45,10 @@ export default function WhitePaper() {
                 <p className={styles.whitepaperText} style={{color: 'yellow', fontSize: 12, marginLeft: 190}}> This is not the final product. This is a teaser. </p>
                 <br/>
                 <br/>
-                <p className={styles.whitepaperText} style={{color: 'cyan'}}> There is and will ever be 1152 ALPHpaca's on the Alephium chain. They can be bought for 30k $PACA each for 24 hours early. 
-                Otherwise they can be bought with 30k $PACA after 24 hours or '150 Alephium'. <br/> <br/> About our Pricing? What will you do with 153,600 ALPH? Why so expensive? <br/> <br/> 
-                - Due to the circulation of $PACA not everyone will be able to buy an ALPHpaca with $PACA, in fact roughly 512 ALPHpacas will be able to be bought maximum. <br/> <br/> 
-                - ALPH that is recieved from purchasing ALPHpacas will be divided 90 / 10. <br/> <br/> 90% Towards adding more $PACA liquidity on the dex. <br/> <br/> 10% Towards Development and Funding. <br/> <br/> 
+                <p className={styles.whitepaperText} style={{color: 'cyan'}}> There is and will ever be <i style={{color: 'blue'}}> 1152 ALPHpaca's </i> on the Alephium chain. They can be bought for <i style={{color: 'green'}}> 30k $PACA each for 24 hours 'early' </i>. 
+                Otherwise they can be bought with 30k $PACA after 24 hours or <i style={{color: 'red'}}> '150 Alephium'. </i> <br/> <br/> About our Pricing? What will you do with 153,600 ALPH? Why so expensive? <br/> <br/> 
+                - Due to the circulation of $PACA not everyone will be able to buy an ALPHpaca with $PACA, in fact roughly 512 ALPHpacas will be able to be bought with $PACA. <br/> <br/> 
+                - ALPH that is received from purchasing ALPHpacas will be divided 90 / 10. <br/> <br/> 90% Towards adding more $PACA liquidity on the dex. <br/> <br/> 10% Towards Development and Funding. <br/> <br/> 
                 - ALPHpaca's are priced as such because we don't want one whale to scoop up the entire collection. ALPHpaca's should start distributed. Part of our model is to never devalue holders, this funding allows us to never be stretched for options but restricted enough to think carefully. </p> 
 
 

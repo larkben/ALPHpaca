@@ -30,7 +30,6 @@
     "trailingComma": "none"
   },
   "dependencies": {
-    "@alephium/web3": "v0.14.2",
     "@alephium/web3-react": "v0.14.2",
     "@alephium/web3-test": "v0.14.2",
     "@next/font": "13.1.4",

@@ -5,6 +5,8 @@ import { TokenDapp } from '@/components/FaucetDapp'
 import { AlephiumConnectButton, useAccount } from '@alephium/web3-react'
 import { tokenFaucetConfig } from '@/services/utils'
 
+import '@alephium/web3'
+
 import NavBar from '@/components/NavBar'
 
 // Notes / Storage

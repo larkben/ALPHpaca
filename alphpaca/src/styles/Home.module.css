@@ -28,6 +28,38 @@
   text-decoration: none;
 }
 
+.showBorder {
+    border-radius: 25px;
+    border: 2px solid #e24502;
+    padding: 1px;
+}
+
+.textNFT {
+    font-family: 'Tektur', cursive;
+    color: white;
+}
+
+.statsBar {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    background-color: #1d1d1d;    /* For cells of equal size */
+}
+
+.stats {
+    display: table-cell;
+    text-align: center;
+    color: white;
+    padding: 5px;
+    font-family: 'Tektur', cursive;
+}
+
+.NFTheader {
+    font-family: 'Tektur', cursive;
+    color: #e24502;
+    text-align: center;
+}
+
 /* 
 
 NAV BAR ANIMATION

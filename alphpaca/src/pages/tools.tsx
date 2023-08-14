@@ -8,8 +8,8 @@ import { tokenFaucetConfig } from '@/services/utils'
 export default function Tools() {
   
     return (
-        <div>
-
+        <div className={styles.alignCenter}>
+            <p> Tools: </p>
         </div>
     )
 }

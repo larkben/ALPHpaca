@@ -8,8 +8,8 @@ import { tokenFaucetConfig } from '@/services/utils'
 export default function Token() {
   
     return (
-        <div>
-
+        <div className={styles.alignCenter}>
+            <p> $PACA: </p>
         </div>
     )
 }

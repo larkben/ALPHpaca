@@ -7,7 +7,7 @@ import { tokenFaucetConfig } from '@/services/utils'
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <AlephiumConnectProvider
-      useTheme="web95"
+      useTheme="midnight"
       network={tokenFaucetConfig.network}
       addressGroup={tokenFaucetConfig.groupIndex}
     >

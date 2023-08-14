@@ -5,10 +5,13 @@ import { TokenDapp } from '@/components/FaucetDapp'
 import { AlephiumConnectButton, useAccount } from '@alephium/web3-react'
 import { tokenFaucetConfig } from '@/services/utils'
 
+import Router from '../pages/router'
+
 import { connect } from '@planetscale/database'
 import { json } from 'stream/consumers'
 
 import { useState, useEffect } from 'react';
+import WhitePaper from './whitepaper'
 
 require("dotenv").config()
 
@@ -73,6 +76,9 @@ export default function NFT() {
                         <form name="alphpaca">
                             <input type="text" className={styles.input} name="txt" placeholder="Search NFTS, or Wallets"/>
                         </form>
+                    </div>
+                    <div className={styles.NFTheaderElement}>
+                        <button className={styles.button}> <a href='/' className={styles.noDeco} style={{color: 'white'}}>  ALPHpaca HUB </a> </button>
                     </div>
                     <div className={styles.NFTheaderElement}>
                         <button className={styles.button}> Create NFT </button>

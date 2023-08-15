@@ -6,6 +6,8 @@ import Whitepaper from './whitepaper'
 import Tools from './tools'
 import NFT from './nft'
 
+import React from 'react'
+
 const routes = [
   {
     path: '/',

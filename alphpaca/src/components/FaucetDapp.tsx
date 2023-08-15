@@ -1,11 +1,13 @@
 import React from 'react'
 import { FC, useState } from 'react'
 import styles from '../styles/Home.module.css'
-import { withdrawToken } from '@/services/token.service'
+//import { withdrawToken } from '@/services/token.service'
 import { TxStatus } from './TxStatus'
 import { useAlephiumConnectContext } from '@alephium/web3-react'
 import { node } from '@alephium/web3'
 import { TokenFaucetConfig } from '@/services/utils'
+
+/*
 
 export const TokenDapp: FC<{
   config: TokenFaucetConfig
@@ -16,7 +18,7 @@ export const TokenDapp: FC<{
   const [ongoingTxId, setOngoingTxId] = useState<string>()
 
 
-  // Handle of Withdraw
+  // Handle of Withdraw 
   const handleWithdrawSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (context.signerProvider) {
@@ -79,3 +81,5 @@ export const TokenDapp: FC<{
     </>
   )
 }
+
+*/

@@ -11,3 +11,9 @@ import {
   SignerProvider,
   HexString,
 } from "@alephium/web3";
+import { default as SendoutScriptJson } from "../scripts/Sendout.ral.json";
+
+export const Sendout = new ExecutableScript<{
+  contract: HexString;
+  amount: bigint;
+}>(Script.fromJson(SendoutScriptJson));

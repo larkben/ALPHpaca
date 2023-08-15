@@ -1,8 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
-import { TokenDapp } from '@/components/FaucetDapp'
-import { AlephiumConnectButton, useAccount } from '@alephium/web3-react'
+//import { TokenDapp } from '@/components/FaucetDapp'
+import { AlephiumConnectButton } from '@alephium/web3-react'
 import { tokenFaucetConfig } from '@/services/utils'
 
 import Router from '../pages/router'
@@ -13,7 +13,8 @@ import { json } from 'stream/consumers'
 import { useState, useEffect } from 'react';
 import WhitePaper from './whitepaper'
 
-require("dotenv").config()
+import { DotenvConfigOptions, configDotenv } from 'dotenv'
+import Link from 'next/link'
 
 const config = {
     host: process.env.host,
@@ -44,8 +45,6 @@ export default function NFT() {
 
     const [alphPrice, setAlphPrice] = useState(null);
 
-    let NFTlist=[]
-
     useEffect(() => {
         async function fetchAlphPrice() {
             const response = await fetch('https://api.coingecko.com/api/v3/coins/alephium?tickers=true&market_data=true');
@@ -60,7 +59,7 @@ export default function NFT() {
     return (
         <div>
             <style>
-                @import url('https://fonts.googleapis.com/css2?family=Tektur&display=swap');
+                @import url(&apos;https://fonts.googleapis.com/css2?family=Tektur&display=swap&apos;);
             </style>
             <div className={styles.mainOverview}>
 
@@ -78,7 +77,7 @@ export default function NFT() {
                         </form>
                     </div>
                     <div className={styles.NFTheaderElement}>
-                        <button className={styles.button}> <a href='/' className={styles.noDeco} style={{color: 'white'}}>  ALPHpaca HUB </a> </button>
+                        <button className={styles.button}> <Link href='/' className={styles.noDeco} style={{color: 'white'}}>  ALPHpaca HUB </Link> </button>
                     </div>
                     <div className={styles.NFTheaderElement}>
                         <button className={styles.button}> Create NFT </button>

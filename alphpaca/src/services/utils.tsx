@@ -5,7 +5,8 @@ export interface TokenFaucetConfig {
   network: NetworkId
   groupIndex: number
   tokenFaucetAddress: string
-  faucetTokenId: string
+  faucetID: string // ID of the contract
+  tokenID: string
 }
 
 function getNetwork(): NetworkId {
@@ -15,11 +16,12 @@ function getNetwork(): NetworkId {
 
 function getTokenFaucetConfig(): TokenFaucetConfig {
   const network = getNetwork()
-  const tokenFaucet = loadDeployments(network).contracts.Faucet.contractInstance
-  const groupIndex = tokenFaucet.groupIndex
-  const tokenFaucetAddress = tokenFaucet.address
-  const faucetTokenId = tokenFaucet.contractId
-  return { network, groupIndex, tokenFaucetAddress, faucetTokenId }
+  const faucet = loadDeployments(network).contracts.Faucet.contractInstance
+  const groupIndex = faucet.groupIndex
+  const tokenFaucetAddress = faucet.address
+  const faucetID = faucet.contractId
+  const tokenID = "b2d71c116408ae47b931482a440f675dc9ea64453db24ee931dacd578cae9002" // $PACA ID
+  return { network, groupIndex, tokenFaucetAddress, faucetID, tokenID }
 }
 
 export const tokenFaucetConfig = getTokenFaucetConfig()

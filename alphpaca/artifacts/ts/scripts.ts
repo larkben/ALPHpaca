@@ -11,8 +11,37 @@ import {
   SignerProvider,
   HexString,
 } from "@alephium/web3";
+import { default as TopupScriptJson } from "../scripts/Topup.ral.json";
+import { default as DestroyScriptJson } from "../scripts/Destroy.ral.json";
+import { default as DestroytokenScriptJson } from "../scripts/Destroytoken.ral.json";
+import { default as BuildtokenScriptJson } from "../scripts/Buildtoken.ral.json";
+import { default as BuildtokenpacaScriptJson } from "../scripts/Buildtokenpaca.ral.json";
 import { default as SendoutScriptJson } from "../scripts/Sendout.ral.json";
 
+export const Topup = new ExecutableScript<{
+  contract: HexString;
+  amount: bigint;
+}>(Script.fromJson(TopupScriptJson));
+export const Destroy = new ExecutableScript<{ contract: HexString }>(
+  Script.fromJson(DestroyScriptJson)
+);
+export const Destroytoken = new ExecutableScript<{ contract: HexString }>(
+  Script.fromJson(DestroytokenScriptJson)
+);
+export const Buildtoken = new ExecutableScript<{
+  contract: HexString;
+  symbol: HexString;
+  name: HexString;
+  decimals: bigint;
+  tokenTotal: bigint;
+}>(Script.fromJson(BuildtokenScriptJson));
+export const Buildtokenpaca = new ExecutableScript<{
+  contract: HexString;
+  symbol: HexString;
+  name: HexString;
+  decimals: bigint;
+  tokenTotal: bigint;
+}>(Script.fromJson(BuildtokenpacaScriptJson));
 export const Sendout = new ExecutableScript<{
   contract: HexString;
   amount: bigint;

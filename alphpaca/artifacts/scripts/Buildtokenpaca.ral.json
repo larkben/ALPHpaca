@@ -1,0 +1,40 @@
+{
+  "version": "v2.3.5",
+  "name": "Buildtokenpaca",
+  "bytecodeTemplate": "0101030003001c0c0d{0}0102170013c40de0b6b3a7640000170116011702b47a1602a20c0d{0}01001600a3{1}{2}{3}{4}100d{0}010518",
+  "fieldsSig": {
+    "names": [
+      "contract",
+      "symbol",
+      "name",
+      "decimals",
+      "tokenTotal"
+    ],
+    "types": [
+      "ByteVec",
+      "ByteVec",
+      "ByteVec",
+      "U256",
+      "U256"
+    ],
+    "isMutable": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "functions": [
+    {
+      "name": "main",
+      "usePreapprovedAssets": true,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": []
+    }
+  ]
+}

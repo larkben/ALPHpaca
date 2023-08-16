@@ -3,10 +3,11 @@ Contract CreateToken(
     owner: Address, //* PACA ID
     mut alphfee: U256,
     mut pacafee: U256,
-    contract: ByteVec
+    contract: ByteVec //* Token Contract
 ) {
 
     event Destroy(user: Address)
+    event CreateToken(user: Address, contract: ByteVec)
 
     enum ErrorCodes {
         InvalidCaller = 1
@@ -14,6 +15,14 @@ Contract CreateToken(
 
     pub fn getTokenId() -> ByteVec {
         return token
+    }
+
+    pub fn getAlphFee() -> U256 {
+        return alphfee
+    }
+
+    pub fn getPacaFee() -> U256 {
+        return pacafee
     }
 
     @using(assetsInContract = false, updateFields = true, checkExternalCaller = true)
@@ -39,7 +48,7 @@ Contract CreateToken(
     }
 
     @using(preapprovedAssets = true, assetsInContract = false, updateFields = false, checkExternalCaller = false)
-    pub fn createToken(symbol: ByteVec, name: ByteVec, decimals: U256, tokenTotal: U256) -> (ByteVec) {
+    pub fn buildtoken(symbol: ByteVec, name: ByteVec, decimals: U256, tokenTotal: U256) -> (ByteVec) {
 
         let minter = callerAddress!()
 
@@ -57,11 +66,13 @@ Contract CreateToken(
         
         transferToken!(minter, owner, ALPH, fee) //* FEE w/ ALPH
 
+        emit CreateToken(minter, contractID)
+
         return contractID
     }
 
     @using(preapprovedAssets = true, assetsInContract = false, updateFields = false, checkExternalCaller = false)
-    pub fn createTokenWithPaca(symbol: ByteVec, name: ByteVec, decimals: U256, tokenTotal: U256) -> (ByteVec) {
+    pub fn buildtokenpaca(symbol: ByteVec, name: ByteVec, decimals: U256, tokenTotal: U256) -> (ByteVec) {
 
         let minter = callerAddress!()
 
@@ -79,11 +90,13 @@ Contract CreateToken(
 
         transferToken!(minter, owner, getTokenId(), fee) //* FEE w/ PACA
 
+        emit CreateToken(minter, contractID)
+
         return contractID
     }
 
     @using(assetsInContract = true, updateFields = false, checkExternalCaller = true)
-    pub fn destroy() -> () {
+    pub fn destroycreator() -> () {
 
         let caller = callerAddress!()
 

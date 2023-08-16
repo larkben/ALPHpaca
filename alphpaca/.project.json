@@ -9,11 +9,39 @@
     "ignoreCheckExternalCallerWarnings": false
   },
   "infos": {
+    "Buildtoken": {
+      "sourceFile": "scripts/make_token_alph.ral",
+      "sourceCodeHash": "27f55fce633009c5fc19e651f1a15e421007c980cc36798dd60b2497856ed39c",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
+      "warnings": []
+    },
+    "Buildtokenpaca": {
+      "sourceFile": "scripts/make_token_paca.ral",
+      "sourceCodeHash": "cc59ea7580540ea0a7d43761688446afe35fa9662ab2d72624e63fb460a9b599",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
+      "warnings": []
+    },
     "CreateToken": {
       "sourceFile": "create_token.ral",
-      "sourceCodeHash": "144ca268faaf7fc1369a8a0c017d5a316a99c38cb2ca32fdeb45df6517f03170",
+      "sourceCodeHash": "05962a5e405383c23c1ebea0064d8eb3c541d83f070a43a9ad059bc24cf6dcb9",
       "bytecodeDebugPatch": "",
-      "codeHashDebug": "b865d6b010c8a9a0d4ec4508222b0216ff1f2aa95b1c54cca24ed61c698f58ea",
+      "codeHashDebug": "d649d2d6685ff0f3ae60595f377dc54fc3fc3731d83cf1e13bf72ffe5741129d",
+      "warnings": []
+    },
+    "Destroy": {
+      "sourceFile": "scripts/destroy_faucet.ral",
+      "sourceCodeHash": "0447e8824afa27dc76fdcaac5fac72247eb5b4aa93d5efc87da36d1450e1c4f7",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
+      "warnings": []
+    },
+    "Destroytoken": {
+      "sourceFile": "scripts/destroy_token.ral",
+      "sourceCodeHash": "aad40f301672386ec595e4bc47f72c10fedfbf615fa6f1e27de75d5ea8c3324e",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
       "warnings": []
     },
     "Faucet": {
@@ -39,9 +67,16 @@
     },
     "Token": {
       "sourceFile": "token.ral",
-      "sourceCodeHash": "13a392e7f44359b13aa471257deed9903f6ff8ec8517db9a5e32439b6c505d4f",
+      "sourceCodeHash": "537b80223d95febdb8a5dcdb8426dba2a4dad82e0a0daeba8f462224ea6265ca",
       "bytecodeDebugPatch": "",
-      "codeHashDebug": "ca6b8c08739a44b63b275e82ca2fa299d38793c1d6860d741c688e0bc352061b",
+      "codeHashDebug": "9fb480d2534a9e8b5cf4b5ef005deeec049136f4462dfc72c56ad041a561526b",
+      "warnings": []
+    },
+    "Topup": {
+      "sourceFile": "scripts/deposit.ral",
+      "sourceCodeHash": "135b04fe1d2f2159f536e686fddff9fa5e33119faea0c4ad766a1c91cb82cefe",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
       "warnings": []
     }
   }

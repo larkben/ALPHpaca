@@ -83,7 +83,7 @@
 }
 
 .searchBox:hover input {
-    width: 600px;
+    width: 300px;
     background-color: #8e3106;
     border-radius: 10px;
     font-family: 'Tektur', cursive;
@@ -106,7 +106,7 @@
 
 .input {
     padding: 10px;
-    width: 600px;
+    width: 300px;
     height: 35px;
     background-color: #8e3106;
     border: 4px solid #000000;
@@ -129,8 +129,8 @@
 
 /* CSS  For Button */
 .button {
-  background: orangered;
-  border: 1px solid #FF4742;
+  background: rgb(54, 53, 53);
+  border: 1px solid rgb(54, 53, 53);
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
   box-sizing: border-box;
@@ -155,7 +155,7 @@
 
 .button:hover,
 .button:active {
-  background-color: rgb(197, 53, 0);
+  background-color: rgb(54, 53, 53);
   background-position: 0 0;
   color: #ffffff;
 }
@@ -168,7 +168,8 @@
     margin-left: auto;
     margin-right: auto;
     width: 99.5%;
-    background-color: #1f1e1e;
+    background-color: #100f0f;
+    border: #e24502 solid 2px;
     color: #e24502;
     border-radius: 25px;
     padding: 1px;
@@ -176,16 +177,43 @@
     padding-bottom: 800px;
 }
 
-.Mint {
-    margin-left: auto;
-    margin-right: auto;
-    width: 99.5%;
-    background-color: #1f1e1e;
-    color: #e24502;
+.NFTNews {
+    margin-top: 20px;
     border-radius: 25px;
-    padding: 1px;
-    margin-top: 30px;
-    padding-bottom: 300px;
+    padding: 5px;
+    background-color: #100f0f;
+}
+
+.TopCollection {
+    padding-bottom: 200px;
+}
+
+.RecentMints {
+    padding-bottom: 200px;
+    
+}
+
+.divleft{
+    float:left;
+    padding-left:10px;
+    text-align: center;
+    width: 40%;
+    height: 30%;
+    background-color: rgb(55, 55, 55);
+    padding-bottom: auto;
+    font-family: 'Tektur', cursive;
+    margin-left: 20px;
+}
+.divright{
+    float:right;
+    padding-right:10px;
+    text-align: center;
+    width: 40%;
+    height: 30%;
+    background-color: rgb(55, 55, 55);
+    padding-bottom: auto;
+    font-family: 'Tektur', cursive;
+    margin-right: 20px;
 }
 
 .comingSoon {
@@ -194,8 +222,8 @@
     width: 99.5%;
     color: #ec1b00;
     font-family: 'Tektur', cursive;
-    text-align: center;
     font-size: 35px;
+    text-align: center;
 }
 
 /* 

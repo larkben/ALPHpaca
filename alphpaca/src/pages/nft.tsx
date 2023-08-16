@@ -87,8 +87,13 @@ export default function NFT() {
 
             </div>
 
-            <div className={styles.Mint}>
-                <p className={styles.comingSoon}> Minting Soon! <br/> </p>
+            <div className={`${styles.statsBar} ${styles.NFTNews}`}>
+                <div className={`${styles.stats} ${styles.showBorder} ${styles.TopCollection}`}>
+                    <p> Top NFT Collections </p>
+                </div>
+                <div className={`${styles.stats} ${styles.showBorder} ${styles.RecentMints}`}>
+                    <p> Most Recent Sales </p>
+                </div>
             </div>
 
             <div className={styles.NFTlisting}>

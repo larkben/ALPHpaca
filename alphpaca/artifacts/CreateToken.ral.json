@@ -1,8 +1,8 @@
 {
   "version": "v2.3.5",
   "name": "CreateToken",
-  "bytecode": "0506091d4031407f40cf40e6010000000102ce0002010001020009b41701ce011601450d7b1600a101010001020009b41701ce011601450d7b1600a10001030412014020b41704a0001705160016011602160316041406414c5048000113066413006417071706160413c40de0b6b3a7640000a2ce021606160716031604c717081604ce011605a716080201030409014021b41704a0011705160016011602160316041406414c5048000113066413006417071706160413c40de0b6b3a7640000a2ce021606160716031604c717081604ce0100001605aa16080201020001000cb41700ce011600450d7bce01b005ce015e",
-  "codeHash": "b865d6b010c8a9a0d4ec4508222b0216ff1f2aa95b1c54cca24ed61c698f58ea",
+  "bytecode": "050809121b402f4043409740ed4104010000000102ce0002010000000102a00002010000000102a00102010001020009b41701ce011601450d7b1600a101010001020009b41701ce011601450d7b1600a10001030412014024b41704a0001705160016011602160316041406414c5048000113066413006417071706160413c40de0b6b3a7640000a2ce021606160716031604c717081604ce011605a706160416085f16080201030409014025b41704a0011705160016011602160316041406414c5048000113066413006417071706160413c40de0b6b3a7640000a2ce021606160716031604c717081604ce0100001605aa06160416085f16080201020001000cb41700ce011600450d7bce01b005ce015e",
+  "codeHash": "d649d2d6685ff0f3ae60595f377dc54fc3fc3731d83cf1e13bf72ffe5741129d",
   "fieldsSig": {
     "names": [
       "token",
@@ -35,6 +35,17 @@
       "fieldTypes": [
         "Address"
       ]
+    },
+    {
+      "name": "CreateToken",
+      "fieldNames": [
+        "user",
+        "contract"
+      ],
+      "fieldTypes": [
+        "Address",
+        "ByteVec"
+      ]
     }
   ],
   "functions": [
@@ -48,6 +59,30 @@
       "paramIsMutable": [],
       "returnTypes": [
         "ByteVec"
+      ]
+    },
+    {
+      "name": "getAlphFee",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "U256"
+      ]
+    },
+    {
+      "name": "getPacaFee",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "U256"
       ]
     },
     {
@@ -83,7 +118,7 @@
       "returnTypes": []
     },
     {
-      "name": "createToken",
+      "name": "buildtoken",
       "usePreapprovedAssets": true,
       "useAssetsInContract": false,
       "isPublic": true,
@@ -110,7 +145,7 @@
       ]
     },
     {
-      "name": "createTokenWithPaca",
+      "name": "buildtokenpaca",
       "usePreapprovedAssets": true,
       "useAssetsInContract": false,
       "isPublic": true,
@@ -137,7 +172,7 @@
       ]
     },
     {
-      "name": "destroy",
+      "name": "destroycreator",
       "usePreapprovedAssets": false,
       "useAssetsInContract": true,
       "isPublic": true,

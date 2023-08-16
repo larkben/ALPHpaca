@@ -1,0 +1,13 @@
+TxScript Buildtoken (
+    contract: CreateToken,
+    symbol: ByteVec,
+    name: ByteVec,
+    decimals: U256,
+    tokenTotal: U256
+) {
+    let alphFee = contract.getAlphFee()
+    let minimalAlphInContract = 1 alph
+    let approvedAlphAmount = alphFee + minimalAlphInContract
+
+    contract.buildtoken{callerAddress!() -> ALPH: approvedAlphAmount}(symbol, name, decimals, tokenTotal)
+}

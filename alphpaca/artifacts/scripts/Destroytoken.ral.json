@@ -1,0 +1,28 @@
+{
+  "version": "v2.3.5",
+  "name": "Destroytoken",
+  "bytecodeTemplate": "010103000000040c0c{0}0105",
+  "fieldsSig": {
+    "names": [
+      "contract"
+    ],
+    "types": [
+      "ByteVec"
+    ],
+    "isMutable": [
+      false
+    ]
+  },
+  "functions": [
+    {
+      "name": "main",
+      "usePreapprovedAssets": true,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": []
+    }
+  ]
+}

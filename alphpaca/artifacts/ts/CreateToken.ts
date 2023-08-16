@@ -40,13 +40,25 @@ export namespace CreateTokenTypes {
   export type State = ContractState<Fields>;
 
   export type DestroyEvent = ContractEvent<{ user: Address }>;
+  export type CreateTokenEvent = ContractEvent<{
+    user: Address;
+    contract: HexString;
+  }>;
 
   export interface CallMethodTable {
     getTokenId: {
       params: Omit<CallContractParams<{}>, "args">;
       result: CallContractResult<HexString>;
     };
-    createToken: {
+    getAlphFee: {
+      params: Omit<CallContractParams<{}>, "args">;
+      result: CallContractResult<bigint>;
+    };
+    getPacaFee: {
+      params: Omit<CallContractParams<{}>, "args">;
+      result: CallContractResult<bigint>;
+    };
+    buildtoken: {
       params: CallContractParams<{
         symbol: HexString;
         name: HexString;
@@ -55,7 +67,7 @@ export namespace CreateTokenTypes {
       }>;
       result: CallContractResult<HexString>;
     };
-    createTokenWithPaca: {
+    buildtokenpaca: {
       params: CallContractParams<{
         symbol: HexString;
         name: HexString;
@@ -83,7 +95,7 @@ class Factory extends ContractFactory<
   CreateTokenInstance,
   CreateTokenTypes.Fields
 > {
-  eventIndex = { Destroy: 0 };
+  eventIndex = { Destroy: 0, CreateToken: 1 };
   consts = { ErrorCodes: { InvalidCaller: BigInt(1) } };
 
   at(address: string): CreateTokenInstance {
@@ -99,6 +111,22 @@ class Factory extends ContractFactory<
     ): Promise<TestContractResult<HexString>> => {
       return testMethod(this, "getTokenId", params);
     },
+    getAlphFee: async (
+      params: Omit<
+        TestContractParams<CreateTokenTypes.Fields, never>,
+        "testArgs"
+      >
+    ): Promise<TestContractResult<bigint>> => {
+      return testMethod(this, "getAlphFee", params);
+    },
+    getPacaFee: async (
+      params: Omit<
+        TestContractParams<CreateTokenTypes.Fields, never>,
+        "testArgs"
+      >
+    ): Promise<TestContractResult<bigint>> => {
+      return testMethod(this, "getPacaFee", params);
+    },
     changeAlph: async (
       params: TestContractParams<CreateTokenTypes.Fields, { fee: bigint }>
     ): Promise<TestContractResult<null>> => {
@@ -109,7 +137,7 @@ class Factory extends ContractFactory<
     ): Promise<TestContractResult<null>> => {
       return testMethod(this, "changePaca", params);
     },
-    createToken: async (
+    buildtoken: async (
       params: TestContractParams<
         CreateTokenTypes.Fields,
         {
@@ -120,9 +148,9 @@ class Factory extends ContractFactory<
         }
       >
     ): Promise<TestContractResult<HexString>> => {
-      return testMethod(this, "createToken", params);
+      return testMethod(this, "buildtoken", params);
     },
-    createTokenWithPaca: async (
+    buildtokenpaca: async (
       params: TestContractParams<
         CreateTokenTypes.Fields,
         {
@@ -133,15 +161,15 @@ class Factory extends ContractFactory<
         }
       >
     ): Promise<TestContractResult<HexString>> => {
-      return testMethod(this, "createTokenWithPaca", params);
+      return testMethod(this, "buildtokenpaca", params);
     },
-    destroy: async (
+    destroycreator: async (
       params: Omit<
         TestContractParams<CreateTokenTypes.Fields, never>,
         "testArgs"
       >
     ): Promise<TestContractResult<null>> => {
-      return testMethod(this, "destroy", params);
+      return testMethod(this, "destroycreator", params);
     },
   };
 }
@@ -151,7 +179,7 @@ export const CreateToken = new Factory(
   Contract.fromJson(
     CreateTokenContractJson,
     "",
-    "b865d6b010c8a9a0d4ec4508222b0216ff1f2aa95b1c54cca24ed61c698f58ea"
+    "d649d2d6685ff0f3ae60595f377dc54fc3fc3731d83cf1e13bf72ffe5741129d"
   )
 );
 
@@ -182,6 +210,33 @@ export class CreateTokenInstance extends ContractInstance {
     );
   }
 
+  subscribeCreateTokenEvent(
+    options: EventSubscribeOptions<CreateTokenTypes.CreateTokenEvent>,
+    fromCount?: number
+  ): EventSubscription {
+    return subscribeContractEvent(
+      CreateToken.contract,
+      this,
+      options,
+      "CreateToken",
+      fromCount
+    );
+  }
+
+  subscribeAllEvents(
+    options: EventSubscribeOptions<
+      CreateTokenTypes.DestroyEvent | CreateTokenTypes.CreateTokenEvent
+    >,
+    fromCount?: number
+  ): EventSubscription {
+    return subscribeContractEvents(
+      CreateToken.contract,
+      this,
+      options,
+      fromCount
+    );
+  }
+
   methods = {
     getTokenId: async (
       params?: CreateTokenTypes.CallMethodParams<"getTokenId">
@@ -194,24 +249,46 @@ export class CreateTokenInstance extends ContractInstance {
         getContractByCodeHash
       );
     },
-    createToken: async (
-      params: CreateTokenTypes.CallMethodParams<"createToken">
-    ): Promise<CreateTokenTypes.CallMethodResult<"createToken">> => {
+    getAlphFee: async (
+      params?: CreateTokenTypes.CallMethodParams<"getAlphFee">
+    ): Promise<CreateTokenTypes.CallMethodResult<"getAlphFee">> => {
       return callMethod(
         CreateToken,
         this,
-        "createToken",
+        "getAlphFee",
+        params === undefined ? {} : params,
+        getContractByCodeHash
+      );
+    },
+    getPacaFee: async (
+      params?: CreateTokenTypes.CallMethodParams<"getPacaFee">
+    ): Promise<CreateTokenTypes.CallMethodResult<"getPacaFee">> => {
+      return callMethod(
+        CreateToken,
+        this,
+        "getPacaFee",
+        params === undefined ? {} : params,
+        getContractByCodeHash
+      );
+    },
+    buildtoken: async (
+      params: CreateTokenTypes.CallMethodParams<"buildtoken">
+    ): Promise<CreateTokenTypes.CallMethodResult<"buildtoken">> => {
+      return callMethod(
+        CreateToken,
+        this,
+        "buildtoken",
         params,
         getContractByCodeHash
       );
     },
-    createTokenWithPaca: async (
-      params: CreateTokenTypes.CallMethodParams<"createTokenWithPaca">
-    ): Promise<CreateTokenTypes.CallMethodResult<"createTokenWithPaca">> => {
+    buildtokenpaca: async (
+      params: CreateTokenTypes.CallMethodParams<"buildtokenpaca">
+    ): Promise<CreateTokenTypes.CallMethodResult<"buildtokenpaca">> => {
       return callMethod(
         CreateToken,
         this,
-        "createTokenWithPaca",
+        "buildtokenpaca",
         params,
         getContractByCodeHash
       );

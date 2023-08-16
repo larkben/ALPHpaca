@@ -1,0 +1,5 @@
+TxScript Destroy (
+    contract: Faucet
+) {
+    contract.destroy()
+}

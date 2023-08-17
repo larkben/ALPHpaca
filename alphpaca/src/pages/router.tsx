@@ -5,6 +5,7 @@ import Token from './token'
 import Whitepaper from './whitepaper'
 import Tools from './tools'
 import NFT from './nft'
+import Faucet from './faucet'
 
 import React from 'react'
 
@@ -28,6 +29,10 @@ const routes = [
   {
     path: '/nft',
     component: NFT
+  },
+  {
+    path: '/faucet',
+    component: Faucet
   }
 ]
 

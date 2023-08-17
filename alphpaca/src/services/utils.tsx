@@ -5,7 +5,7 @@ import { loadDeployments } from '../../artifacts/ts/deployments'
 export interface TokenFaucetConfig {
   network: NetworkId
   groupIndex: number
-  tokenFaucetAddress: string                //TODO line 7 + 8 might be duplicates
+  faucetAddress: string                //TODO line 7 + 8 might be duplicates
   faucetID: string // ID of the contract
   tokenID: string
 }
@@ -29,10 +29,10 @@ function getTokenFaucetConfig(): TokenFaucetConfig {
   const network = getNetwork()
   const faucet = loadDeployments(network).contracts.Faucet.contractInstance
   const groupIndex = faucet.groupIndex
-  const tokenFaucetAddress = faucet.address
+  const faucetAddress = faucet.address
   const faucetID = faucet.contractId
-  const tokenID = "b2d71c116408ae47b931482a440f675dc9ea64453db24ee931dacd578cae9002" // $PACA ID
-  return { network, groupIndex, tokenFaucetAddress, faucetID, tokenID }
+  const tokenID = "23ced1fcda7fb1f53641dc299cf49b12a89338c80d05534fc5b366d5b65acd02" // $PACA ID
+  return { network, groupIndex, faucetAddress, faucetID, tokenID }
 }
 
 //* TokenCreate
@@ -43,7 +43,7 @@ function getTokenCreateConfig(): TokenCreate {
   const contractAddress = createToken.address
   const contractId = createToken.contractId
   const tokenContract = ""
-  const pacaFee = "b2d71c116408ae47b931482a440f675dc9ea64453db24ee931dacd578cae9002" // $PACA ID
+  const pacaFee = "23ced1fcda7fb1f53641dc299cf49b12a89338c80d05534fc5b366d5b65acd02" // $PACA ID
   return { network, groupIndex, contractAddress, contractId, tokenContract, pacaFee}
 }
 

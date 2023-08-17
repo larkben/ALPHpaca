@@ -43,7 +43,7 @@ function getTokenCreateConfig(): TokenCreate {
   const contractAddress = createToken.address
   const contractId = createToken.contractId
   const tokenContract = ""
-  const pacaFee = "b2d71c116408ae47b931482a440f675dc9ea64453db24ee931dacd578cae9002"
+  const pacaFee = "b2d71c116408ae47b931482a440f675dc9ea64453db24ee931dacd578cae9002" // $PACA ID
   return { network, groupIndex, contractAddress, contractId, tokenContract, pacaFee}
 }
 

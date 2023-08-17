@@ -131,7 +131,7 @@ export const Faucet = new Factory(
   Contract.fromJson(
     FaucetContractJson,
     "",
-    "e9797b8df512c5b2b156c71408ff2bfb8cf12da370a33626079e14b0151b4f12"
+    "8813de5a4adb21e4e0ea09357924ec19037b916ecfd6a228152238f8e9396d04"
   )
 );
 

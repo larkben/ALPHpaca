@@ -46,9 +46,9 @@
     },
     "Faucet": {
       "sourceFile": "paca_faucet.ral",
-      "sourceCodeHash": "8ba4ea3d9c20092c1e46f5bea3757d3564f48884124f8cc3ea520aee340116ef",
+      "sourceCodeHash": "421e209f388ab30a4e94363b8aebba3de1f94e3e4ce960d68b0f31b3baeea71d",
       "bytecodeDebugPatch": "",
-      "codeHashDebug": "e9797b8df512c5b2b156c71408ff2bfb8cf12da370a33626079e14b0151b4f12",
+      "codeHashDebug": "8813de5a4adb21e4e0ea09357924ec19037b916ecfd6a228152238f8e9396d04",
       "warnings": []
     },
     "IFungibleToken": {

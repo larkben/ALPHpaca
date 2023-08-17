@@ -47,7 +47,7 @@ Contract Faucet (
     @using(assetsInContract = true, updateFields = true, checkExternalCaller = false)
     pub fn sendout(amount: U256) -> () {
 
-        assert!(amount <= 250, ErrorCodes.InvalidWithdraw)
+        assert!(amount <= 1, ErrorCodes.InvalidWithdraw)
 
         transferToken!(selfAddress!(), callerAddress!(), getTokenId(), amount)
 

@@ -1,6 +1,7 @@
 import { NetworkId } from '@alephium/web3'
 import { loadDeployments } from '../../artifacts/ts/deployments'
 
+//* Interfaces
 export interface TokenFaucetConfig {
   network: NetworkId
   groupIndex: number
@@ -11,8 +12,11 @@ export interface TokenFaucetConfig {
 
 export interface TokenCreate {
   network: NetworkId
-  //groupIndex: number
-  //contractAddress: string
+  groupIndex: number
+  contractAddress: string
+  contractId: string
+  tokenContract: string
+  pacaFee: string // PACA fee
 }
 
 function getNetwork(): NetworkId {
@@ -20,6 +24,7 @@ function getNetwork(): NetworkId {
   return network
 }
 
+//* Faucet
 function getTokenFaucetConfig(): TokenFaucetConfig {
   const network = getNetwork()
   const faucet = loadDeployments(network).contracts.Faucet.contractInstance
@@ -30,9 +35,16 @@ function getTokenFaucetConfig(): TokenFaucetConfig {
   return { network, groupIndex, tokenFaucetAddress, faucetID, tokenID }
 }
 
+//* TokenCreate
 function getTokenCreateConfig(): TokenCreate {
   const network = getNetwork()
-  return { network }
+  const createToken = loadDeployments(network).contracts.CreateToken.contractInstance // This is not in the initial setup but is super important
+  const groupIndex = createToken.groupIndex
+  const contractAddress = createToken.address
+  const contractId = createToken.contractId
+  const tokenContract = ""
+  const pacaFee = "b2d71c116408ae47b931482a440f675dc9ea64453db24ee931dacd578cae9002"
+  return { network, groupIndex, contractAddress, contractId, tokenContract, pacaFee}
 }
 
 export const TokenFaucetConfig = getTokenFaucetConfig()

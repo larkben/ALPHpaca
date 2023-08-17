@@ -1,7 +1,6 @@
 import React from 'react'
 import { FC, useState } from 'react'
 import styles from '../styles/Home.module.css'
-//import { withdrawToken } from '@/services/token.service'
 import { TxStatus } from './TxStatus'
 import { useAlephiumConnectContext } from '@alephium/web3-react'
 import { node } from '@alephium/web3'
@@ -18,12 +17,28 @@ export const TokenCreateDapp: FC<{
   
   
     // Handle of Withdraw 
-    const handleWithdrawSubmit = async (e: React.FormEvent) => {
-      e.preventDefault()
-      if (context.signerProvider) {
-        const result = await withdrawToken(context.signerProvider, withdrawAmount, config.faucetTokenId)
-        setOngoingTxId(result.txId)
-      }
+    const handleTokenCreate = async (e: React.FormEvent) => {
+        e.preventDefault()
+        if (context.signerProvider) {
+            const result = await withdrawToken(context.signerProvider, withdrawAmount, config.faucetTokenId)
+            setOngoingTxId(result.txId)
+        }
+    }
+
+    const handleTokenCreatePaca = async (e: React.FormEvent) => {
+        e.preventDefault()
+        if (context.signerProvider) {
+          const result = await withdrawToken(context.signerProvider, withdrawAmount, config.faucetTokenId)
+          setOngoingTxId(result.txId)
+        }
+    }
+
+    const handleTokenDestroy = async (e: React.FormEvent) => {
+        e.preventDefault()
+        if (context.signerProvider) {
+          const result = await withdrawToken(context.signerProvider, withdrawAmount, config.faucetTokenId)
+          setOngoingTxId(result.txId)
+        }
     }
   
     // Gets the TX and updates according to status on chain

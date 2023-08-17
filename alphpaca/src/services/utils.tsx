@@ -4,13 +4,19 @@ import { loadDeployments } from '../../artifacts/ts/deployments'
 export interface TokenFaucetConfig {
   network: NetworkId
   groupIndex: number
-  tokenFaucetAddress: string
+  tokenFaucetAddress: string                //TODO line 7 + 8 might be duplicates
   faucetID: string // ID of the contract
   tokenID: string
 }
 
+export interface TokenCreate {
+  network: NetworkId
+  //groupIndex: number
+  //contractAddress: string
+}
+
 function getNetwork(): NetworkId {
-  const network = (process.env.NEXT_PUBLIC_NETWORK ?? 'testnet') as NetworkId
+  const network = (process.env.NEXT_PUBLIC_NETWORK ?? 'testnet') as NetworkId //! This is where you change the network
   return network
 }
 
@@ -24,4 +30,10 @@ function getTokenFaucetConfig(): TokenFaucetConfig {
   return { network, groupIndex, tokenFaucetAddress, faucetID, tokenID }
 }
 
-export const tokenFaucetConfig = getTokenFaucetConfig()
+function getTokenCreateConfig(): TokenCreate {
+  const network = getNetwork()
+  return { network }
+}
+
+export const TokenFaucetConfig = getTokenFaucetConfig()
+export const TokenCreate = getTokenCreateConfig()

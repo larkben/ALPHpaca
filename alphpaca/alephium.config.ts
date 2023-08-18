@@ -28,7 +28,7 @@ const configuration: Configuration<Settings> = {
 
     mainnet: {
       nodeUrl: (process.env.NODE_URL as string) ?? 'https://wallet-v20.mainnet.alephium.org',
-      privateKeys: process.env.key === undefined ? [] : process.env.key.split(','),
+      privateKeys: process.env.prodkey === undefined ? [] : process.env.prodkey.split(','),
       settings: defaultSettings
     }
   }

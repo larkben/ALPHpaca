@@ -2,9 +2,10 @@ import React from 'react'
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import { AlephiumConnectButton } from '@alephium/web3-react'
-import { TokenFaucetConfig } from '@/services/utils'
+import { TokenFaucetConfig, TokenCreate } from '@/services/utils'
 import { TokenDapp } from '@/components/PacaFaucet'
 import { DevBoard } from '@/components/DevDashboard'
+import { TokenAutomationCreate } from '@/components/TokenCreation'
 
 import Router from './router'
 import Link from 'next/link'
@@ -19,6 +20,7 @@ export default function Tools() {
             <AlephiumConnectButton></AlephiumConnectButton>
             <TokenDapp config={TokenFaucetConfig}></TokenDapp>
             <DevBoard config={TokenFaucetConfig}></DevBoard>
+            <TokenAutomationCreate config={TokenFaucetConfig}></TokenAutomationCreate>
         </div>
     )
 }

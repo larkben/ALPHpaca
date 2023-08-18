@@ -16,8 +16,16 @@ export interface TokenCreate {
   contractAddress: string
   contractId: string
   tokenContract: string
-  pacaFee: string // PACA fee
+  pacaId: string // PACA fee
 }
+
+export interface TokenTemplate {
+  network: NetworkId
+  groupIndex: number
+  contractAddress: string
+  contractId: string
+}
+
 
 function getNetwork(): NetworkId {
   const network = (process.env.NEXT_PUBLIC_NETWORK ?? 'testnet') as NetworkId //! This is where you change the network
@@ -39,13 +47,24 @@ function getTokenFaucetConfig(): TokenFaucetConfig {
 function getTokenCreateConfig(): TokenCreate {
   const network = getNetwork()
   const createToken = loadDeployments(network).contracts.CreateToken.contractInstance // This is not in the initial setup but is super important
+  const tokenTemplate = loadDeployments(network).contracts.Token.contractInstance
   const groupIndex = createToken.groupIndex
   const contractAddress = createToken.address
   const contractId = createToken.contractId
-  const tokenContract = ""
-  const pacaFee = "23ced1fcda7fb1f53641dc299cf49b12a89338c80d05534fc5b366d5b65acd02" // $PACA ID
-  return { network, groupIndex, contractAddress, contractId, tokenContract, pacaFee}
+  const tokenContract = tokenTemplate.contractId   
+  const pacaId = "23ced1fcda7fb1f53641dc299cf49b12a89338c80d05534fc5b366d5b65acd02" // $PACA ID
+  return { network, groupIndex, contractAddress, contractId, tokenContract, pacaId}
+}
+
+function getTokenTemplateConfig(): TokenTemplate {
+  const network = getNetwork()
+  const TokenTemplate = loadDeployments(network).contracts.Token.contractInstance
+  const groupIndex = TokenTemplate.groupIndex
+  const contractAddress = TokenTemplate.address
+  const contractId = TokenTemplate.contractId
+  return {network, groupIndex, contractAddress, contractId}
 }
 
 export const TokenFaucetConfig = getTokenFaucetConfig()
 export const TokenCreate = getTokenCreateConfig()
+export const TokenTemplate = getTokenTemplateConfig()

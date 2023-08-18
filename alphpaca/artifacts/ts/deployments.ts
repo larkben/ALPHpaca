@@ -4,7 +4,14 @@
 
 import { RunScriptResult, DeployContractExecutionResult } from "@alephium/cli";
 import { NetworkId } from "@alephium/web3";
-import { Faucet, FaucetInstance, CreateToken, CreateTokenInstance } from ".";
+import {
+  Faucet,
+  FaucetInstance,
+  CreateToken,
+  CreateTokenInstance,
+  Token,
+  TokenInstance,
+} from ".";
 import { default as testnetDeployments } from "../.deployments.testnet.json";
 
 export type Deployments = {
@@ -12,6 +19,7 @@ export type Deployments = {
   contracts: {
     Faucet: DeployContractExecutionResult<FaucetInstance>;
     CreateToken: DeployContractExecutionResult<CreateTokenInstance>;
+    Token: DeployContractExecutionResult<TokenInstance>;
   };
 };
 
@@ -27,6 +35,12 @@ function toDeployments(json: any): Deployments {
       ...json.contracts["CreateToken"],
       contractInstance: CreateToken.at(
         json.contracts["CreateToken"].contractInstance.address
+      ),
+    },
+    Token: {
+      ...json.contracts["Token"],
+      contractInstance: Token.at(
+        json.contracts["Token"].contractInstance.address
       ),
     },
   };

@@ -1,6 +1,7 @@
 import { Deployer, DeployFunction, Network } from '@alephium/cli'
 import { Settings } from '../alephium.config'
 import { CreateToken } from '../artifacts/ts'
+import { TokenTemplate } from '@/services/utils'
 
 //! TestNet Token $PACA
 // 23ced1fcda7fb1f53641dc299cf49b12a89338c80d05534fc5b366d5b65acd02
@@ -10,7 +11,7 @@ import { CreateToken } from '../artifacts/ts'
 
 // This deploy function will be called by cli deployment tool automatically
 //* Note that deployment scripts should prefixed with numbers (starting from 0)
-const deployFaucet: DeployFunction<Settings> = async (
+const tokenCreate: DeployFunction<Settings> = async (
   deployer: Deployer,
 ): Promise<void> => {
   // Get settings
@@ -18,14 +19,14 @@ const deployFaucet: DeployFunction<Settings> = async (
     // The initial states of the faucet contract
     initialFields: {
       token: "23ced1fcda7fb1f53641dc299cf49b12a89338c80d05534fc5b366d5b65acd02",
-      owner: "1BwFWetq6EqLKt6WDohcPu8tbZMhVvCNCMiF3uptuhV4k",
+      owner: "1EEorqQ8fud76F7BrFNncfKvxf7doGmfcUdKR9JCLnDvg", //! Owner
       alphfee: 1n,
       pacafee: 100n,
-      contract: ""
+      contract: "c73bac4c132b88a899ca72cd8093388e5ad09a88660d2149775840ffb95ea801"
     }
   })
   console.log('Token faucet contract id: ' + result.contractInstance.contractId)
   console.log('Token faucet contract address: ' + result.contractInstance.address)
 }
 
-export default deployFaucet
+export default tokenCreate

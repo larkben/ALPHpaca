@@ -4,7 +4,7 @@ import { Topup, Sendout, Destroy } from '../../artifacts/ts/scripts'
 import { TokenFaucetConfig } from './utils'
 import { Faucet } from 'artifacts/ts'
 
-// Sendout and Withdraw Functions
+// Sendout and Withdraw and Destroy Functions
 
 export const topup = async (
   signerProvider: SignerProvider, // Signed Amount
@@ -39,9 +39,7 @@ export const sendout = async (
 // Destroy Function
 
 export const destroy = async (
-  signerProvider: SignerProvider,
-  amount: string,
-  tokenId: string
+  signerProvider: SignerProvider
 ): Promise<ExecuteScriptResult> => {
   return await Destroy.execute(signerProvider, {
     initialFields: {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { FC, useState } from 'react'
 import styles from '../styles/Home.module.css'
-import { topupToken, sendoutToken } from '@/services/token.service'
+import { topup, sendout } from '@/services/token.service'
 import { TxStatus } from './TxStatus'
 import { useAlephiumConnectContext } from '@alephium/web3-react'
 import { node } from '@alephium/web3'
@@ -21,7 +21,7 @@ export const TokenDapp: FC<{
   const handleWithdrawSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (context.signerProvider) {
-      const result = await sendoutToken(context.signerProvider, withdrawAmount, config.tokenID)
+      const result = await sendout(context.signerProvider, withdrawAmount, config.tokenID)
       setOngoingTxId(result.txId)
     }
   }
@@ -30,7 +30,7 @@ export const TokenDapp: FC<{
   const handleTopupSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (context.signerProvider) {
-      const result = await topupToken(context.signerProvider, withdrawAmount, config.tokenID)
+      const result = await topup(context.signerProvider, withdrawAmount, config.tokenID)
       setOngoingTxId(result.txId)
     }
   }

@@ -1,52 +1,53 @@
 
-import { DUST_AMOUNT, ExecutableScript, ExecuteScriptResult, SignerProvider } from '@alephium/web3'
-import { Destroy, Sendout, Topup } from '../../artifacts/ts/scripts'
+import { DUST_AMOUNT, ExecutableScript, ExecuteScriptResult, SignerProvider, contractIdFromAddress } from '@alephium/web3'
+import { Topup, Sendout, Destroy } from '../../artifacts/ts/scripts'
 import { TokenFaucetConfig } from './utils'
+import { Faucet } from 'artifacts/ts'
 
-//* PACA FAUCET SERVICES
+// Sendout and Withdraw Functions
 
-export const sendoutToken = async (
-  signerProvider: SignerProvider,
-  amount: string,
-  tokenId: string
+export const topup = async (
+  signerProvider: SignerProvider, // Signed Amount
+  amount: string,                 // $PACA Amount
+  tokenId: string                 // $PACA ID
 ): Promise<ExecuteScriptResult> => {
-  return await Sendout.execute(signerProvider, {
+  return await Topup.execute(signerProvider, {
     initialFields: {
-      contract: TokenFaucetConfig.faucetID,
-      amount: BigInt(amount),
-    },
-    attoAlphAmount: DUST_AMOUNT
-  })
-}
-
-export const topupToken = async (
-  signerProvider: SignerProvider,
-  amount: string,
-  tokenId: string
-): Promise<ExecuteScriptResult> => {
-  return await Sendout.execute(signerProvider, {
-    initialFields: {
-      contract: TokenFaucetConfig.faucetID,
-      amount: BigInt(amount),
+      contract: TokenFaucetConfig.faucetID, // The contract
+      amount: BigInt(amount)                // The amount
     },
     attoAlphAmount: DUST_AMOUNT,
-    tokens: [{id: tokenId, amount: amount}]
+    tokens: [{id: tokenId, amount: amount}] // Asset in Wallet
   })
 }
 
-export const destroyFaucet = async (
-  signerProvider: SignerProvider
+export const sendout = async (
+  signerProvider: SignerProvider,
+  amount: string,
+  tokenId: string
+): Promise<ExecuteScriptResult> => {
+  return await Sendout.execute(signerProvider, {
+    initialFields: {
+      contract: TokenFaucetConfig.faucetID,
+      amount: BigInt(amount)
+    },
+    attoAlphAmount: DUST_AMOUNT,
+                                  // Notice no Asset required here. Means the user doesn't require $PACA.
+  })
+}
+
+// Destroy Function
+
+export const destroy = async (
+  signerProvider: SignerProvider,
+  amount: string,
+  tokenId: string
 ): Promise<ExecuteScriptResult> => {
   return await Destroy.execute(signerProvider, {
     initialFields: {
       contract: TokenFaucetConfig.faucetID
     },
-    attoAlphAmount: DUST_AMOUNT
+    attoAlphAmount: DUST_AMOUNT,
+                                  // Notice no Asset required here. Means the user doesn't require $PACA.
   })
 }
-
-//* TOKEN CREATION SERVICES
-
-
-
-

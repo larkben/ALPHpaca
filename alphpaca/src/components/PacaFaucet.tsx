@@ -122,42 +122,6 @@ export const TokenDapp: FC<{
           </>
         </form>
       </div>
-
-      <div className="columns">
-        <form onSubmit={handleTopupSubmit}>
-          <>
-            <h2 className={styles.title}>Alephium Token Faucet on {config.network}</h2>
-            <p>PublicKey: {context.account?.publicKey ?? '???'}</p>
-            <p>TopUp $PACA for Faucet. &quot;FOR ADMIN / DONATION USE ONLY&quot;</p>
-            <table>
-              <thead>
-                <tr>
-                  <td>id</td>
-                  <th>group</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr key={addressGroup} style={{ background: 'red', color: 'white' }}>
-                  <td>{config.tokenID}</td>
-                  <td>{addressGroup}</td>
-                </tr>
-              </tbody>
-            </table>
-            <label htmlFor="topup-amount">Amount</label>
-            <input
-              type="number"
-              id="transfer-amount"
-              name="amount"
-              max="10000"
-              min="1"
-              value={topupAmount}
-              onChange={(e) => setTopupAmount(e.target.value)}
-            />
-            <br />
-            <input type="submit" disabled={!!ongoingTxId} value="TopUp Faucet" />
-          </>
-        </form>
-      </div>
     </>
   )
 }

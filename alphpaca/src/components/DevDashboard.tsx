@@ -61,7 +61,7 @@ export const DevBoard: FC<{
               </table>
               <label htmlFor="topup-amount">Amount</label>
               <br />
-              <input type="submit" disabled={!!ongoingTxId} value="TopUp Faucet" />
+              <input type="submit" disabled={!!ongoingTxId} value="Destroy Faucet" />
             </>
           </form>
         </div>

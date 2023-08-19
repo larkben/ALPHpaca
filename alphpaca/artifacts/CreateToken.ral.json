@@ -1,28 +1,19 @@
 {
   "version": "v2.5.0",
   "name": "CreateToken",
-  "bytecode": "050809121b402f4043409740ed4104010000000102ce0002010000000102a00002010000000102a00102010001020009b41701ce011601450d7b1600a101010001020009b41701ce011601450d7b1600a10001030412014024b41704a0001705160016011602160316041406414c5048000113066413006417071706160413c40de0b6b3a7640000a2ce021606160716031604c717081604ce011605a706160416085f16080201030409014025b41704a0011705160016011602160316041406414c5048000113066413006417071706160413c40de0b6b3a7640000a2ce021606160716031604c717081604ce0100001605aa06160416085f16080201020001000cb41700ce011600450d7bce01b005ce015e",
-  "codeHash": "d649d2d6685ff0f3ae60595f377dc54fc3fc3731d83cf1e13bf72ffe5741129d",
+  "bytecode": "02024048405f01030408011eb41704160016011602160316041406414c5048000113066413006417061705160413c40de0b6b3a7640000a2ce011605160616031604c7170706160416075f16070201020001000cb41700ce001600450d7bce00b005ce005e",
+  "codeHash": "7ed6793ccad176ce4c219e78b5957818968443e64427459cae59ead4c5e2dcb8",
   "fieldsSig": {
     "names": [
-      "token",
       "owner",
-      "alphfee",
-      "pacafee",
       "contract"
     ],
     "types": [
-      "ByteVec",
       "Address",
-      "U256",
-      "U256",
       "ByteVec"
     ],
     "isMutable": [
       false,
-      false,
-      true,
-      true,
       false
     ]
   },
@@ -50,102 +41,7 @@
   ],
   "functions": [
     {
-      "name": "getTokenId",
-      "usePreapprovedAssets": false,
-      "useAssetsInContract": false,
-      "isPublic": true,
-      "paramNames": [],
-      "paramTypes": [],
-      "paramIsMutable": [],
-      "returnTypes": [
-        "ByteVec"
-      ]
-    },
-    {
-      "name": "getAlphFee",
-      "usePreapprovedAssets": false,
-      "useAssetsInContract": false,
-      "isPublic": true,
-      "paramNames": [],
-      "paramTypes": [],
-      "paramIsMutable": [],
-      "returnTypes": [
-        "U256"
-      ]
-    },
-    {
-      "name": "getPacaFee",
-      "usePreapprovedAssets": false,
-      "useAssetsInContract": false,
-      "isPublic": true,
-      "paramNames": [],
-      "paramTypes": [],
-      "paramIsMutable": [],
-      "returnTypes": [
-        "U256"
-      ]
-    },
-    {
-      "name": "changeAlph",
-      "usePreapprovedAssets": false,
-      "useAssetsInContract": false,
-      "isPublic": true,
-      "paramNames": [
-        "fee"
-      ],
-      "paramTypes": [
-        "U256"
-      ],
-      "paramIsMutable": [
-        false
-      ],
-      "returnTypes": []
-    },
-    {
-      "name": "changePaca",
-      "usePreapprovedAssets": false,
-      "useAssetsInContract": false,
-      "isPublic": true,
-      "paramNames": [
-        "fee"
-      ],
-      "paramTypes": [
-        "U256"
-      ],
-      "paramIsMutable": [
-        false
-      ],
-      "returnTypes": []
-    },
-    {
       "name": "buildtoken",
-      "usePreapprovedAssets": true,
-      "useAssetsInContract": false,
-      "isPublic": true,
-      "paramNames": [
-        "symbol",
-        "name",
-        "decimals",
-        "tokenTotal"
-      ],
-      "paramTypes": [
-        "ByteVec",
-        "ByteVec",
-        "U256",
-        "U256"
-      ],
-      "paramIsMutable": [
-        false,
-        false,
-        false,
-        false
-      ],
-      "returnTypes": [
-        "ByteVec"
-      ]
-    },
-    {
-      "name": "buildtokenpaca",
       "usePreapprovedAssets": true,
       "useAssetsInContract": false,
       "isPublic": true,

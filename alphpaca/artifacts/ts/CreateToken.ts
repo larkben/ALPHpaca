@@ -30,10 +30,7 @@ import { getContractByCodeHash } from "./contracts";
 // Custom types for the contract
 export namespace CreateTokenTypes {
   export type Fields = {
-    token: HexString;
     owner: Address;
-    alphfee: bigint;
-    pacafee: bigint;
     contract: HexString;
   };
 
@@ -46,28 +43,7 @@ export namespace CreateTokenTypes {
   }>;
 
   export interface CallMethodTable {
-    getTokenId: {
-      params: Omit<CallContractParams<{}>, "args">;
-      result: CallContractResult<HexString>;
-    };
-    getAlphFee: {
-      params: Omit<CallContractParams<{}>, "args">;
-      result: CallContractResult<bigint>;
-    };
-    getPacaFee: {
-      params: Omit<CallContractParams<{}>, "args">;
-      result: CallContractResult<bigint>;
-    };
     buildtoken: {
-      params: CallContractParams<{
-        symbol: HexString;
-        name: HexString;
-        decimals: bigint;
-        tokenTotal: bigint;
-      }>;
-      result: CallContractResult<HexString>;
-    };
-    buildtokenpaca: {
       params: CallContractParams<{
         symbol: HexString;
         name: HexString;
@@ -103,40 +79,6 @@ class Factory extends ContractFactory<
   }
 
   tests = {
-    getTokenId: async (
-      params: Omit<
-        TestContractParams<CreateTokenTypes.Fields, never>,
-        "testArgs"
-      >
-    ): Promise<TestContractResult<HexString>> => {
-      return testMethod(this, "getTokenId", params);
-    },
-    getAlphFee: async (
-      params: Omit<
-        TestContractParams<CreateTokenTypes.Fields, never>,
-        "testArgs"
-      >
-    ): Promise<TestContractResult<bigint>> => {
-      return testMethod(this, "getAlphFee", params);
-    },
-    getPacaFee: async (
-      params: Omit<
-        TestContractParams<CreateTokenTypes.Fields, never>,
-        "testArgs"
-      >
-    ): Promise<TestContractResult<bigint>> => {
-      return testMethod(this, "getPacaFee", params);
-    },
-    changeAlph: async (
-      params: TestContractParams<CreateTokenTypes.Fields, { fee: bigint }>
-    ): Promise<TestContractResult<null>> => {
-      return testMethod(this, "changeAlph", params);
-    },
-    changePaca: async (
-      params: TestContractParams<CreateTokenTypes.Fields, { fee: bigint }>
-    ): Promise<TestContractResult<null>> => {
-      return testMethod(this, "changePaca", params);
-    },
     buildtoken: async (
       params: TestContractParams<
         CreateTokenTypes.Fields,
@@ -149,19 +91,6 @@ class Factory extends ContractFactory<
       >
     ): Promise<TestContractResult<HexString>> => {
       return testMethod(this, "buildtoken", params);
-    },
-    buildtokenpaca: async (
-      params: TestContractParams<
-        CreateTokenTypes.Fields,
-        {
-          symbol: HexString;
-          name: HexString;
-          decimals: bigint;
-          tokenTotal: bigint;
-        }
-      >
-    ): Promise<TestContractResult<HexString>> => {
-      return testMethod(this, "buildtokenpaca", params);
     },
     destroycreator: async (
       params: Omit<
@@ -179,7 +108,7 @@ export const CreateToken = new Factory(
   Contract.fromJson(
     CreateTokenContractJson,
     "",
-    "d649d2d6685ff0f3ae60595f377dc54fc3fc3731d83cf1e13bf72ffe5741129d"
+    "7ed6793ccad176ce4c219e78b5957818968443e64427459cae59ead4c5e2dcb8"
   )
 );
 
@@ -238,39 +167,6 @@ export class CreateTokenInstance extends ContractInstance {
   }
 
   methods = {
-    getTokenId: async (
-      params?: CreateTokenTypes.CallMethodParams<"getTokenId">
-    ): Promise<CreateTokenTypes.CallMethodResult<"getTokenId">> => {
-      return callMethod(
-        CreateToken,
-        this,
-        "getTokenId",
-        params === undefined ? {} : params,
-        getContractByCodeHash
-      );
-    },
-    getAlphFee: async (
-      params?: CreateTokenTypes.CallMethodParams<"getAlphFee">
-    ): Promise<CreateTokenTypes.CallMethodResult<"getAlphFee">> => {
-      return callMethod(
-        CreateToken,
-        this,
-        "getAlphFee",
-        params === undefined ? {} : params,
-        getContractByCodeHash
-      );
-    },
-    getPacaFee: async (
-      params?: CreateTokenTypes.CallMethodParams<"getPacaFee">
-    ): Promise<CreateTokenTypes.CallMethodResult<"getPacaFee">> => {
-      return callMethod(
-        CreateToken,
-        this,
-        "getPacaFee",
-        params === undefined ? {} : params,
-        getContractByCodeHash
-      );
-    },
     buildtoken: async (
       params: CreateTokenTypes.CallMethodParams<"buildtoken">
     ): Promise<CreateTokenTypes.CallMethodResult<"buildtoken">> => {
@@ -278,17 +174,6 @@ export class CreateTokenInstance extends ContractInstance {
         CreateToken,
         this,
         "buildtoken",
-        params,
-        getContractByCodeHash
-      );
-    },
-    buildtokenpaca: async (
-      params: CreateTokenTypes.CallMethodParams<"buildtokenpaca">
-    ): Promise<CreateTokenTypes.CallMethodResult<"buildtokenpaca">> => {
-      return callMethod(
-        CreateToken,
-        this,
-        "buildtokenpaca",
         params,
         getContractByCodeHash
       );

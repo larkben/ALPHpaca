@@ -11,23 +11,16 @@
   "infos": {
     "Buildtoken": {
       "sourceFile": "scripts/make_token_alph.ral",
-      "sourceCodeHash": "27f55fce633009c5fc19e651f1a15e421007c980cc36798dd60b2497856ed39c",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "",
-      "warnings": []
-    },
-    "Buildtokenpaca": {
-      "sourceFile": "scripts/make_token_paca.ral",
-      "sourceCodeHash": "cc59ea7580540ea0a7d43761688446afe35fa9662ab2d72624e63fb460a9b599",
+      "sourceCodeHash": "df52d82dbc61c93fa7620ed0c47786ca5e0252830209092086345e30419aab5a",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "",
       "warnings": []
     },
     "CreateToken": {
       "sourceFile": "create_token.ral",
-      "sourceCodeHash": "05962a5e405383c23c1ebea0064d8eb3c541d83f070a43a9ad059bc24cf6dcb9",
+      "sourceCodeHash": "1f75c67fc65f44672f0b66047fbbe2d7d4c999cc5ea4b175a0eced64133e1feb",
       "bytecodeDebugPatch": "",
-      "codeHashDebug": "d649d2d6685ff0f3ae60595f377dc54fc3fc3731d83cf1e13bf72ffe5741129d",
+      "codeHashDebug": "7ed6793ccad176ce4c219e78b5957818968443e64427459cae59ead4c5e2dcb8",
       "warnings": []
     },
     "Destroy": {

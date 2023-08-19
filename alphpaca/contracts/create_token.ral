@@ -1,9 +1,6 @@
 Contract CreateToken(
-    token: ByteVec, //* PACA ID
-    owner: Address, //* PACA ID
-    mut alphfee: U256,
-    mut pacafee: U256,
-    contract: ByteVec //* Token Contract
+    owner: Address,         //* Creator
+    contract: ByteVec       //* Token Contract
 ) {
 
     event Destroy(user: Address)
@@ -13,47 +10,11 @@ Contract CreateToken(
         InvalidCaller = 1
     }
 
-    pub fn getTokenId() -> ByteVec {
-        return token
-    }
-
-    pub fn getAlphFee() -> U256 {
-        return alphfee
-    }
-
-    pub fn getPacaFee() -> U256 {
-        return pacafee
-    }
-
-    @using(assetsInContract = false, updateFields = true, checkExternalCaller = true)
-    pub fn changeAlph(fee: U256) -> () {
-
-        let caller = callerAddress!()
-
-        checkCaller!(owner == caller, ErrorCodes.InvalidCaller)
-
-        pacafee = fee
-
-    }
-
-    @using(assetsInContract = false, updateFields = true, checkExternalCaller = true)
-    pub fn changePaca(fee: U256) -> () {
-
-        let caller = callerAddress!()
-
-        checkCaller!(owner == caller, ErrorCodes.InvalidCaller)
-
-        alphfee = fee
-
-    }
-
     @using(preapprovedAssets = true, assetsInContract = false, updateFields = false, checkExternalCaller = false)
     pub fn buildtoken(symbol: ByteVec, name: ByteVec, decimals: U256, tokenTotal: U256) -> (ByteVec) {
 
         let minter = callerAddress!()
 
-        let fee = alphfee
-
         let (encodeImmutableFields, encodeMutableFields) = Token.encodeFields!(symbol, name, decimals, tokenTotal, minter)
 
         let contractID = copyCreateContractWithToken!{minter -> ALPH: 1 alph}(
@@ -63,32 +24,6 @@ Contract CreateToken(
             tokenTotal,
             minter
         )
-        
-        transferToken!(minter, owner, ALPH, fee) //* FEE w/ ALPH
-
-        emit CreateToken(minter, contractID)
-
-        return contractID
-    }
-
-    @using(preapprovedAssets = true, assetsInContract = false, updateFields = false, checkExternalCaller = false)
-    pub fn buildtokenpaca(symbol: ByteVec, name: ByteVec, decimals: U256, tokenTotal: U256) -> (ByteVec) {
-
-        let minter = callerAddress!()
-
-        let fee = pacafee
-
-        let (encodeImmutableFields, encodeMutableFields) = Token.encodeFields!(symbol, name, decimals, tokenTotal, minter)
-
-        let contractID = copyCreateContractWithToken!{minter -> ALPH: 1 alph}(
-            contract,                                                                                  
-            encodeImmutableFields,
-            encodeMutableFields,
-            tokenTotal,
-            minter
-        )
-
-        transferToken!(minter, owner, getTokenId(), fee) //* FEE w/ PACA
 
         emit CreateToken(minter, contractID)
 

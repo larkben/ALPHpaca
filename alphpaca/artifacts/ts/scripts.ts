@@ -15,7 +15,6 @@ import { default as TopupScriptJson } from "../scripts/Topup.ral.json";
 import { default as DestroyScriptJson } from "../scripts/Destroy.ral.json";
 import { default as DestroytokenScriptJson } from "../scripts/Destroytoken.ral.json";
 import { default as BuildtokenScriptJson } from "../scripts/Buildtoken.ral.json";
-import { default as BuildtokenpacaScriptJson } from "../scripts/Buildtokenpaca.ral.json";
 import { default as SendoutScriptJson } from "../scripts/Sendout.ral.json";
 
 export const Topup = new ExecutableScript<{
@@ -35,13 +34,6 @@ export const Buildtoken = new ExecutableScript<{
   decimals: bigint;
   tokenTotal: bigint;
 }>(Script.fromJson(BuildtokenScriptJson));
-export const Buildtokenpaca = new ExecutableScript<{
-  contract: HexString;
-  symbol: HexString;
-  name: HexString;
-  decimals: bigint;
-  tokenTotal: bigint;
-}>(Script.fromJson(BuildtokenpacaScriptJson));
 export const Sendout = new ExecutableScript<{
   contract: HexString;
   amount: bigint;

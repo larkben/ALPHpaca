@@ -18,8 +18,8 @@ export default function Tools() {
                 <button className={styles.button}> <Link href='/tools' className={styles.noDeco} style={{color: 'white'}}>  Back to Tools </Link> </button>
             </div>
             <AlephiumConnectButton></AlephiumConnectButton>
-            <TokenDapp config={TokenFaucetConfig}></TokenDapp>
-            <DevBoard config={TokenFaucetConfig}></DevBoard>
+            {/*<TokenDapp config={TokenFaucetConfig}></TokenDapp> This is the $PACA faucet; actively not in use at the moment*/}
+            {/*<DevBoard config={TokenFaucetConfig}></DevBoard> This is the dev dashboard*/}
             <TokenAutomationCreate config={TokenFaucetConfig}></TokenAutomationCreate>
         </div>
     )

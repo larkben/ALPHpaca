@@ -7,6 +7,7 @@ import { useAlephiumConnectContext } from '@alephium/web3-react'
 import { node } from '@alephium/web3'
 import { TokenFaucetConfig, TokenCreate } from '@/services/utils'
 import * as web3 from '@alephium/web3'
+import Link from 'next/link'
 
 export const TokenAutomationCreate: FC<{
   config: TokenFaucetConfig
@@ -42,14 +43,14 @@ export const TokenAutomationCreate: FC<{
   // Form submit to insert values and receive input
   return (
     <>
-      {ongoingTxId && <TxStatus txId={ongoingTxId} txStatusCallback={txStatusCallback} />}
+      <br/>
 
-      <div className="columns">
+      <div style={{color: 'white'}} >
         <form onSubmit={handleBuildTokenSubmit}>
           <>
-            <h2 className={styles.title}> PacaTokenBuilder {config.network}</h2>
+            <h2 className={styles.title}> A token builder built by the ALPHpaca for the Alephium community. {config.network}</h2>
             <p>PublicKey: {context.account?.publicKey ?? '???'}</p>
-            <p> Create your token here with a fee of 1 ALPH </p>
+            <p> Create your token here with a fee of 1 ALPH for the contract deposit + gas fees. </p>
             <table>
               <thead>
                 <tr>
@@ -103,6 +104,36 @@ export const TokenAutomationCreate: FC<{
             <input type="submit" disabled={!!ongoingTxId} value="Create Token" />
           </>
         </form>
+      </div>
+
+      <br/>
+
+      <div style={{color: 'white'}}>
+        {ongoingTxId && <TxStatus txId={ongoingTxId} txStatusCallback={txStatusCallback} />}
+      </div>
+
+      <br/>
+
+      <div style={{color: 'orange'}}>
+        <h1 style={{fontSize: 20}}> About the <Link href='https://github.com/larkben/ALPHpaca/blob/main/alphpaca/contracts/token.ral'> contract </Link> you are creating for your token? Pro Tip: click &apos;contract&apos; </h1>
+        <p> The contract is created with these values; symbol, name, decimals and supply. Symbol is the TICKER for your token and NAME is the name of your token.
+            DECIMALS specify the divisibility of each coin, ie the main attraction of digital currencies over say a gold bar at a cash register; with 2 decimals a 
+            supply of hundred means you have 1 TOKEN that is divisible by 100. Supply is the number of coins you wish to have. As always the contract specifies that
+            you as the minter are the immutable or permanent owner of the coin you make. A destory function as well as event emit handling for future enhancements and features
+            for you the owner.
+        </p>
+      </div>
+      <div style={{color: 'orange'}}>
+        <h1 style={{fontSize: 20}}> Working with decimals? </h1>
+        <p> Decimals can be complex. <br/>
+            When designing a coin with a supply of 1000 and each coin being divisible by 4 decimals this is how you would do it.
+            <br/>
+            First type the number of decimals in as zeros in the supply. IE 0000 4 decimals
+            <br/> 
+            Second type the supply you want. IE 1000
+            <br/>
+            Final result should look like this. IE decimals: 4 supply: 10000000 ~ 1000 coins with 4 decimals
+        </p>
       </div>
 
     </>

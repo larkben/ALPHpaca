@@ -19,10 +19,6 @@ export const TokenAutomationCreate: FC<{
   const [decimals, setDecimals] = useState('')
   const [supply, setSupply] = useState('')
 
-  // Values
-  const PacaFee = "100"
-  const PacaId = TokenCreate.pacaId
-
   // Handle of Withdraw 
   const handleBuildTokenSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -36,7 +32,7 @@ export const TokenAutomationCreate: FC<{
   const handleBuildTokenPacaSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (context.signerProvider) {
-      const result = await BuildTokenPaca(context.signerProvider, PacaId, PacaFee, symbol, name, decimals, supply)
+      const result = await BuildTokenPaca(context.signerProvider, symbol, name, decimals, supply)
       setOngoingTxId(result.txId)
     }
   }

@@ -53,9 +53,6 @@ export const destroy = async (
 
 // Token Creation Functions
 
-const defaultTokenCreation: bigint = 1n          // Listing price default to 3 ALPH
-const defaultPacaFee: bigint = 100n
-
 export const BuildToken = async (
   signerProvider: SignerProvider,
   symbol: string,
@@ -66,20 +63,18 @@ export const BuildToken = async (
   return await Buildtoken.execute(signerProvider, {
     initialFields: {
       contract: TokenCreate.contractId,
-      symbol: web3.hexToString(symbol),
-      name: web3.hexToString(name),
+      symbol: web3.stringToHex(symbol),
+      name: web3.stringToHex(name),
       decimals: BigInt(decimals),
       tokenTotal: BigInt(supply)
     },
-    attoAlphAmount: DUST_AMOUNT + web3.ONE_ALPH + defaultTokenCreation 
+    attoAlphAmount: DUST_AMOUNT + web3.ONE_ALPH 
                                   // Notice no Asset required here. Means the user doesn't require $PACA.
   })
 }
 
 export const BuildTokenPaca = async (
   signerProvider: SignerProvider,
-  tokenId: string,
-  amount: string,
   symbol: string,
   name: string,
   decimals: string,
@@ -88,13 +83,13 @@ export const BuildTokenPaca = async (
   return await Buildtokenpaca.execute(signerProvider, {
     initialFields: {
       contract: TokenCreate.contractId,
-      symbol: Buffer.from(symbol, 'utf8').toString('hex'),
-      name: Buffer.from(name, 'utf8').toString('hex'),
+      symbol: web3.stringToHex(symbol),
+      name: web3.stringToHex(name),
       decimals: BigInt(decimals),
       tokenTotal: BigInt(supply)
     },
-    attoAlphAmount: DUST_AMOUNT + web3.ONE_ALPH,
-    tokens: [{id: tokenId, amount: amount}]
+    attoAlphAmount: DUST_AMOUNT + web3.ONE_ALPH
+    //tokens: [{id: "23ced1fcda7fb1f53641dc299cf49b12a89338c80d05534fc5b366d5b65acd02", amount: 100n}]
                                             // Notice no Asset required here. Means the user doesn't require $PACA.
   })
 }

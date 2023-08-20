@@ -1,0 +1,100 @@
+// This is a contract to test fee and asset collection on Alephium
+
+Contract FeeCollection (
+    tokenOne: ByteVec,
+    tokenTwo: ByteVec,
+    mut balanceOne: U256,
+    mut balanceTwo: U256,
+    mut fee: U256,
+    owner: Address
+) {
+
+    event RecievedToken(from: Address, amount: U256, id: ByteVec)
+    event FeeRecieved(from: Address, amount: U256, id: ByteVec)
+    event Destroy(destroyer: Address)
+    event WithdrawlAssets(from: Address)
+    event Success(from: Address)
+
+    enum ErrorCodes {
+        InvalidRecieve = 1
+        InvalidCaller = 3
+    }
+
+    pub fn getTokenOne() -> ByteVec {
+        return tokenOne
+    }
+
+    pub fn getTokenTwo() -> ByteVec {
+        return tokenTwo
+    }
+
+    pub fn getBalanceOne() -> U256 {
+        return balanceOne
+    }
+
+    pub fn getBalanceTwo() -> U256 {
+        return balanceTwo
+    }
+
+    pub fn getFee() -> U256 {
+        return fee
+    }
+
+    pub fn getSymbol() -> ByteVec {
+        //! This is typically the symbol / name of contract
+        return tokenOne
+    }
+
+    pub fn getName() -> ByteVec {
+        //! This is typically the symbol / name of contract
+        return tokenOne
+    }
+
+    //? Update fields inplies the balances of the token being updated, checkCaller marked false (anyone can call it)
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn gettoken(amount: U256) -> () {
+
+        assert!(amount > 0, ErrorCodes.InvalidRecieve)
+
+        transferToken!(callerAddress!(), selfAddress!(), getTokenOne(), amount)
+
+        transferToken!(callerAddress!(), selfAddress!(), getTokenTwo(), getFee()) // Fee Token Two
+
+        balanceOne = balanceOne + amount // TokenOne added to contract
+        balanceTwo = balanceTwo + amount // Fee added to contract
+
+        emit RecievedToken(callerAddress!(), amount, getTokenOne())
+    }
+
+    @using(updateFields = true, checkExternalCaller = true)
+    pub fn withdrawalassets() -> () {
+
+        let caller = callerAddress!()
+
+        checkCaller!(owner == caller, ErrorCodes.InvalidCaller)
+
+        transferToken!(callerAddress!(), caller, getTokenOne(), getBalanceOne())
+        
+        transferToken!(callerAddress!(), caller, getTokenTwo(), getBalanceTwo())
+
+        balanceOne = balanceOne - balanceOne
+        balanceTwo = balanceTwo - balanceTwo
+
+        emit WithdrawlAssets(caller)
+
+    }
+
+    @using(updateFields = true, checkExternalCaller = true)
+    pub fn editfee(edit: U256) -> () {
+
+        let caller = callerAddress!()
+
+        checkCaller!(owner == caller, ErrorCodes.InvalidCaller)
+
+        fee = edit
+
+        emit Success(caller)
+
+    }
+
+}

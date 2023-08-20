@@ -1,0 +1,5 @@
+TxScript Withdrawlassets(
+    contract: FeeCollection
+) {
+    contract.withdrawalassets()
+}

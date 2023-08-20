@@ -11,6 +11,8 @@ import {
   CreateTokenInstance,
   Token,
   TokenInstance,
+  FeeCollection,
+  FeeCollectionInstance,
 } from ".";
 import { default as testnetDeployments } from "../.deployments.testnet.json";
 
@@ -20,6 +22,7 @@ export type Deployments = {
     Faucet: DeployContractExecutionResult<FaucetInstance>;
     CreateToken: DeployContractExecutionResult<CreateTokenInstance>;
     Token: DeployContractExecutionResult<TokenInstance>;
+    FeeCollection: DeployContractExecutionResult<FeeCollectionInstance>;
   };
 };
 
@@ -41,6 +44,12 @@ function toDeployments(json: any): Deployments {
       ...json.contracts["Token"],
       contractInstance: Token.at(
         json.contracts["Token"].contractInstance.address
+      ),
+    },
+    FeeCollection: {
+      ...json.contracts["FeeCollection"],
+      contractInstance: FeeCollection.at(
+        json.contracts["FeeCollection"].contractInstance.address
       ),
     },
   };

@@ -15,11 +15,17 @@ export default function Tools() {
             <div className={styles.NFTheaderElement}>
                 <button className={styles.button}> <Link href='/' className={styles.noDeco} style={{color: 'white'}}>  ALPHpaca HUB </Link> </button>
             </div>
-            <h1>
-                $PACA Faucet
+            <h1 style={{color: 'orange'}}>
+                ALPHpaca Testing
             </h1>
             <div className={styles.NFTheaderElement}>
-                <button className={styles.button}> <Link href='/faucet' className={styles.noDeco} style={{color: 'white'}}>  $PACA Faucet </Link> </button>
+                <button className={styles.button}> <Link href='/faucet' className={styles.noDeco} style={{color: 'white'}}>  $PACA Testing </Link> </button>
+            </div>
+            <h1 style={{color: 'orange'}}>
+                Token Builder on Alephium
+            </h1>
+            <div className={styles.NFTheaderElement}>
+                <button className={styles.button}> <Link href='/token_create' className={styles.noDeco} style={{color: 'white'}}>  Token Builder </Link> </button>
             </div>
         </div>
     )

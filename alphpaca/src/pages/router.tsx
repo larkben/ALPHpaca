@@ -6,6 +6,7 @@ import Whitepaper from './whitepaper'
 import Tools from './tools'
 import NFT from './nft'
 import Faucet from './faucet'
+import TokenAuto from './token_create'
 
 import React from 'react'
 
@@ -33,6 +34,10 @@ const routes = [
   {
     path: '/faucet',
     component: Faucet
+  },
+  {
+    path: '/token_create',
+    component: TokenAuto
   }
 ]
 

@@ -4,5 +4,6 @@
 
 export * from "./CreateToken";
 export * from "./Faucet";
+export * from "./FeeCollection";
 export * from "./Token";
 export * from "./scripts";

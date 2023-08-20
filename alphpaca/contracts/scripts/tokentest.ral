@@ -1,0 +1,8 @@
+TxScript Gettoken(
+    contract: FeeCollection,
+    amount: U256
+) {
+    let fee = contract.getFee()
+
+    contract.gettoken{callerAddress!() -> contract.getTokenOne() : amount, contract.getTokenTwo(): fee}(amount)
+}

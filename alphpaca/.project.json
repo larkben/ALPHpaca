@@ -37,11 +37,32 @@
       "codeHashDebug": "",
       "warnings": []
     },
+    "Editfee": {
+      "sourceFile": "scripts/editfee.ral",
+      "sourceCodeHash": "9cdeae542bc4274f07cc34f10ac8142a5cfad433a84eeb6e5ed35f7c6b6edc09",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
+      "warnings": []
+    },
     "Faucet": {
       "sourceFile": "paca_faucet.ral",
       "sourceCodeHash": "421e209f388ab30a4e94363b8aebba3de1f94e3e4ce960d68b0f31b3baeea71d",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "8813de5a4adb21e4e0ea09357924ec19037b916ecfd6a228152238f8e9396d04",
+      "warnings": []
+    },
+    "FeeCollection": {
+      "sourceFile": "test_fees.ral",
+      "sourceCodeHash": "1425ec0c7a34fddacf3430f6bcfdc09b63e0773327fa9a9f6bd30f3f5bb778c1",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "f9bf4e350d4f2431f9af391c939b073fe5379bca71cb993817f560e0ac54e1a2",
+      "warnings": []
+    },
+    "Gettoken": {
+      "sourceFile": "scripts/tokentest.ral",
+      "sourceCodeHash": "3e20a0e7e5ce052d940807ee059265d115a136931f0d38aea4484b5b29b4859b",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
       "warnings": []
     },
     "IFungibleToken": {
@@ -68,6 +89,13 @@
     "Topup": {
       "sourceFile": "scripts/deposit.ral",
       "sourceCodeHash": "135b04fe1d2f2159f536e686fddff9fa5e33119faea0c4ad766a1c91cb82cefe",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
+      "warnings": []
+    },
+    "Withdrawlassets": {
+      "sourceFile": "scripts/tokentesttwo.ral",
+      "sourceCodeHash": "5f365d681775d5ef7a91db608b378978177c127b14a6835538487a7956f3d61f",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "",
       "warnings": []

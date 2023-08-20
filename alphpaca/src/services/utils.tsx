@@ -1,11 +1,13 @@
 import { NetworkId } from '@alephium/web3'
 import { loadDeployments } from '../../artifacts/ts/deployments'
 
+//TODO Clean Up Interface / Utils
+
 //* Interfaces
 export interface TokenFaucetConfig {
   network: NetworkId
   groupIndex: number
-  faucetAddress: string                //TODO line 7 + 8 might be duplicates
+  faucetAddress: string               
   faucetID: string // ID of the contract
   tokenID: string
 }
@@ -24,6 +26,15 @@ export interface TokenTemplate {
   groupIndex: number
   contractAddress: string
   contractId: string
+}
+
+export interface TestFees {
+  network: NetworkId
+  groupIndex: number
+  contractAddress: string
+  contractId: string
+  tokenOne: string
+  tokenTwo: string
 }
 
 
@@ -65,6 +76,18 @@ function getTokenTemplateConfig(): TokenTemplate {
   return {network, groupIndex, contractAddress, contractId}
 }
 
+function getTestFees(): TestFees {
+  const network = getNetwork()
+  const FeeCollection = loadDeployments(network).contracts.FeeCollection.contractInstance
+  const groupIndex = FeeCollection.groupIndex
+  const contractAddress = FeeCollection.address
+  const contractId = FeeCollection.contractId
+  const tokenOne = "adefc2bbd26033d9debeaa311f2b64756e6454a44c7506b96c72f1ad5b21fe01"
+  const tokenTwo = "ae31c9081541057565fe0146937f49d6240c322d3027edb22c95e2e53cb9ec01"
+  return {network, groupIndex, contractAddress, contractId, tokenOne, tokenTwo}
+}
+
 export const TokenFaucetConfig = getTokenFaucetConfig()
 export const TokenCreate = getTokenCreateConfig()
 export const TokenTemplate = getTokenTemplateConfig()
+export const TestFees = getTestFees()

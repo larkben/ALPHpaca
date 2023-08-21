@@ -18,6 +18,7 @@ export default function Tools() {
             <div className={styles.NFTheaderElement}>
                 <button className={styles.button}> <Link href='/tools' className={styles.noDeco} style={{color: 'white'}}>  Back to Tools </Link> </button>
             </div>
+            <br/>
             <AlephiumConnectButton></AlephiumConnectButton>
             {/*<TokenDapp config={TokenFaucetConfig}></TokenDapp> This is the $PACA faucet; actively not in use at the moment*/}
             {/*<DevBoard config={TokenFaucetConfig}></DevBoard> This is the dev dashboard*/}

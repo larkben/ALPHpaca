@@ -200,7 +200,7 @@ export const FeeCollection = new Factory(
   Contract.fromJson(
     FeeCollectionContractJson,
     "",
-    "f9bf4e350d4f2431f9af391c939b073fe5379bca71cb993817f560e0ac54e1a2"
+    "037be2975a9253dfe116077fa5b404f46ce64a23e2ccefbf2905dce4b66a7a7c"
   )
 );
 

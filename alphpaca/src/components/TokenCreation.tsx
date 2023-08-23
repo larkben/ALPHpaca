@@ -5,8 +5,7 @@ import { BuildToken } from '@/services/token.service'
 import { TxStatus } from './TxStatus'
 import { useAlephiumConnectContext } from '@alephium/web3-react'
 import { node } from '@alephium/web3'
-import { TokenFaucetConfig, TokenCreate } from '@/services/utils'
-import * as web3 from '@alephium/web3'
+import { TokenFaucetConfig} from '@/services/utils'
 import Link from 'next/link'
 
 export const TokenAutomationCreate: FC<{

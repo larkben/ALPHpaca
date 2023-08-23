@@ -1,5 +1,5 @@
 {
-  "version": "v2.5.0",
+  "version": "v2.3.5",
   "name": "Destroytoken",
   "bytecodeTemplate": "010103000000040c0c{0}0105",
   "fieldsSig": {

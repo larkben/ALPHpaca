@@ -1,5 +1,5 @@
 {
-  "fullNodeVersion": "v2.5.0",
+  "fullNodeVersion": "v2.3.5",
   "compilerOptionsUsed": {
     "ignoreUnusedConstantsWarnings": false,
     "ignoreUnusedVariablesWarnings": false,
@@ -53,9 +53,9 @@
     },
     "FeeCollection": {
       "sourceFile": "test_fees.ral",
-      "sourceCodeHash": "1425ec0c7a34fddacf3430f6bcfdc09b63e0773327fa9a9f6bd30f3f5bb778c1",
+      "sourceCodeHash": "c57c6d50b3844a156c7fcf9bed5ad1e8656db4a33099ccd3771e6d9c739f34b8",
       "bytecodeDebugPatch": "",
-      "codeHashDebug": "f9bf4e350d4f2431f9af391c939b073fe5379bca71cb993817f560e0ac54e1a2",
+      "codeHashDebug": "037be2975a9253dfe116077fa5b404f46ce64a23e2ccefbf2905dce4b66a7a7c",
       "warnings": []
     },
     "Gettoken": {

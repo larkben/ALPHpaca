@@ -15,7 +15,7 @@ const tokenTemplate: DeployFunction<Settings> = async (
       name: Buffer.from('Template', 'utf8').toString('hex'),
       decimals: 18n,
       supply: 1000n,
-      owner: "1EEorqQ8fud76F7BrFNncfKvxf7doGmfcUdKR9JCLnDvg" //! Owner
+      owner: "16gAmGuCysLjGxHK8TUENkvhbqvwZRb6BabUbsxLYkSkd" //! Owner
     }
   })
   console.log('Token faucet contract id: ' + result.contractInstance.contractId)

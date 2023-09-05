@@ -17,9 +17,9 @@ const deployFaucet: DeployFunction<Settings> = async (
   const result = await deployer.deployContract(Faucet, {
     // The initial states of the faucet contract
     initialFields: {
-      tokenId: "23ced1fcda7fb1f53641dc299cf49b12a89338c80d05534fc5b366d5b65acd02",
+      tokenId: "b2d71c116408ae47b931482a440f675dc9ea64453db24ee931dacd578cae9002",
       balance: 0n,
-      owner: "1EEorqQ8fud76F7BrFNncfKvxf7doGmfcUdKR9JCLnDvg" //! Owner
+      owner: "16gAmGuCysLjGxHK8TUENkvhbqvwZRb6BabUbsxLYkSkd" //! Owner
     }
   })
   console.log('Token faucet contract id: ' + result.contractInstance.contractId)

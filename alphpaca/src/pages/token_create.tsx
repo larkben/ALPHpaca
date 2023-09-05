@@ -42,8 +42,6 @@ async function getTokenEvents() {
 export default function AutoTokenMake() {
 
     const [blockHeight, setBlockHeight] = useState<number>()
-    const [user, setUser] = useState<string>()
-    const [token, setToken] = useState<string>()
 
     getChainInfo()
     .then(data => {

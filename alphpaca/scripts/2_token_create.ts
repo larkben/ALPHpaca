@@ -18,8 +18,8 @@ const tokenCreate: DeployFunction<Settings> = async (
   const result = await deployer.deployContract(CreateToken, {
     // The initial states of the faucet contract
     initialFields: {
-      owner: "1EEorqQ8fud76F7BrFNncfKvxf7doGmfcUdKR9JCLnDvg", //! Owner
-      contract: "c73bac4c132b88a899ca72cd8093388e5ad09a88660d2149775840ffb95ea801"
+      owner: "16gAmGuCysLjGxHK8TUENkvhbqvwZRb6BabUbsxLYkSkd", //! Owner
+      contract: "1bdf91ae939427949daf79bad5a92a2b4974f84d4cd2b3a0686dd38b7b73a400"
     }
   })
   console.log('Token faucet contract id: ' + result.contractInstance.contractId)

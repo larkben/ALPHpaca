@@ -1,7 +1,7 @@
 
 import { DUST_AMOUNT, ExecutableScript, ExecuteScriptResult, SignerProvider, contractIdFromAddress } from '@alephium/web3'
 import { Topup, Sendout, Destroy, Buildtoken, Gettoken, Withdrawlassets, Editfee } from '../../artifacts/ts/scripts'
-import { TokenCreate, TokenFaucetConfig, TokenTemplate, TestFees } from './utils'
+import { TokenCreate, TokenFaucetConfig, TokenTemplate } from './utils'
 import { Faucet } from 'artifacts/ts'
 import * as web3 from '@alephium/web3'
 
@@ -76,29 +76,6 @@ export const BuildToken = async (
 // Token Destroy (Only Callable by Token Creators)
 
 //TODO Database and Event Collection to Allow Access to this for Users
-
-// Test Fee Functions
-
-export const gettokens = async (
-  signerProvider: SignerProvider,
-  amount: string,
-  fee: string,
-  tokenOne:  string,
-  tokenTwo: string,
-): Promise<ExecuteScriptResult> => {
-  return await Gettoken.execute(signerProvider, {
-    initialFields: {
-      contract: TestFees.contractId,
-      amount: BigInt(amount)
-    },
-    attoAlphAmount: DUST_AMOUNT,
-    tokens: [
-      {id: tokenOne, amount: amount},
-      {id: tokenTwo, amount: fee}
-    ]
-                                  // Notice no Asset required here. Means the user doesn't require $PACA.
-  })
-}
 
 
 

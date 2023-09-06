@@ -39,7 +39,7 @@ export interface TestFees {
 
 
 function getNetwork(): NetworkId {
-  const network = (process.env.NEXT_PUBLIC_NETWORK ?? 'testnet') as NetworkId //! This is where you change the network
+  const network = (process.env.NEXT_PUBLIC_NETWORK ?? 'mainnet') as NetworkId //! This is where you change the network
   return network
 }
 

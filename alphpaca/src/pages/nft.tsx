@@ -3,34 +3,9 @@ import styles from '@/styles/Home.module.css'
 //import { TokenDapp } from '@/components/FaucetDapp'
 import { AlephiumConnectButton } from '@alephium/web3-react'
 
-import { connect } from '@planetscale/database'
-
 import { useState, useEffect } from 'react';
 import Link from 'next/link'
 import { NodeProvider } from '@alephium/web3'
-
-const config = {
-    host: process.env.host,
-    username: process.env.username,
-    password: process.env.password
-}
-
-
-// API Key / Node Provider
-const url = process.env.link ? process.env.link.toString() : '';
-const apikey = process.env.apikey
-
-const nodeProvider = new NodeProvider(url,apikey )
-
-const conn = connect(config)
-
-async function getBlockHeight() {
-    const result = await nodeProvider.blockflow.getBlockflowChainInfo({
-        fromGroup: 0,
-        toGroup: 0
-    })
-    console.log(result);
-}
 
 async function getAlphPrice() {
     const response = await fetch('https://api.coingecko.com/api/v3/coins/alephium?tickers=true&market_data=true');
@@ -41,8 +16,6 @@ async function getAlphPrice() {
 }
 
 getAlphPrice();
-
-getBlockHeight();
 
 export default function NFT() {
 

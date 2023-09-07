@@ -1,0 +1,4 @@
+#enviroment variables
+.env
+config.json
+node_modules

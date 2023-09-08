@@ -18,35 +18,29 @@ import WhitePaper from './whitepaper'
 
 // Mainnet: https://node-alephium.ono.re/
 
-//const contractAddress = '29NQz5dKwACqHw5beJ25v6eZQpxAC7rPYqK4xpFYc7CqN' // ContractAddress
+const nodeProvider = new NodeProvider('http://127.0.0.1:12973/') // LocalHost
 
-/*
+const contractAddress = '22mZiGqqbrvFmVWjXbU6TXtS7DR9Yxix5BHSvEj2uzu9R' // ContractAddress
+
 async function getTokenEvents() {
     const result = await nodeProvider.events.getEventsContractContractaddress(
-        contractAddress, {start: 0, limit: 100}
+        contractAddress, {start: 0, limit: 1}
     )
+    console.log(result)
     return result
 }
-*/
-
 
 export default function AutoTokenMake() {
 
-    /*
     getTokenEvents()
     .then(data => {
         if (data) {
-            let zero = 0
-            for (let i = 0; i < data.events.length; i++) {
-                zero++
-            }
-            console.log("There are a total of: ", zero , " events.")
+            console.log(data)
         }
         else {
             console.log("No Data Available")
         }
     })
-    */
   
     return (
         <div className={styles.alignCenter}>

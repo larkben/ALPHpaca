@@ -48,9 +48,9 @@ export default function AutoTokenMake() {
                 <button className={styles.button}> <Link href='/tools' className={styles.noDeco} style={{color: 'white'}}>  Back to Tools </Link> </button>
             </div>
             <br/>
-            <div style={{backgroundColor: 'blue', padding: 20}} className={styles.showBorder}>
+            <div style={{backgroundColor: 'darkorange', padding: 20}} className={styles.showBorder}>
                 <AlephiumConnectButton></AlephiumConnectButton>
-                <h2 style={{color: 'white', textAlign: 'center'}}> Please connect wallet before creating token! </h2>
+                <h2 style={{color: 'black', textAlign: 'center'}}> Please connect wallet before creating token! </h2>
                 {/*<TokenDapp config={TokenFaucetConfig}></TokenDapp> This is the $PACA faucet; actively not in use at the moment*/}
                 {/*<DevBoard config={TokenFaucetConfig}></DevBoard> This is the dev dashboard*/}
                 <TokenAutomationCreate config={TokenFaucetConfig}></TokenAutomationCreate>
@@ -61,7 +61,7 @@ export default function AutoTokenMake() {
                 For Example: If you enter 4 Decimals and Supply of 1000 you will get a token with a supply of 1. If you want a supply of 1000 you should add 4 zeros. 10000000 is what the supply should be. <br/> <br/> 
                 The Math: 6 Decimals 10000 Supply. Supply should be 10000(000000); do not enter parenthesis, they are meant to show the supply decimal logic. </p>
                 <h1 style={{color: 'white', textAlign: 'center'}}> Redeeming ALPH Deposit? </h1>
-                <p style={{color: 'white', textAlign: 'center'}}> We are currently scaling our DB and platform to accomadate this. </p>
+                <p style={{color: 'white', textAlign: 'center'}}> We are currently scaling our DB and platform to accommodate this. </p>
             </div>
         </div>
     )

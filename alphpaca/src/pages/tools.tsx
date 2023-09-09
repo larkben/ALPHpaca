@@ -12,20 +12,17 @@ export default function Tools() {
   
     return (
         <div className={styles.alignCenter}>
-            <div className={styles.NFTheaderElement}>
+            <div className={styles.NFTheaderElement} style={{paddingBottom: 25}}>
                 <button className={styles.button}> <Link href='/' className={styles.noDeco} style={{color: 'white'}}>  ALPHpaca HUB </Link> </button>
             </div>
-            <h1 style={{color: 'orange'}}>
-                ALPHpaca Testing
-            </h1>
-            <div className={styles.NFTheaderElement}>
-                <button className={styles.button}> <Link href='/faucet' className={styles.noDeco} style={{color: 'white'}}>  $PACA Testing </Link> </button>
-            </div>
-            <h1 style={{color: 'orange'}}>
-                Token Builder on Alephium
-            </h1>
-            <div className={styles.NFTheaderElement}>
-                <button className={styles.button}> <Link href='/token_create' className={styles.noDeco} style={{color: 'white'}}>  Token Builder </Link> </button>
+            <div className={styles.showBorder} style={{paddingLeft: 20, paddingRight: 20, paddingBottom: 10, backgroundColor: 'darkorange'}}>
+                <h1 style={{color: 'black'}}>
+                    Token Builder on Alephium
+                </h1>
+                <p style={{color: 'black'}}> <i>Here you can build your own token on the Alephium blockchain.</i></p>
+                <div className={styles.NFTheaderElement}>
+                    <button className={styles.button}> <Link href='/token_create' className={styles.noDeco} style={{color: 'white'}}>  Token Builder </Link> </button>
+                </div>
             </div>
         </div>
     )

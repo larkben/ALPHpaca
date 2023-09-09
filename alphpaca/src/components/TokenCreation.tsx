@@ -46,12 +46,12 @@ export const TokenAutomationCreate: FC<{
       <style>
         @import url(&apos;https://fonts.googleapis.com/css2?family=Tektur&display=swap&apos;);
       </style>
-      <div style={{color: 'white'}} >
+      <div style={{color: 'black'}} >
         <form onSubmit={handleBuildTokenSubmit} style={{alignContent: 'center', textAlign: 'center'}}>
           <>
-            <h2 className={styles.title} style={{color: 'white', textAlign: 'center'}}> Alephium Token Builder ({config.network})</h2>
+            <h2 className={styles.title} style={{color: 'black', textAlign: 'center'}}> Alephium Token Builder ({config.network})</h2>
             {/*<p>PublicKey: {context.account?.publicKey ?? '???'}</p>*/}
-            <p style={{color: 'white', textAlign: 'center'}}> Create your token here with a fee of 1 ALPH for the contract deposit + gas fees. </p>
+            <p style={{color: 'black', textAlign: 'center'}}> Create your token here with a fee of 1 ALPH for the contract deposit + gas fees. </p>
             <label htmlFor="symbol">Symbol :</label>
             <input
                 className={styles.inputToken}

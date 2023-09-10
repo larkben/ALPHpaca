@@ -13,6 +13,10 @@ import {
   CreateTokenInstance,
   FeeCollection,
   FeeCollectionInstance,
+  Swapoffer,
+  SwapofferInstance,
+  Tokenswap,
+  TokenswapInstance,
 } from ".";
 import { default as mainnetDeployments } from "../.deployments.mainnet.json";
 import { default as testnetDeployments } from "../.deployments.testnet.json";
@@ -24,6 +28,8 @@ export type Deployments = {
     Token: DeployContractExecutionResult<TokenInstance>;
     CreateToken: DeployContractExecutionResult<CreateTokenInstance>;
     FeeCollection?: DeployContractExecutionResult<FeeCollectionInstance>;
+    Swapoffer?: DeployContractExecutionResult<SwapofferInstance>;
+    Tokenswap?: DeployContractExecutionResult<TokenswapInstance>;
   };
 };
 
@@ -54,6 +60,24 @@ function toDeployments(json: any): Deployments {
             ...json.contracts["FeeCollection"],
             contractInstance: FeeCollection.at(
               json.contracts["FeeCollection"].contractInstance.address
+            ),
+          },
+    Swapoffer:
+      json.contracts["Swapoffer"] === undefined
+        ? undefined
+        : {
+            ...json.contracts["Swapoffer"],
+            contractInstance: Swapoffer.at(
+              json.contracts["Swapoffer"].contractInstance.address
+            ),
+          },
+    Tokenswap:
+      json.contracts["Tokenswap"] === undefined
+        ? undefined
+        : {
+            ...json.contracts["Tokenswap"],
+            contractInstance: Tokenswap.at(
+              json.contracts["Tokenswap"].contractInstance.address
             ),
           },
   };

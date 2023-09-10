@@ -1,8 +1,6 @@
 import { NetworkId } from '@alephium/web3'
 import { loadDeployments } from '../../artifacts/ts/deployments'
 
-//TODO Clean Up Interface / Utils
-
 //* Interfaces
 export interface TokenFaucetConfig {
   network: NetworkId

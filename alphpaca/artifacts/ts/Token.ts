@@ -81,6 +81,10 @@ export namespace TokenTypes {
 }
 
 class Factory extends ContractFactory<TokenInstance, TokenTypes.Fields> {
+  getInitialFieldsWithDefaultValues() {
+    return this.contract.getInitialFieldsWithDefaultValues() as TokenTypes.Fields;
+  }
+
   eventIndex = { Destroy: 0 };
   consts = { ErrorCodes: { InvalidCaller: BigInt(1) } };
 

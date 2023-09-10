@@ -71,6 +71,10 @@ class Factory extends ContractFactory<
   CreateTokenInstance,
   CreateTokenTypes.Fields
 > {
+  getInitialFieldsWithDefaultValues() {
+    return this.contract.getInitialFieldsWithDefaultValues() as CreateTokenTypes.Fields;
+  }
+
   eventIndex = { Destroy: 0, CreateToken: 1 };
   consts = { ErrorCodes: { InvalidCaller: BigInt(1) } };
 

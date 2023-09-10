@@ -3,12 +3,30 @@
 /* eslint-disable */
 
 import { Contract, ContractFactory } from "@alephium/web3";
-import { CreateToken, Faucet, FeeCollection, Token } from ".";
+import {
+  CreateToken,
+  NFT,
+  NFTPublicSaleCollectionSequential,
+  Faucet,
+  Swapoffer,
+  Tokenswap,
+  FeeCollection,
+  Token,
+} from ".";
 
 let contracts: ContractFactory<any>[] | undefined = undefined;
 export function getContractByCodeHash(codeHash: string): Contract {
   if (contracts === undefined) {
-    contracts = [CreateToken, Faucet, FeeCollection, Token];
+    contracts = [
+      CreateToken,
+      NFT,
+      NFTPublicSaleCollectionSequential,
+      Faucet,
+      Swapoffer,
+      Tokenswap,
+      FeeCollection,
+      Token,
+    ];
   }
   const c = contracts.find(
     (c) =>

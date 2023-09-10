@@ -13,7 +13,7 @@ const defaultSettings: Settings = { issueTokenAmount: 100n }
 const configuration: Configuration<Settings> = {
   networks: {
     devnet: {
-      nodeUrl: 'http://localhost:22973',
+      nodeUrl: 'http://127.0.0.1:22973',
       privateKeys: [
         'a642942e67258589cd2b1822c631506632db5a12aabcf413604e785300d762a5' // group 0
       ],

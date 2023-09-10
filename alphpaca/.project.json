@@ -1,5 +1,5 @@
 {
-  "fullNodeVersion": "v2.5.3",
+  "fullNodeVersion": "v2.5.5",
   "compilerOptionsUsed": {
     "ignoreUnusedConstantsWarnings": false,
     "ignoreUnusedVariablesWarnings": false,
@@ -72,6 +72,69 @@
       "codeHashDebug": "",
       "warnings": []
     },
+    "INFT": {
+      "sourceFile": "../../../../../.npm/_npx/f1b120e1b513c04c/node_modules/@alephium/web3/std/nft_interface.ral",
+      "sourceCodeHash": "1fefa4eb581554fa2b7b083b0eb232c787c101e67e2eeedd6d518bb0c8b93a2d",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
+      "warnings": []
+    },
+    "INFTCollection": {
+      "sourceFile": "../../../../../.npm/_npx/f1b120e1b513c04c/node_modules/@alephium/web3/std/nft_collection_interface.ral",
+      "sourceCodeHash": "b0a6daba940a30282122145d56ebed0ba133ad885f5c6339ebdb8f35fe7c53e5",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
+      "warnings": []
+    },
+    "NFT": {
+      "sourceFile": "nft/nft.ral",
+      "sourceCodeHash": "2350dee7c6044670c8c3abe16f0d2e94b4afac9b6db23a4055bb599f263123de",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "774b9128f080be0e5952423b9582ffe20a002b282059fd02b395eadd10e637b7",
+      "warnings": []
+    },
+    "NFTCollectionBase": {
+      "sourceFile": "nft/nft_collection_base.ral",
+      "sourceCodeHash": "5233867bbcf10674f524429420de7d65b40343bea754e0800edc9d5b7a5750d2",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
+      "warnings": []
+    },
+    "NFTOpenCollectionBase": {
+      "sourceFile": "nft/nft_open_collection_base.ral",
+      "sourceCodeHash": "dfbd9d6516835f720826155aeb71062bb06f498289a191d5ad12b2af3d15fb59",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
+      "warnings": []
+    },
+    "NFTPublicSaleCollectionBase": {
+      "sourceFile": "nft/nft_public_sale_collection_base.ral",
+      "sourceCodeHash": "61636618408880f90b522a118061ebf8a5be96d133905b219b6116e90c1f84fc",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
+      "warnings": []
+    },
+    "NFTPublicSaleCollectionRandomBase": {
+      "sourceFile": "nft/nft_public_sale_collection_random_base.ral",
+      "sourceCodeHash": "1211baccd9ee9f618dee06f2fd7c89b9635f563c27eab4a48bf8f18bbcf2813a",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
+      "warnings": []
+    },
+    "NFTPublicSaleCollectionSequential": {
+      "sourceFile": "nft/nft_public_sale_collection_sequential.ral",
+      "sourceCodeHash": "c91a068902fd88be4b6be7d0907595b0ca0710fd92ee03cd608f3cf79c1b5cbb",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "53ba8d897250f9e9e03ca71a10d5694d93a031e0a9df49ee8060d8654c8f89a3",
+      "warnings": []
+    },
+    "NFTPublicSaleCollectionSequentialBase": {
+      "sourceFile": "nft/nft_public_sale_collection_sequential_base.ral",
+      "sourceCodeHash": "797b239309b2a629fd2580939b7c5d80b0b57e1be76e690bc1b3745b5a21b9ad",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
+      "warnings": []
+    },
     "Sendout": {
       "sourceFile": "scripts/withdraw.ral",
       "sourceCodeHash": "bf59ec6bec02c4215901434da53d8078a0dad0909ba40d83042fcf298fa9b87f",
@@ -79,11 +142,25 @@
       "codeHashDebug": "",
       "warnings": []
     },
+    "Swapoffer": {
+      "sourceFile": "swaps/swapoffer.ral",
+      "sourceCodeHash": "db48a6a71c9c733fffef682b4d3b06f1acc9fa316f4e6fe11cba36c4f0a89d5b",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "eff58254ad637e2e6ad3b4abe749845e19f310d334187b7c585ea2ccbaa9523e",
+      "warnings": []
+    },
     "Token": {
       "sourceFile": "token.ral",
       "sourceCodeHash": "537b80223d95febdb8a5dcdb8426dba2a4dad82e0a0daeba8f462224ea6265ca",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "9fb480d2534a9e8b5cf4b5ef005deeec049136f4462dfc72c56ad041a561526b",
+      "warnings": []
+    },
+    "Tokenswap": {
+      "sourceFile": "swaps/tokenswap.ral",
+      "sourceCodeHash": "c7802de7a60c0bd18a55fbb4dfdce11deaa2bc5cbb623d8c78c817f2fdbcc3c0",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "6e34a577621f081f98be619be483ad8e7b69805bf7ae1a0fcf56ff1bfee9a5a5",
       "warnings": []
     },
     "Topup": {

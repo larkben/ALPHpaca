@@ -1,23 +1,23 @@
 // The parent contract for the token swaps and offers
 
 Contract Tokenswap (
-    ByteVec: contract,
-    Address: owner,
-    mut U256: pacafee,
-    mut U256: alphfee,
-    ByteVec: feeToken
+    contract: ByteVec,
+    owner: Address,
+    mut pacafee: U256,
+    mut alphfee: U256,
+    feeToken: ByteVec
 ) {
-    // Error Codes
-    enum ErrorCodes {
-        InvalidCaller = 1
-        InvalidCreation = 2
-    }
 
     // Events
     event SwapCreated(creator: Address, tokenOffered: ByteVec, tokenWanted: ByteVec, swap: ByteVec)
     event Destroy(caller: Address)
     event PacaFeeChange(pacafee: U256)
     event AlphFeeChange(alphfee: U256)
+
+    // Error Codes
+    enum ErrorCodes {
+        InvalidCaller = 1
+    }
     
     pub fn getPacaToken() -> ByteVec {
         return feeToken
@@ -33,72 +33,60 @@ Contract Tokenswap (
 
     pub fn getSymbol() -> ByteVec {
         //! This is typically the symbol / name of contract
-        return tokenOne
+        return feeToken
     }
 
     pub fn getName() -> ByteVec {
         //! This is typically the symbol / name of contract
-        return tokenOne
+        return feeToken
     }
 
-    @using(preapprovedAssets = true, assetsInContract = true, updateFields = false, checkExternalCaller = false)
+    @using(preapprovedAssets = true, assetsInContract = false, updateFields = false, checkExternalCaller = false)
     pub fn createswappaca(tokenOffered: ByteVec, tokenOfferedAmt: U256, tokenWanted: ByteVec, tokenWantedAmt: U256) -> () {
         
         let minter = callerAddress!()
 
-        transferToken!(minter, owner, getPacaToken(), getPacaFee())
+        let (encodeImmutableFields, encodeMutableFields) = Swapoffer.encodeFields!(minter, tokenOffered, tokenWanted, tokenOfferedAmt, tokenWantedAmt)
 
-        let (encodeImmutableFields, encodeMutableFields) = Swapoffer.encodeFields!(tokenOffered, tokenWanted, tokenOfferedAmt, tokenWantedAmt, minter)
-
-        let contractID = copyCreateContract!{minter -> ALPH: 1 alph}(
+        let contractID = copyCreateContract!{minter -> ALPH: 1 alph, tokenOffered: tokenOfferedAmt}(
             contract,                                                                                  
             encodeImmutableFields,
-            encodeMutableFields,
+            encodeMutableFields
         )
 
-        let contractaddress = contractIdToAddress!(contractID)
-
-        transferToken!(minter, contractaddress, tokenOffered, tokenOfferedAmt)
+        transferToken!(minter, owner, getPacaToken(), getPacaFee())
 
         emit SwapCreated(minter, tokenOffered, tokenWanted, contractID)
-
-        return contractID
     }
 
-    @using(preapprovedAssets = true, assetsInContract = true, updateFields = false, checkExternalCaller = false)
+    @using(preapprovedAssets = true, assetsInContract = false, updateFields = false, checkExternalCaller = false)
     pub fn createswapalph(tokenOffered: ByteVec, tokenOfferedAmt: U256, tokenWanted: ByteVec, tokenWantedAmt: U256) -> () {
         
         let minter = callerAddress!()
 
-        transferToken!(minter, owner, alph, getAlphFee())
+        let (encodeImmutableFields, encodeMutableFields) = Swapoffer.encodeFields!(minter, tokenOffered, tokenWanted, tokenOfferedAmt, tokenWantedAmt)
 
-        let (encodeImmutableFields, encodeMutableFields) = Swapoffer.encodeFields!(tokenOffered, tokenWanted, tokenOfferedAmt, tokenWantedAmt, minter)
-
-        let contractID = copyCreateContract!{minter -> ALPH: 1 alph}(
+        let contractID = copyCreateContract!{minter -> ALPH: 1 alph, tokenOffered: tokenOfferedAmt}(
             contract,                                                                                  
             encodeImmutableFields,
-            encodeMutableFields,
+            encodeMutableFields
         )
 
-        let contractaddress = contractIdToAddress!(contractID)
-
-        transferToken!(minter, contractaddress, tokenOffered, tokenOfferedAmt)
+        transferToken!(minter, owner, ALPH, getAlphFee())
 
         emit SwapCreated(minter, tokenOffered, tokenWanted, contractID)
-
-        return contractID
     }
 
-    @using(preapprovedAssets = true, assetsInContract = false, updateFields = false, checkExternalCaller = false)
-    pub fn feepaca(amount: U256) {
+    @using(preapprovedAssets = true, assetsInContract = false, updateFields = true, checkExternalCaller = false)
+    pub fn feepaca(amount: U256) -> () {
 
         pacafee = amount
 
         emit PacaFeeChange(pacafee)
     }
 
-    @using(preapprovedAssets = true, assetsInContract = false, updateFields = false, checkExternalCaller = false)
-    pub fn feealph(amount: U256) {
+    @using(preapprovedAssets = true, assetsInContract = false, updateFields = true, checkExternalCaller = false)
+    pub fn feealph(amount: U256) -> () {
         
         alphfee = amount
 

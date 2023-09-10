@@ -1,19 +1,18 @@
 // This is the token swap offer for the token the user is willing to give up and the token the user wants to recieve
 
 Contract Swapoffer (
-    ByteVec: tokenOffered,
-    ByteVec: tokenWanted,
-    mut U256: offered,
-    mut U256: wanted,
-    Address: owner
+    owner: Address,
+    tokenOffered: ByteVec,
+    tokenWanted: ByteVec,
+    mut offered: U256,
+    mut wanted: U256
 ) {
 
     event OfferCanceled(creator: Address, id: ByteVec)
     event OfferCompleted(creator: Address, user: Address, id: ByteVec) 
 
-    enum ErrorCodes = {
+    enum ErrorCodes {
         InvalidCaller = 1
-        InvalidAssets = 2
     }
 
     pub fn getOfferedToken() -> ByteVec {
@@ -40,13 +39,16 @@ Contract Swapoffer (
         return tokenOffered
     }
 
-    @using(preapprovedAssets = true, assetsInContract = true, updateFields = false, checkExternalCaller = false)
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
     pub fn acceptswap() -> () {
         
         let caller = callerAddress!()
 
         transferToken!(caller, owner, getWantedToken(), getWantedAmt())                 // creator gets paid
         transferToken!(selfAddress!(), caller, getOfferedToken(), getOfferedAmt())      // user gets paid
+
+        wanted = wanted - wanted
+        offered = offered - offered
 
         destroySelf!(owner)                                                             // gets their one alph deposit back
 
@@ -56,13 +58,13 @@ Contract Swapoffer (
     @using(preapprovedAssets = true, assetsInContract = true, updateFields = false, checkExternalCaller = false)
     pub fn cancelswap() -> () {
         
-        let minter = callerAddress!()
+        let caller = callerAddress!()
 
-        checkCaller!(minter == owner, ErrorCodes.InvalidCaller)                         // only the caller can cancel the swap
+        checkCaller!(caller == owner, ErrorCodes.InvalidCaller)                         // only the caller can cancel the swap
         
         destroySelf!(owner)                                                             // gets their one alph deposit back
 
-        emit OfferCanceled(owner, caller)
+        emit OfferCanceled(owner, selfContractId!())
         
     }
 

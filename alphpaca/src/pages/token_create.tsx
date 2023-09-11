@@ -16,47 +16,40 @@ import WhitePaper from './whitepaper'
 
 // Testnet: https://wallet-v20.testnet.alephium.org
 
-// Mainnet: https://node-alephium.ono.re/
+// Mainnet: https://node-alephium.ono.re/ // This works but my personal node does not
 
-//const contractAddress = '29NQz5dKwACqHw5beJ25v6eZQpxAC7rPYqK4xpFYc7CqN' // ContractAddress
+const nodeProvider = new NodeProvider('http://localhost:22973', API_KEY)
 
-/*
+const contractAddress = '22mZiGqqbrvFmVWjXbU6TXtS7DR9Yxix5BHSvEj2uzu9R' // ContractAddress
+
 async function getTokenEvents() {
     const result = await nodeProvider.events.getEventsContractContractaddress(
-        contractAddress, {start: 0, limit: 100}
+        contractAddress, {start: 0, limit: 20}
     )
     return result
 }
-*/
-
 
 export default function AutoTokenMake() {
 
-    /*
     getTokenEvents()
     .then(data => {
         if (data) {
-            let zero = 0
-            for (let i = 0; i < data.events.length; i++) {
-                zero++
-            }
-            console.log("There are a total of: ", zero , " events.")
+            console.log(data)
         }
         else {
             console.log("No Data Available")
         }
     })
-    */
-  
+
     return (
         <div className={styles.alignCenter}>
             <div className={styles.NFTheaderElement}>
                 <button className={styles.button}> <Link href='/tools' className={styles.noDeco} style={{color: 'white'}}>  Back to Tools </Link> </button>
             </div>
             <br/>
-            <div style={{backgroundColor: 'blue', padding: 20}} className={styles.showBorder}>
+            <div style={{backgroundColor: 'darkorange', padding: 20}} className={styles.showBorder}>
                 <AlephiumConnectButton></AlephiumConnectButton>
-                <h2 style={{color: 'white', textAlign: 'center'}}> Please connect wallet before creating token! </h2>
+                <h2 style={{color: 'black', textAlign: 'center'}}> Please connect wallet before creating token! </h2>
                 {/*<TokenDapp config={TokenFaucetConfig}></TokenDapp> This is the $PACA faucet; actively not in use at the moment*/}
                 {/*<DevBoard config={TokenFaucetConfig}></DevBoard> This is the dev dashboard*/}
                 <TokenAutomationCreate config={TokenFaucetConfig}></TokenAutomationCreate>
@@ -67,7 +60,7 @@ export default function AutoTokenMake() {
                 For Example: If you enter 4 Decimals and Supply of 1000 you will get a token with a supply of 1. If you want a supply of 1000 you should add 4 zeros. 10000000 is what the supply should be. <br/> <br/> 
                 The Math: 6 Decimals 10000 Supply. Supply should be 10000(000000); do not enter parenthesis, they are meant to show the supply decimal logic. </p>
                 <h1 style={{color: 'white', textAlign: 'center'}}> Redeeming ALPH Deposit? </h1>
-                <p style={{color: 'white', textAlign: 'center'}}> We are currently scaling our DB and platform to accomadate this. </p>
+                <p style={{color: 'white', textAlign: 'center'}}> We are currently scaling our DB and platform to accommodate this. </p>
             </div>
         </div>
     )

@@ -8,6 +8,5 @@ export * from "./NFTPublicSaleCollectionSequential";
 export * from "./Faucet";
 export * from "./Swapoffer";
 export * from "./Tokenswap";
-export * from "./FeeCollection";
 export * from "./Token";
 export * from "./scripts";

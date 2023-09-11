@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@alephium/web3": "^0.14.0",
+    "@alephium/web3": "^0.21.2",
     "@alephium/web3-wallet": "^0.14.0",
     "discord": "^0.8.2",
     "discord.js": "^14.11.0",

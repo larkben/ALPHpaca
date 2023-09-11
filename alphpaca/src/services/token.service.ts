@@ -1,11 +1,10 @@
 
-import { DUST_AMOUNT, ExecutableScript, ExecuteScriptResult, SignerProvider, contractIdFromAddress } from '@alephium/web3'
-import { Topup, Sendout, Destroy, Buildtoken, Gettoken, Withdrawlassets, Editfee } from '../../artifacts/ts/scripts'
-import { TokenCreate, TokenFaucetConfig, TokenTemplate } from './utils'
-import { Faucet } from 'artifacts/ts'
+import { DUST_AMOUNT, ExecuteScriptResult, SignerProvider } from '@alephium/web3'
+import { Topup, Sendout, Destroy, Buildtoken, Destroytoken } from '../../artifacts/ts/scripts'
+import { TokenCreate, TokenFaucetConfig, } from './utils'
 import * as web3 from '@alephium/web3'
 
-// Sendout and Withdraw and Destroy Functions
+//? Sendout and Topup and Destroy Functions
 
 export const topup = async (
   signerProvider: SignerProvider, // Signed Amount
@@ -25,7 +24,6 @@ export const topup = async (
 export const sendout = async (
   signerProvider: SignerProvider,
   amount: string,
-  tokenId: string
 ): Promise<ExecuteScriptResult> => {
   return await Sendout.execute(signerProvider, {
     initialFields: {
@@ -36,8 +34,6 @@ export const sendout = async (
                                   // Notice no Asset required here. Means the user doesn't require $PACA.
   })
 }
-
-// Destroy Function
 
 export const destroy = async (
   signerProvider: SignerProvider
@@ -51,7 +47,7 @@ export const destroy = async (
   })
 }
 
-// Token Creation Functions
+//? Token Creation + Destroy Functions
 
 export const BuildToken = async (
   signerProvider: SignerProvider,
@@ -73,9 +69,35 @@ export const BuildToken = async (
   })
 }
 
-// Token Destroy (Only Callable by Token Creators)
+export const DestroyToken = async (
+  signerProvider: SignerProvider,
+  contractID: string              //! Must be pulled from database
+): Promise<ExecuteScriptResult> => {
+  return await Destroytoken.execute(signerProvider, {
+    initialFields: {
+      contract: contractID
+    },
+    attoAlphAmount: DUST_AMOUNT,
+                                  // Notice no Asset required here. Means the user doesn't require $PACA.
+  })
+}
 
-//TODO Database and Event Collection to Allow Access to this for Users
+//? TokenSwapContract
+
+export const CreateSwap = async (
+  signerProvider: SignerProvider,
+  contractID: string              //! Must be pulled from database
+): Promise<ExecuteScriptResult> => {
+  return await Destroy.execute(signerProvider, {
+    initialFields: {
+      contract: contractID
+    },
+    attoAlphAmount: DUST_AMOUNT,
+                                  // Notice no Asset required here. Means the user doesn't require $PACA.
+  })
+}
+
+
 
 
 

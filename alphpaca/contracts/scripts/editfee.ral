@@ -1,6 +1,0 @@
-TxScript Editfee(
-    contract: FeeCollection,
-    edit: U256
-) {
-    contract.editfee(edit)
-}

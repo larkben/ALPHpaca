@@ -26,6 +26,22 @@ export interface TokenTemplate {
   contractId: string
 }
 
+export interface Swapoffer {
+  network: NetworkId
+  groupIndex: number
+  contractAddress: string
+  contractId: string
+
+}
+
+export interface Tokenswap {
+  network: NetworkId
+  groupIndex: number
+  contractAddress: string
+  contractId: string
+  feetoken: string
+}
+
 function getNetwork(): NetworkId {
   const network = (process.env.NEXT_PUBLIC_NETWORK ?? 'mainnet') as NetworkId //! This is where you change the network
   return network
@@ -55,6 +71,7 @@ function getTokenCreateConfig(): TokenCreate {
   return { network, groupIndex, contractAddress, contractId, tokenContract, pacaId}
 }
 
+//* Token Template
 function getTokenTemplateConfig(): TokenTemplate {
   const network = getNetwork()
   const TokenTemplate = loadDeployments(network).contracts.Token.contractInstance
@@ -63,6 +80,23 @@ function getTokenTemplateConfig(): TokenTemplate {
   const contractId = TokenTemplate.contractId
   return {network, groupIndex, contractAddress, contractId}
 }
+
+/*
+//* SwapContractCreation
+function getSwapContractCreationConfig(): Tokenswap {
+  const network = getNetwork()
+  const SwapContractCreation = loadDeployments(network).contracts.
+  const groupIndex = SwapContractCreation?.groupIndex
+  const contractAddress = SwapContractCreation?.address
+  const contractId = SwapContractCreation?.contractId
+  return {network, groupIndex, contractAddress, contractId}
+}
+
+//* SwapContract
+function getSwapContractConfig(): Swapoffer {
+  const network = getNetwork()
+}
+*/
 
 export const TokenFaucetConfig = getTokenFaucetConfig()
 export const TokenCreate = getTokenCreateConfig()

@@ -1,11 +1,7 @@
 import React from 'react'
 import styles from '@/styles/Home.module.css'
-//import { TokenDapp } from '@/components/FaucetDapp'
 import { AlephiumConnectButton } from '@alephium/web3-react'
-
 import { useState, useEffect } from 'react';
-import Link from 'next/link'
-import { NodeProvider } from '@alephium/web3'
 
 async function getAlphPrice() {
     const response = await fetch('https://api.coingecko.com/api/v3/coins/alephium?tickers=true&market_data=true');
@@ -47,36 +43,11 @@ export default function NFT() {
                 </div>
 
                 <div className={styles.NFTheader}>
-                    <h1 className={styles.NFTheaderElement}> ALPHpacas Marketplace </h1>
-                    <div className={`${styles.NFTheaderElement} ${styles.searchBox}`}>
-                        <form name="alphpaca">
-                            <input type="text" className={styles.input} name="txt" placeholder="Search NFTS, or Wallets"/>
-                        </form>
-                    </div>
-                    <div className={styles.NFTheaderElement}>
-                        <button className={styles.button}> <Link href='/' className={styles.noDeco} style={{color: 'white'}}>  ALPHpaca HUB </Link> </button>
-                    </div>
-                    <div className={styles.NFTheaderElement}>
-                        <button className={styles.button}> Create NFT </button>
-                    </div>
+                    <h1 className={styles.NFTheaderElement}> ALPHpacas Swap Market </h1>
                     <AlephiumConnectButton></AlephiumConnectButton>
                 </div>
 
             </div>
-
-            <div className={`${styles.statsBar} ${styles.NFTNews}`}>
-                <div className={`${styles.stats} ${styles.showBorder} ${styles.TopCollection}`}>
-                    <p> Top NFT Collections </p>
-                </div>
-                <div className={`${styles.stats} ${styles.showBorder} ${styles.RecentMints}`}>
-                    <p> Most Recent Sales </p>
-                </div>
-            </div>
-
-            <div className={styles.NFTlisting}>
-                <p className={styles.comingSoon}> NFT Markets coming to a blockchain near you... <br/> </p>
-            </div>
-
         </div>
     )
 }

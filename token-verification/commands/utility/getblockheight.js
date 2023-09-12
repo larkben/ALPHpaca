@@ -1,20 +1,33 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { NodeProvider } = require('@alephium/web3')
 
-async function getBlockHeight() {
+const nodeProvider = new NodeProvider('https://node-alephium.ono.re/')
+
+async function getBlockHeight(from, to) {
     let result = await nodeProvider.blockflow.getBlockflowChainInfo({
-        fromGroup: 0,
-        toGroup: 0
+        fromGroup: from,
+        toGroup: to
       })
-    console.log(result)
+    console.log("User called currentHeight.")
     return result.currentHeight
 }
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('getheight')
-		.setDescription('Replies with Block Height.'),
+		.setDescription('Replies with Block Height of a given from and to.')
+    .addStringOption(option =>
+      option.setName('from')
+        .setDescription('the from point'))
+    .addStringOption(option =>
+      option.setName('to')
+        .setDescription('the to point')),
 	async execute(interaction) {
-		await interaction.reply(getBlockHeight());
+      const fromChain = interaction.options.getString('from')
+      const toChain = interaction.options.getString('to')
+
+      const height = await getBlockHeight(fromChain, toChain)
+
+		  await interaction.reply(`The current height from: ${fromChain}, to: ${toChain}; is ${height}.`)
 	},
 };

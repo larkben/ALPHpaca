@@ -6,19 +6,18 @@ import { Faucet } from 'artifacts/ts'
 import * as web3 from '@alephium/web3'
 
 // Sendout and Withdraw and Destroy Functions
-
 export const topup = async (
-  signerProvider: SignerProvider, // Signed Amount
-  amount: string,                 // $PACA Amount
-  tokenId: string                 // $PACA ID
+  signerProvider: SignerProvider,                  // Signed Amount
+  amount: string,                                  // $PACA Amount
+  tokenId: string                                  // $PACA ID
 ): Promise<ExecuteScriptResult> => {
   return await Topup.execute(signerProvider, {
     initialFields: {
-      contract: TokenFaucetConfig.faucetID, // The contract
-      amount: BigInt(amount)                // The amount
+      contract: TokenFaucetConfig.faucetID,        // The contract
+      amount: BigInt(amount)                       // The amount
     },
     attoAlphAmount: DUST_AMOUNT,
-    tokens: [{id: tokenId, amount: amount}] // Asset in Wallet
+    tokens: [{id: tokenId, amount: amount}]        // Asset in Wallet
   })
 }
 
@@ -33,12 +32,11 @@ export const sendout = async (
       amount: BigInt(amount)
     },
     attoAlphAmount: DUST_AMOUNT,
-                                  // Notice no Asset required here. Means the user doesn't require $PACA.
+                                                  // Notice no Asset required here. Means the user doesn't require $PACA.
   })
 }
 
 // Destroy Function
-
 export const destroy = async (
   signerProvider: SignerProvider
 ): Promise<ExecuteScriptResult> => {
@@ -47,12 +45,11 @@ export const destroy = async (
       contract: TokenFaucetConfig.faucetID
     },
     attoAlphAmount: DUST_AMOUNT,
-                                  // Notice no Asset required here. Means the user doesn't require $PACA.
+                                                  // Notice no Asset required here. Means the user doesn't require $PACA.
   })
 }
 
 // Token Creation Functions
-
 export const BuildToken = async (
   signerProvider: SignerProvider,
   symbol: string,
@@ -69,13 +66,31 @@ export const BuildToken = async (
       tokenTotal: BigInt(supply)
     },
     attoAlphAmount: DUST_AMOUNT + web3.ONE_ALPH 
-                                  // Notice no Asset required here. Means the user doesn't require $PACA.
+                                                  // Notice no Asset required here. Means the user doesn't require $PACA.
   })
 }
 
 // Token Destroy (Only Callable by Token Creators)
+export const destroy = async (
+  signerProvider: SignerProvider,
+  contractId: string,                             // must fetch id from db which is logged via event
+): Promise<ExecuteScriptResult> => {
+  return await Destroy.execute(signerProvider, {
+    initialFields: {
+      contract: contractId                        // passed from line 76 dec.
+    },
+    attoAlphAmount: DUST_AMOUNT,
+  })
+}
 
-//TODO Database and Event Collection to Allow Access to this for Users
+// TokenOfferCreation
+
+
+// Token Offer Accept
+
+
+// Token Offer Cancel
+
 
 
 

@@ -71,17 +71,7 @@ export const BuildToken = async (
 }
 
 // Token Destroy (Only Callable by Token Creators)
-export const destroy = async (
-  signerProvider: SignerProvider,
-  contractId: string,                             // must fetch id from db which is logged via event
-): Promise<ExecuteScriptResult> => {
-  return await Destroy.execute(signerProvider, {
-    initialFields: {
-      contract: contractId                        // passed from line 76 dec.
-    },
-    attoAlphAmount: DUST_AMOUNT,
-  })
-}
+
 
 // TokenOfferCreation
 

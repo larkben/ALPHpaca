@@ -34,7 +34,7 @@
 
 .showBorder {
     border-radius: 25px;
-    border: 2px solid #e24502;
+    border: 2px solid #02e2d3;
     padding: 1px;
 }
 
@@ -44,16 +44,18 @@
 }
 
 .mainOverview {
-    background-color: #e24502;
+    background-color: #0288e2;
     border-radius: 25px;
-    border: 2px solid #e24502;
+    border: 2px solid #000000;
     padding: 1px;
+    padding-bottom: 15px;
 }
 
 .statsBar {
     display: table;
-    width: 99.5%;
-    table-layout: fixed;
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 25%;
     background-color: #1d1d1d;    /* For cells of equal size */
 }
 
@@ -67,10 +69,11 @@
 
 .NFTheader {
     font-family: 'Tektur', cursive;
-    color: #000000;
+    color: #ffffff;
     display: table;
     table-layout: inherit;
     width: 100%;
+    font-size: 25px;
 }
 
 .NFTheaderElement {
@@ -548,5 +551,11 @@ NAV BAR ANIMATION
 .linkfour:hover::after {
 
   clip-path: polygon( 20% 55%, 10% 60%, 30% 70%, 40% 65%, 60% 65%, 70% 70%, 90% 60%, 80% 55%, 60% 65%, 40% 65%, 20% 55%, 20% 45%, 10% 40%, 30% 30%, 40% 35%, 60% 35%, 70% 30%, 90% 40%, 80% 45%, 60% 35%, 40% 35%, 20% 45% );
+}
+
+.homepagemain {
+    color: #0d73d3;
+    margin: auto;
+    text-align: center;
 }
   

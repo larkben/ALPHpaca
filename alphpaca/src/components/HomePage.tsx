@@ -29,7 +29,6 @@ export default function HomePage() {
         <style>
           @import url(&quot;https://fonts.googleapis.com/css2?family=Tektur&display=swap&quot;);
         </style>
-        <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
         <div className={styles.mainOverview} style={{marginBottom: '50px'}}>
 
                 <div className={`${styles.showBorder} ${styles.statsBar}`}>
@@ -37,7 +36,7 @@ export default function HomePage() {
                 </div>
 
                 <div className={styles.NFTheader}>
-                    <h1 className={styles.NFTheaderElement}> ALPHpaca's </h1>
+                    <h1 className={styles.NFTheaderElement}> ALPHpaca&apos;s </h1>
                 </div>
 
         </div>

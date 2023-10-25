@@ -6,7 +6,7 @@
     "dev": "next dev",
     "start": "next start",
     "export": "next export",
-    "build": "npm run devnet:build",
+    "build": "npm run mainnet:build",
     "devnet:build": "NEXT_PUBLIC_NETWORK=devnet next build",
     "testnet:build": "NEXT_PUBLIC_NETWORK=testnet next build",
     "mainnet:build": "NEXT_PUBLIC_NETWORK=mainnet next build",

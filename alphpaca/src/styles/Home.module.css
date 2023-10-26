@@ -34,7 +34,6 @@
 
 .showBorder {
     border-radius: 25px;
-    border: 2px solid #02e2d3;
     padding: 1px;
 }
 
@@ -55,7 +54,7 @@
     display: table;
     margin-top: 10px;
     margin-left: 20px;
-    width: 25%;
+    width: auto;
     background-color: #1d1d1d;    /* For cells of equal size */
 }
 
@@ -63,8 +62,9 @@
     display: table-cell;
     text-align: center;
     color: white;
-    padding: 5px;
     font-family: 'Tektur', cursive;
+    border-radius: 25px;
+    padding: 1px;
 }
 
 .NFTheader {
@@ -79,6 +79,14 @@
 .NFTheaderElement {
     display: table-cell;
     text-align: center;
+}
+
+.statsDescription {
+    max-width: 300px;
+    text-align: center;
+    font-family: 'Tektur', cursive;
+    color: white;
+    padding-left: 8px;
 }
 
 .searchBox {

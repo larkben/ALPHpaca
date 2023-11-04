@@ -2,6 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
+export * from "./BurnToken";
 export * from "./CreateToken";
 export * from "./Faucet";
 export * from "./FeeCollection";

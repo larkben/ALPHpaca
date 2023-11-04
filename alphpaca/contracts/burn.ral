@@ -1,0 +1,33 @@
+// This contract is designed to revoked permissions from anyone
+// including the owner. Once contract takes ownership tokens will
+// under the full subject of this contract.
+
+// Use this contract carefully, funds will not and cannot be refunded.
+
+Contract BurnToken (
+	mut tokensburned: U256,
+	tokenid: ByteVec           // PACA, used for name (ALPHpaca)
+) {
+	// Events
+	event Burn(from: Address, amount: U256, token: ByteVec)
+
+	pub fn getSymbol() -> ByteVec {
+		return tokenid
+	}
+
+	pub fn getName() -> ByteVec {
+		return tokenid
+	}
+
+	@using(preapprovedAssets = true, assetsInContract = false, updateFields = true, checkExternalCaller = false)
+	pub fn burntoken(amount: U256) -> () {
+
+		let caller = callerAddress!()
+
+		burnToken!(caller, tokenid, amount)
+
+		tokensburned = tokensburned + amount  // Added to total tokens burned
+
+		emit Burn(caller, amount, tokenid)
+	}
+}

@@ -1,0 +1,8 @@
+TxScript Burn(
+	contract: BurnToken,
+	amount: U256
+) {
+	let token = contract.getName()
+
+	contract.burntoken{callerAddress!() -> token: amount}(amount)
+}

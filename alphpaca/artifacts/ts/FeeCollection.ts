@@ -102,6 +102,7 @@ class Factory extends ContractFactory<
   FeeCollectionInstance,
   FeeCollectionTypes.Fields
 > {
+
   eventIndex = {
     RecievedToken: 0,
     FeeRecieved: 1,

@@ -1,14 +1,12 @@
 import { NetworkId } from '@alephium/web3'
 import { loadDeployments } from '../../artifacts/ts/deployments'
 
-//TODO Clean Up Interface / Utils
-
 //* Interfaces
 export interface TokenFaucetConfig {
   network: NetworkId
   groupIndex: number
   faucetAddress: string               
-  faucetID: string // ID of the contract
+  faucetID: string                          // ID of the contract
   tokenID: string
 }
 
@@ -18,7 +16,7 @@ export interface TokenCreate {
   contractAddress: string
   contractId: string
   tokenContract: string
-  pacaId: string // PACA fee
+  pacaId: string                            // PACA fee
 }
 
 export interface TokenTemplate {
@@ -28,6 +26,15 @@ export interface TokenTemplate {
   contractId: string
 }
 
+export interface BurnToken {
+  network: NetworkId
+  groupIndex: number
+  contractAddress: string
+  contractId: string
+  tokenId: string
+}
+
+// Network
 function getNetwork(): NetworkId {
   const network = (process.env.NEXT_PUBLIC_NETWORK ?? 'mainnet') as NetworkId //! This is where you change the network
   return network
@@ -57,6 +64,7 @@ function getTokenCreateConfig(): TokenCreate {
   return { network, groupIndex, contractAddress, contractId, tokenContract, pacaId}
 }
 
+//* TokenTemplate // For TokenCreation
 function getTokenTemplateConfig(): TokenTemplate {
   const network = getNetwork()
   const TokenTemplate = loadDeployments(network).contracts.Token.contractInstance
@@ -66,6 +74,17 @@ function getTokenTemplateConfig(): TokenTemplate {
   return {network, groupIndex, contractAddress, contractId}
 }
 
+function getTokenBurnConfig(): BurnToken {
+  const network = getNetwork()
+  const groupIndex = 1
+  const contractAddress = "uWNJCzc9jYyBTkmQvRfFT9J2h6E7tVaesSztCu1E2Bmh"
+  const contractId = "0c25a4d394b16161459848f5b89088bf303776752dd467b0c1c96c2f7a5eeb00"
+  const tokenId = "1516c410b54470d667e1315ce2faa81870c76c5c7a491e3e86eeec8366495502"     // MONTY COIN
+  return {network, groupIndex, contractAddress, contractId, tokenId}
+}
+
+// Exports
 export const TokenFaucetConfig = getTokenFaucetConfig()
 export const TokenCreate = getTokenCreateConfig()
 export const TokenTemplate = getTokenTemplateConfig()
+export const TokenBurnConfig = getTokenBurnConfig()

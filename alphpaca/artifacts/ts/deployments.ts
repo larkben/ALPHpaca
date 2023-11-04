@@ -11,6 +11,8 @@ import {
   TokenInstance,
   CreateToken,
   CreateTokenInstance,
+  BurnToken,
+  BurnTokenInstance,
   FeeCollection,
   FeeCollectionInstance,
 } from ".";
@@ -23,6 +25,7 @@ export type Deployments = {
     Faucet: DeployContractExecutionResult<FaucetInstance>;
     Token: DeployContractExecutionResult<TokenInstance>;
     CreateToken: DeployContractExecutionResult<CreateTokenInstance>;
+    BurnToken: DeployContractExecutionResult<BurnTokenInstance>;
     FeeCollection?: DeployContractExecutionResult<FeeCollectionInstance>;
   };
 };
@@ -45,6 +48,12 @@ function toDeployments(json: any): Deployments {
       ...json.contracts["CreateToken"],
       contractInstance: CreateToken.at(
         json.contracts["CreateToken"].contractInstance.address
+      ),
+    },
+    BurnToken: {
+      ...json.contracts["BurnToken"],
+      contractInstance: BurnToken.at(
+        json.contracts["BurnToken"].contractInstance.address
       ),
     },
     FeeCollection:

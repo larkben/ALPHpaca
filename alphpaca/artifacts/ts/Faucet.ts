@@ -74,6 +74,7 @@ export namespace FaucetTypes {
 }
 
 class Factory extends ContractFactory<FaucetInstance, FaucetTypes.Fields> {
+
   eventIndex = { Topup: 0, Sendout: 1, Destroy: 2 };
   consts = {
     ErrorCodes: {

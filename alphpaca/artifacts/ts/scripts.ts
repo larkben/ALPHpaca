@@ -11,19 +11,27 @@ import {
   SignerProvider,
   HexString,
 } from "@alephium/web3";
-import { default as TopupScriptJson } from "../scripts/Topup.ral.json";
+import { default as BuildtokenScriptJson } from "../scripts/Buildtoken.ral.json";
+import { default as BurnScriptJson } from "../scripts/Burn.ral.json";
 import { default as DestroyScriptJson } from "../scripts/Destroy.ral.json";
 import { default as DestroytokenScriptJson } from "../scripts/Destroytoken.ral.json";
 import { default as EditfeeScriptJson } from "../scripts/Editfee.ral.json";
-import { default as BuildtokenScriptJson } from "../scripts/Buildtoken.ral.json";
 import { default as GettokenScriptJson } from "../scripts/Gettoken.ral.json";
-import { default as WithdrawlassetsScriptJson } from "../scripts/Withdrawlassets.ral.json";
 import { default as SendoutScriptJson } from "../scripts/Sendout.ral.json";
+import { default as TopupScriptJson } from "../scripts/Topup.ral.json";
+import { default as WithdrawlassetsScriptJson } from "../scripts/Withdrawlassets.ral.json";
 
-export const Topup = new ExecutableScript<{
+export const Buildtoken = new ExecutableScript<{
+  contract: HexString;
+  symbol: HexString;
+  name: HexString;
+  decimals: bigint;
+  tokenTotal: bigint;
+}>(Script.fromJson(BuildtokenScriptJson));
+export const Burn = new ExecutableScript<{
   contract: HexString;
   amount: bigint;
-}>(Script.fromJson(TopupScriptJson));
+}>(Script.fromJson(BurnScriptJson));
 export const Destroy = new ExecutableScript<{ contract: HexString }>(
   Script.fromJson(DestroyScriptJson)
 );
@@ -34,21 +42,18 @@ export const Editfee = new ExecutableScript<{
   contract: HexString;
   edit: bigint;
 }>(Script.fromJson(EditfeeScriptJson));
-export const Buildtoken = new ExecutableScript<{
-  contract: HexString;
-  symbol: HexString;
-  name: HexString;
-  decimals: bigint;
-  tokenTotal: bigint;
-}>(Script.fromJson(BuildtokenScriptJson));
 export const Gettoken = new ExecutableScript<{
   contract: HexString;
   amount: bigint;
 }>(Script.fromJson(GettokenScriptJson));
-export const Withdrawlassets = new ExecutableScript<{ contract: HexString }>(
-  Script.fromJson(WithdrawlassetsScriptJson)
-);
 export const Sendout = new ExecutableScript<{
   contract: HexString;
   amount: bigint;
 }>(Script.fromJson(SendoutScriptJson));
+export const Topup = new ExecutableScript<{
+  contract: HexString;
+  amount: bigint;
+}>(Script.fromJson(TopupScriptJson));
+export const Withdrawlassets = new ExecutableScript<{ contract: HexString }>(
+  Script.fromJson(WithdrawlassetsScriptJson)
+);

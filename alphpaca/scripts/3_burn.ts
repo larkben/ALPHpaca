@@ -1,7 +1,6 @@
 import { Deployer, DeployFunction, Network } from '@alephium/cli'
 import { Settings } from '../alephium.config'
-import { CreateToken } from '../artifacts/ts'
-import { TokenTemplate } from '@/services/utils'
+import { Burn, BurnToken } from '../artifacts/ts'
 
 //! TestNet Token $PACA
 // 23ced1fcda7fb1f53641dc299cf49b12a89338c80d05534fc5b366d5b65acd02
@@ -11,19 +10,19 @@ import { TokenTemplate } from '@/services/utils'
 
 // This deploy function will be called by cli deployment tool automatically
 //* Note that deployment scripts should prefixed with numbers (starting from 0)
-const tokenCreate: DeployFunction<Settings> = async (
+const tokenBurn: DeployFunction<Settings> = async (
   deployer: Deployer,
 ): Promise<void> => {
   // Get settings
-  const result = await deployer.deployContract(CreateToken, {
+  const result = await deployer.deployContract(BurnToken, {
     // The initial states of the faucet contract
     initialFields: {
-      owner: "16gAmGuCysLjGxHK8TUENkvhbqvwZRb6BabUbsxLYkSkd", //! Owner
-      contract: "1bdf91ae939427949daf79bad5a92a2b4974f84d4cd2b3a0686dd38b7b73a400"
+      tokensburned: 0n,
+      tokenid: "1516c410b54470d667e1315ce2faa81870c76c5c7a491e3e86eeec8366495502"
     }
   })
-  console.log('Token create contract id: ' + result.contractInstance.contractId)
-  console.log('Token create contract address: ' + result.contractInstance.address)
+  console.log('Burn contract id: ' + result.contractInstance.contractId)
+  console.log('Burn contract address: ' + result.contractInstance.address)
 }
 
-export default tokenCreate
+export default tokenBurn

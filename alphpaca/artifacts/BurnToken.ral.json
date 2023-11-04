@@ -1,0 +1,79 @@
+{
+  "version": "v2.5.7",
+  "name": "BurnToken",
+  "bytecode": "020309124031010000000102ce0002010000000102ce000201030102000fb417011601ce001600bda00016002aa1000516011600ce0060",
+  "codeHash": "7d3c025e9ac56c8cb53c182134dc0a455987cc788745a4052730084e30811658",
+  "fieldsSig": {
+    "names": [
+      "tokensburned",
+      "tokenid"
+    ],
+    "types": [
+      "U256",
+      "ByteVec"
+    ],
+    "isMutable": [
+      true,
+      false
+    ]
+  },
+  "eventsSig": [
+    {
+      "name": "Burn",
+      "fieldNames": [
+        "from",
+        "amount",
+        "token"
+      ],
+      "fieldTypes": [
+        "Address",
+        "U256",
+        "ByteVec"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "getSymbol",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "ByteVec"
+      ]
+    },
+    {
+      "name": "getName",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "ByteVec"
+      ]
+    },
+    {
+      "name": "burntoken",
+      "usePreapprovedAssets": true,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [
+        "amount"
+      ],
+      "paramTypes": [
+        "U256"
+      ],
+      "paramIsMutable": [
+        false
+      ],
+      "returnTypes": []
+    }
+  ],
+  "constants": [],
+  "enums": []
+}

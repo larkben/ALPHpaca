@@ -1,8 +1,8 @@
 
 import { DUST_AMOUNT, ExecutableScript, ExecuteScriptResult, SignerProvider, contractIdFromAddress } from '@alephium/web3'
-import { Topup, Sendout, Destroy, Buildtoken, Gettoken, Withdrawlassets, Editfee, Destroytoken } from '../../artifacts/ts/scripts'
-import { TokenCreate, TokenFaucetConfig, TokenTemplate } from './utils'
-import { Faucet } from 'artifacts/ts'
+import { Topup, Sendout, Destroy, Buildtoken, Gettoken, Withdrawlassets, Editfee, Destroytoken, Burn } from '../../artifacts/ts/scripts'
+import { TokenCreate, TokenFaucetConfig, TokenTemplate, TokenBurnConfig } from './utils'
+import { BurnToken, Faucet } from 'artifacts/ts'
 import * as web3 from '@alephium/web3'
 
 // Sendout and Withdraw and Destroy Functions
@@ -65,8 +65,7 @@ export const BuildToken = async (
       decimals: BigInt(decimals),
       tokenTotal: BigInt(supply)
     },
-    attoAlphAmount: DUST_AMOUNT + web3.ONE_ALPH 
-                                                  // Notice no Asset required here. Means the user doesn't require $PACA.
+    attoAlphAmount: DUST_AMOUNT + web3.ONE_ALPH                // Notice no Asset required here. Means the user doesn't require $PACA.
   })
 }
 
@@ -81,6 +80,21 @@ export const BuildToken = async (
 
 // Token Offer Cancel
 
+
+// Token Burn
+export const BurnTokenContract = async (
+  signerProvider: SignerProvider,
+  amount: string,
+): Promise<ExecuteScriptResult> => {
+  return await Burn.execute(signerProvider, {
+    initialFields: {
+      contract: TokenBurnConfig.contractId,
+      amount: BigInt(amount),
+    },
+    attoAlphAmount: DUST_AMOUNT,
+    tokens: [{id: TokenBurnConfig.tokenId, amount: amount}]
+  })
+}
 
 
 

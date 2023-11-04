@@ -6,6 +6,7 @@ import Image from 'next/image';
 import '@alephium/web3'
 import { TypeAnimation } from 'react-type-animation';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 import WhitePaper from '@/pages/whitepaper'
 import pacaOne from "../assets/10.png"
@@ -36,7 +37,7 @@ export default function HomePage() {
         </style>
         <div className={styles.mainOverview} style={{marginBottom: '50px'}}>
                 <div className={`${styles.showBorder} ${styles.statsBar}`}>
-                    <p className={styles.stats} style={{paddingLeft: 15, width: 200}}> Alephium Price: <i style={{color: 'pink'}}> {alphPrice} </i> </p>
+                    <p className={styles.stats} style={{paddingLeft: 15, width: 250}}> Alephium Price: <i style={{color: 'pink'}}> {alphPrice} </i> </p>
                 </div>
 
                 <div className={styles.NFTheader}>
@@ -46,20 +47,8 @@ export default function HomePage() {
                     <h5 className={styles.NFTheaderElement}> A cute cuddly project blessed upon by Alephium. </h5>
                 </div>
         </div>
-        <div>
-          <div className={styles.mainOverview} style={{marginBottom: '50px'}}>
-                <div className={`${styles.showBorder} ${styles.statsBar}`}>
-                  <div>
-                    <Image className={styles.stats} src={pacaOne} alt="Wild ALPHpaca"/>
-                      <div>
-                        <h3 style={{textAlign: "center"}} className={styles.textNFT}> AstroAlpaca </h3>
-                        <p className={styles.statsDescription}> These ALPHpaca&apos;s arrived from another blockchain to feed on the best hay they have found yet. </p>
-                      </div>
-                  </div>
-                </div>
-          </div>
-        </div>
-        <div style={{textAlign: 'center', marginTop: '50'}}>
+
+        <div style={{textAlign: 'center', marginTop: '75', paddingBottom: 20}}>
           <TypeAnimation
             sequence={[
                 // Same substring at the start will only be typed out once, initially
@@ -79,6 +68,33 @@ export default function HomePage() {
             className={`${styles.textNFT}`}
             repeat={Infinity}
           />
+        </div>
+
+        <div className={styles.NFTheader}>
+          <h2 className={styles.NFTheaderElement}> Some of our dapps...  </h2>
+        </div>
+
+        <div className={styles.horizontalLinks}>
+          <Link className={`${styles.horizontalLink} ${styles.showBorder} ${styles.textNFT}`} style={{padding: 25, color: "black", backgroundColor: "white", fontSize: 20, margin: 20}} href="/token_create"> Token Builder </Link>
+
+          <Link className={`${styles.horizontalLink} ${styles.showBorder} ${styles.textNFT}`} style={{padding: 25, color: "black", backgroundColor: "white", fontSize: 20, margin: 20}} href="https://www.youtube.com/watch?v=Hl8-Jj_trT4&list=PL7hY7WrcPQBp0d-IEDIcvDYGqzwJjVv67"> Building on Alph? </Link>      
+        </div>
+      
+        <div>
+          <div className={styles.NFTheader}>
+            <h2 className={styles.NFTheaderElement}> Meet the ALPHpacas! </h2>
+          </div>
+          <div className={styles.mainOverview} style={{marginBottom: '50px'}}>
+                <div className={`${styles.showBorder} ${styles.statsBar}`}>
+                  <div>
+                    <Image className={styles.stats} src={pacaOne} alt="Wild ALPHpaca"/>
+                      <div>
+                        <h3 style={{textAlign: "center"}} className={styles.textNFT}> AstroAlpaca </h3>
+                        <p className={styles.statsDescription}> These ALPHpaca&apos;s arrived from another blockchain to feed on the best hay they have found yet. </p>
+                      </div>
+                  </div>
+                </div>
+          </div>
         </div>
       </div>
   )

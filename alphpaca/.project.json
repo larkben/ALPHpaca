@@ -1,5 +1,5 @@
 {
-  "fullNodeVersion": "v2.5.3",
+  "fullNodeVersion": "v2.5.7",
   "compilerOptionsUsed": {
     "ignoreUnusedConstantsWarnings": false,
     "ignoreUnusedVariablesWarnings": false,
@@ -14,6 +14,20 @@
       "sourceCodeHash": "df52d82dbc61c93fa7620ed0c47786ca5e0252830209092086345e30419aab5a",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "",
+      "warnings": []
+    },
+    "Burn": {
+      "sourceFile": "scripts/burn.ral",
+      "sourceCodeHash": "f9eb5dffc36f3e93bda01a7e1de3c9309085bb4d441f852ba58b9ae33eb2f9eb",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
+      "warnings": []
+    },
+    "BurnToken": {
+      "sourceFile": "burn.ral",
+      "sourceCodeHash": "f049982c9496d5040e409db8a453bc44fb6fdcd65ae9db81eda77216712ba5b1",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "7d3c025e9ac56c8cb53c182134dc0a455987cc788745a4052730084e30811658",
       "warnings": []
     },
     "CreateToken": {
@@ -46,7 +60,7 @@
     },
     "Faucet": {
       "sourceFile": "paca_faucet.ral",
-      "sourceCodeHash": "421e209f388ab30a4e94363b8aebba3de1f94e3e4ce960d68b0f31b3baeea71d",
+      "sourceCodeHash": "bdce2b9ca1b63c08b828775dddf23302f9d95a35798033bdc5262f7279ea06b5",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "8813de5a4adb21e4e0ea09357924ec19037b916ecfd6a228152238f8e9396d04",
       "warnings": []
@@ -66,7 +80,7 @@
       "warnings": []
     },
     "IFungibleToken": {
-      "sourceFile": "../../../../../.npm/_npx/f1b120e1b513c04c/node_modules/@alephium/web3/std/fungible_token_interface.ral",
+      "sourceFile": "../../../../.npm/_npx/f1b120e1b513c04c/node_modules/@alephium/web3/std/fungible_token_interface.ral",
       "sourceCodeHash": "6809cb06fb20fa7edf529461998beeebd12b1636d439612cca2f84214dbf4a20",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "",
@@ -81,7 +95,7 @@
     },
     "Token": {
       "sourceFile": "token.ral",
-      "sourceCodeHash": "537b80223d95febdb8a5dcdb8426dba2a4dad82e0a0daeba8f462224ea6265ca",
+      "sourceCodeHash": "fcbdce030993275cfc162a2b970344a8e07a750122684f77ae7044756815f8db",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "9fb480d2534a9e8b5cf4b5ef005deeec049136f4462dfc72c56ad041a561526b",
       "warnings": []

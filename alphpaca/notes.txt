@@ -1,0 +1,15 @@
+Goals and Project Development
+
+Swaps and P2P
+
+- Configure an alephium node to run fulltime. 
+  - Computer(D) should be able to handle load; will move the rest to 13/14900k in the winter. On a linux config.
+  - Design Database Tables for users and scaling (PlanetScale DB)
+
+node
+  - configure node and settings (get up and running)
+
+Short Term Goals
+
+- Start Discord Bot up and set up P2P offer book and user registration for drops + more
+  - use node to query discord user functions

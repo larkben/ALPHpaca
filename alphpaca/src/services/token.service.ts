@@ -69,18 +69,6 @@ export const BuildToken = async (
   })
 }
 
-// Token Destroy (Only Callable by Token Creators)
-
-
-// TokenOfferCreation
-
-
-// Token Offer Accept
-
-
-// Token Offer Cancel
-
-
 // Token Burn
 export const BurnTokenContract = async (
   signerProvider: SignerProvider,

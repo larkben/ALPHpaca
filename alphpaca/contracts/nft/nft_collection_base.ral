@@ -1,0 +1,40 @@
+import "std/nft_collection_interface"
+
+Abstract Contract NFTCollectionBase(
+    collectionUri: ByteVec,
+    mut totalSupply: U256
+) implements INFTCollection {
+    enum ErrorCodes {
+        NFTNotFound = 0
+        CollectionOwnerAllowedOnly = 1
+        NFTNotPartOfCollection = 2
+    }
+
+    pub fn getCollectionUri() -> ByteVec {
+        return collectionUri
+    }
+
+    pub fn totalSupply() -> U256 {
+        return totalSupply
+    }
+
+    @using(checkExternalCaller = false)
+    pub fn nftByIndex(index: U256) -> INFT {
+        let nftTokenId = subContractId!(toByteVec!(index))
+        assert!(contractExists!(nftTokenId), ErrorCodes.NFTNotFound)
+
+        return INFT(nftTokenId)
+    }
+
+    @using(assetsInContract = true)
+    pub fn withdraw(to: Address, amount: U256) -> () {
+        checkCaller!(callerAddress!() == collectionOwner, ErrorCodes.CollectionOwnerAllowedOnly)
+        transferTokenFromSelf!(to, ALPH, amount)
+    }
+
+    @using(checkExternalCaller = false)
+    pub fn validateNFT(nftId: ByteVec, nftIndex: U256) -> () {
+      let expectedTokenContract = nftByIndex(nftIndex)
+      assert!(nftId == contractId!(expectedTokenContract), ErrorCodes.NFTNotPartOfCollection)
+    }
+}

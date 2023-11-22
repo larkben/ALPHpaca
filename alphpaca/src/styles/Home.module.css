@@ -2,34 +2,22 @@
     background-color: #080808;
 }
 
-.alignCenter {
-    margin-left: auto;
-    margin-right: auto;
-    width: 800px;
-}
-
-.noDeco {
-    text-decoration: none;
-}
-
-.textBox {
-    width: 50%;
-    height: auto;
-}
-
-.whitepaperText {
-    color: #00fa85;
+.alphpacaTitleGlow {
+    text-shadow: 0 0 5px #005bd1;
+    font-size: 100px;
+    margin-bottom: 5px;
+    margin-left: 50px;
+    margin-top: 5px;
+    color: white;
     font-family: 'Tektur', cursive;
+}
+
+.pacaDescript {
     font-size: 25px;
-}
-
-.whitepaperHeading {
-    font-size: 40px;
+    margin-left: 50px;
+    margin-top: 1px;
+    color: white;
     font-family: 'Tektur', cursive;
-}
-
-.whitepaperLink {
-  text-decoration: none;
 }
 
 .showBorder {
@@ -37,48 +25,89 @@
     padding: 1px;
 }
 
-.textNFT {
-    font-family: 'Tektur', cursive;
-    color: white;
+.uiHub {
+    display: table;
+    clear: both;
+    margin-left: 25px;
+    /* Transparent Border */
+    background-color: rgba(0, 21, 47, 0.811);
+    /* Border Corners */
+    border-radius: 25px;
+    padding: 10px;
+    padding-left: 2px;
 }
 
-.mainOverview {
-    background-color: #0288e2;
-    border-radius: 25px;
-    border: 2px solid #000000;
-    padding: 1px;
-    padding-bottom: 15px;
+.uiNav {
+    float: left;
+    width: 180px;
+    margin-right: 10px;
+    margin-left: 20px;
+    background-color: rgba(1, 47, 103, 0.811);
+    text-align: center;
+}
+
+/* NAV */
+
+.uiNavItems {
+    display: table; /* Use table display */
+    width: 100%; /* Set width if needed */
+    height: 100%;
+    border-collapse: collapse; /* Optional: for table border collapse */
+    margin-top: 20px;
+    color: white;
+    font-family: 'Tektur', cursive;
+}
+
+.uiNavItem {
+    text-align: center; /* Center text */
+    padding: 10px 0; /* Add some vertical padding between items */
+}
+
+.uiContent {
+    float: right;
+    width: 1200px;
+    background-color: rgba(2, 65, 142, 0.811);
+}
+
+.movingText {
+    font-family: 'Tektur', cursive;
+    color: white;
+    margin-left: 50px;
+    margin-bottom: 15px;
+
 }
 
 .statsBar {
     display: table;
     margin-top: 10px;
-    margin-left: 20px;
-    width: auto;
-    background-color: #1d1d1d;    /* For cells of equal size */
+    margin-left: 25px;
+    width: auto; /* For cells of equal size */
+    background-color: #1d1d1d;
+    font-family: 'Tektur', cursive;
+    color: white;
 }
 
-.stats {
+.statsPrice {
     display: table-cell;
     text-align: center;
     color: white;
     font-family: 'Tektur', cursive;
     border-radius: 25px;
     padding: 1px;
+    float: left
 }
 
-.NFTheader {
-    font-family: 'Tektur', cursive;
-    color: #ffffff;
-    display: table;
-    table-layout: inherit;
-    width: 100%;
-    font-size: 25px;
-}
-
-.NFTheaderElement {
+.statsConnect {
     display: table-cell;
     text-align: center;
+    color: white;
+    font-family: 'Tektur', cursive;
+    border-radius: 25px;
+    padding: 1px;
+    float: right;
+    margin: 8px;
+    margin-right: 16px;
+    margin-left: 35px;
 }
 
 .statsDescription {
@@ -270,5 +299,33 @@
     padding: 8px;
     margin: 0 5px;
     color: #333;
+}
+
+/* Button */
+
+.buttonSite {
+  background-color: rgba(255, 255, 255, 0.962);
+  border-radius: 8px;
+  border-width: 5%;
+  width: 80%;
+  color: #333333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-left: 10px;
+  display: inline-block;
 }
   

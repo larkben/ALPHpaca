@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router'
 import Home from './index'
-import Nft from './nft'
+import Swaps from './swaps'
 import Token from './token'
 import Whitepaper from './whitepaper'
 import Tools from './tools'
-import NFT from './nft'
+import NFT from './swaps'
 import Faucet from './faucet'
 import TokenAuto from './token_create'
 
@@ -28,8 +28,8 @@ const routes = [
     component: Tools
   },
   {
-    path: '/nft',
-    component: NFT
+    path: '/swaps',
+    component: Swaps
   },
   {
     path: '/faucet',

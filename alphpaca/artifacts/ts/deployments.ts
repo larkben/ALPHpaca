@@ -15,6 +15,16 @@ import {
   BurnTokenInstance,
   FeeCollection,
   FeeCollectionInstance,
+  NFT,
+  NFTInstance,
+  NFTOpenCollection,
+  NFTOpenCollectionInstance,
+  NFTOpenCollectionWithRoyalty,
+  NFTOpenCollectionWithRoyaltyInstance,
+  NFTPublicSaleCollectionSequential,
+  NFTPublicSaleCollectionSequentialInstance,
+  NFTPublicSaleCollectionSequentialWithRoyalty,
+  NFTPublicSaleCollectionSequentialWithRoyaltyInstance,
 } from ".";
 import { default as mainnetDeployments } from "../.deployments.mainnet.json";
 import { default as testnetDeployments } from "../.deployments.testnet.json";
@@ -27,6 +37,11 @@ export type Deployments = {
     CreateToken: DeployContractExecutionResult<CreateTokenInstance>;
     BurnToken: DeployContractExecutionResult<BurnTokenInstance>;
     FeeCollection?: DeployContractExecutionResult<FeeCollectionInstance>;
+    NFT?: DeployContractExecutionResult<NFTInstance>;
+    NFTOpenCollection?: DeployContractExecutionResult<NFTOpenCollectionInstance>;
+    NFTOpenCollectionWithRoyalty?: DeployContractExecutionResult<NFTOpenCollectionWithRoyaltyInstance>;
+    NFTPublicSaleCollectionSequential?: DeployContractExecutionResult<NFTPublicSaleCollectionSequentialInstance>;
+    NFTPublicSaleCollectionSequentialWithRoyalty?: DeployContractExecutionResult<NFTPublicSaleCollectionSequentialWithRoyaltyInstance>;
   };
 };
 
@@ -63,6 +78,55 @@ function toDeployments(json: any): Deployments {
             ...json.contracts["FeeCollection"],
             contractInstance: FeeCollection.at(
               json.contracts["FeeCollection"].contractInstance.address
+            ),
+          },
+    NFT:
+      json.contracts["NFT"] === undefined
+        ? undefined
+        : {
+            ...json.contracts["NFT"],
+            contractInstance: NFT.at(
+              json.contracts["NFT"].contractInstance.address
+            ),
+          },
+    NFTOpenCollection:
+      json.contracts["NFTOpenCollection"] === undefined
+        ? undefined
+        : {
+            ...json.contracts["NFTOpenCollection"],
+            contractInstance: NFTOpenCollection.at(
+              json.contracts["NFTOpenCollection"].contractInstance.address
+            ),
+          },
+    NFTOpenCollectionWithRoyalty:
+      json.contracts["NFTOpenCollectionWithRoyalty"] === undefined
+        ? undefined
+        : {
+            ...json.contracts["NFTOpenCollectionWithRoyalty"],
+            contractInstance: NFTOpenCollectionWithRoyalty.at(
+              json.contracts["NFTOpenCollectionWithRoyalty"].contractInstance
+                .address
+            ),
+          },
+    NFTPublicSaleCollectionSequential:
+      json.contracts["NFTPublicSaleCollectionSequential"] === undefined
+        ? undefined
+        : {
+            ...json.contracts["NFTPublicSaleCollectionSequential"],
+            contractInstance: NFTPublicSaleCollectionSequential.at(
+              json.contracts["NFTPublicSaleCollectionSequential"]
+                .contractInstance.address
+            ),
+          },
+    NFTPublicSaleCollectionSequentialWithRoyalty:
+      json.contracts["NFTPublicSaleCollectionSequentialWithRoyalty"] ===
+      undefined
+        ? undefined
+        : {
+            ...json.contracts["NFTPublicSaleCollectionSequentialWithRoyalty"],
+            contractInstance: NFTPublicSaleCollectionSequentialWithRoyalty.at(
+              json.contracts["NFTPublicSaleCollectionSequentialWithRoyalty"]
+                .contractInstance.address
             ),
           },
   };

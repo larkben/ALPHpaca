@@ -74,6 +74,9 @@ export namespace FaucetTypes {
 }
 
 class Factory extends ContractFactory<FaucetInstance, FaucetTypes.Fields> {
+  getInitialFieldsWithDefaultValues() {
+    return;
+  }
 
   eventIndex = { Topup: 0, Sendout: 1, Destroy: 2 };
   consts = {

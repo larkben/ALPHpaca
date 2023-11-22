@@ -1,0 +1,18 @@
+Abstract Contract NFTPublicSaleCollectionBase(
+    nftBaseUri: ByteVec,
+    maxSupply: U256,
+    mintPrice: U256
+) {
+    enum PublicSaleErrorCodes {
+        IncorrectTokenIndex = 0
+    }
+
+    pub fn getNFTUri(index: U256) -> ByteVec {
+        assert!(index < maxSupply, PublicSaleErrorCodes.IncorrectTokenIndex)
+        return nftBaseUri ++ u256ToString!(index)
+    }
+
+    pub fn getMintPrice() -> U256 {
+        return mintPrice
+    }
+}

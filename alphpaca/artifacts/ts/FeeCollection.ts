@@ -102,6 +102,9 @@ class Factory extends ContractFactory<
   FeeCollectionInstance,
   FeeCollectionTypes.Fields
 > {
+  getInitialFieldsWithDefaultValues() {
+    return;
+  }
 
   eventIndex = {
     RecievedToken: 0,

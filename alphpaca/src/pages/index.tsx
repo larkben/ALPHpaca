@@ -7,16 +7,55 @@ import '@alephium/web3'
 import { TypeAnimation } from 'react-type-animation';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { AlephiumConnectButton } from '@alephium/web3-react'
 
 import WhitePaper from '@/pages/whitepaper'
 import pacaOne from "../assets/10.png"
 import pacaTwo from "../assets/59.png"
 import pacaThree from "../assets/72.png"
 import pacaFour from "../assets/139.png"
+import { AlephiumWalletProvider } from '@alephium/web3-react';
+import { NodeProvider } from '@alephium/web3';
+
+const API_KEY = "q4YJcksGa1ISzWPspxpSlKppgoHzodnpyWANx8nxtsUIFhtJ";
+const nodeProvider = new NodeProvider('http://98.227.84.182:12973', API_KEY);
 
 export default function HomePage() {
   
     const [alphPrice, setAlphPrice] = useState(null);
+    const [blockHeight, setBlockHeight] = useState<number>();
+    const [showContent, setShowContent] = useState(true);
+    const [showMint, setShowMint] = useState(false);
+    const [showBuild, setShowBuild] = useState(false);
+    const [showAbout, setShowAbout] = useState(false);
+
+    const toggleContent = () => {
+      setShowContent(!showContent);
+      setShowMint(false);
+      setShowBuild(false);
+      setShowAbout(false);
+    };
+
+    const toggleMint = () => {
+      setShowMint(!showMint);
+      setShowContent(false);
+      setShowBuild(false);
+      setShowAbout(false);
+    };
+
+    const toggleBuild = () => {
+      setShowMint(false);
+      setShowContent(false);
+      setShowBuild(!showBuild);
+      setShowAbout(false);
+    };
+
+    const toggleAbout = () => {
+      setShowMint(false);
+      setShowContent(false);
+      setShowBuild(false);
+      setShowAbout(!showAbout);
+    };
 
     useEffect(() => {
         async function fetchAlphPrice() {
@@ -27,7 +66,17 @@ export default function HomePage() {
             setAlphPrice(alphPrice)
         }
 
+        async function fetchBlockHeight() {
+          let blockHeight = await nodeProvider.blockflow.getBlockflowChainInfo({
+            fromGroup: 0,
+            toGroup: 0
+          })
+
+          setBlockHeight(blockHeight.currentHeight)
+        }
+
         fetchAlphPrice();
+        fetchBlockHeight();
     }, []);
 
   return (
@@ -35,20 +84,20 @@ export default function HomePage() {
         <style>
           @import url(&quot;https://fonts.googleapis.com/css2?family=Tektur&display=swap&quot;);
         </style>
-        <div className={styles.mainOverview} style={{marginBottom: '50px'}}>
-                <div className={`${styles.showBorder} ${styles.statsBar}`}>
-                    <p className={styles.stats} style={{paddingLeft: 15, width: 250}}> Alephium Price: <i style={{color: 'pink'}}> {alphPrice} </i> </p>
-                </div>
-
-                <div className={styles.NFTheader}>
-                    <h1 className={styles.NFTheaderElement}> ALPHpaca&apos;s </h1>
-                </div>
-                <div className={styles.NFTheader}>
-                    <h5 className={styles.NFTheaderElement}> A cute cuddly project blessed upon by Alephium. </h5>
-                </div>
+        <div className={`${styles.showBorder} ${styles.statsBar}`}>
+          <p className={styles.statsPrice} style={{paddingLeft: 15, width: 250}}> Alephium Price: <i style={{color: 'pink'}}> {alphPrice} </i> </p>
+          <p className={styles.statsPrice} style={{paddingLeft: 15, width: 250}}> Block Height: <i style={{color: 'pink'}}> {blockHeight} </i> </p>
+          <div className={styles.statsConnect}>
+            <AlephiumConnectButton></AlephiumConnectButton>
+          </div>
+        </div>
+        <br/>
+        <div className={styles.NFTheader}>
+        <h1 className={styles.alphpacaTitleGlow}> ALPHpaca&apos;s </h1>
+        <h5 className={styles.pacaDescript}> A cute cuddly project blessed upon by Alephium. </h5>
         </div>
 
-        <div style={{textAlign: 'center', marginTop: '75', paddingBottom: 20}}>
+        <div className={styles.movingText}>
           <TypeAnimation
             sequence={[
                 // Same substring at the start will only be typed out once, initially
@@ -63,39 +112,49 @@ export default function HomePage() {
                 'Coming 12.25.23.',
                 1000
             ]}
-            speed={35}
+            speed={30}
             style={{ fontSize: '50px' }}
-            className={`${styles.textNFT}`}
             repeat={Infinity}
           />
         </div>
 
-        <div className={styles.NFTheader}>
-          <h2 className={styles.NFTheaderElement}> Some of our dapps...  </h2>
-        </div>
-
-        <div className={styles.horizontalLinks}>
-          <Link className={`${styles.horizontalLink} ${styles.showBorder} ${styles.textNFT}`} style={{padding: 25, color: "black", backgroundColor: "white", fontSize: 20, margin: 20}} href="/token_create"> Token Builder </Link>
-
-          <Link className={`${styles.horizontalLink} ${styles.showBorder} ${styles.textNFT}`} style={{padding: 25, color: "black", backgroundColor: "white", fontSize: 20, margin: 20}} href="https://www.youtube.com/watch?v=Hl8-Jj_trT4&list=PL7hY7WrcPQBp0d-IEDIcvDYGqzwJjVv67"> Building on Alph? </Link>      
-        </div>
-      
-        <div>
-          <div className={styles.NFTheader}>
-            <h2 className={styles.NFTheaderElement}> Meet the ALPHpacas! </h2>
+        <div className={styles.uiHub}>
+          <div className={`${styles.showBorder} ${styles.uiNav}`} style={{height: 300}}>
+            <table className={styles.uiNavItems}>
+              <tr> <button className={styles.buttonSite} onClick={toggleContent}>Dapps</button> </tr>
+              <tr> <button className={styles.buttonSite} onClick={toggleMint}>Coming Soon: Mint</button> </tr>
+              <tr> <button className={styles.buttonSite} onClick={toggleBuild}>Building on ALPH?</button> </tr>
+              <tr> <button className={styles.buttonSite} onClick={toggleAbout}>About</button> </tr>
+            </table>
           </div>
-          <div className={styles.mainOverview} style={{marginBottom: '50px'}}>
-                <div className={`${styles.showBorder} ${styles.statsBar}`}>
-                  <div>
-                    <Image className={styles.stats} src={pacaOne} alt="Wild ALPHpaca"/>
-                      <div>
-                        <h3 style={{textAlign: "center"}} className={styles.textNFT}> AstroAlpaca </h3>
-                        <p className={styles.statsDescription}> These ALPHpaca&apos;s arrived from another blockchain to feed on the best hay they have found yet. </p>
-                      </div>
+          <div className={`${styles.showBorder} ${styles.uiContent}`} style={{height: 300}}>
+            <div>
+              {showContent && (
+                <div>
+                  <div className={styles.horizontalLinks}>
+                    <Link className={`${styles.horizontalLink} ${styles.showBorder} ${styles.textNFT}`} style={{padding: 25, color: "black", backgroundColor: "white", fontSize: 20, margin: 20}} href="/token_create"> Token Builder </Link>
+
+                    <Link className={`${styles.horizontalLink} ${styles.showBorder} ${styles.textNFT}`} style={{padding: 25, color: "black", backgroundColor: "white", fontSize: 20, margin: 20}} href="https://www.youtube.com/watch?v=Hl8-Jj_trT4&list=PL7hY7WrcPQBp0d-IEDIcvDYGqzwJjVv67"> Building on Alph? </Link>      
                   </div>
                 </div>
+              )}
+              {showMint && (
+                <div>
+                </div>
+              )}
+              {showBuild && (
+                <div>
+                </div>
+              )}
+              {showAbout && (
+                <div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
+
+        <br/>
       </div>
   )
 }

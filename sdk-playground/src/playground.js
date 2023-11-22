@@ -35,9 +35,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var web3_1 = require("@alephium/web3");
-var nodeProvider = new web3_1.NodeProvider("https://alephium-backend.ono.re/");
+var nodeProvider = new web3_1.NodeProvider("http://98.227.84.182:12973/docs/");
 function getBlockChainInfo() {
     return __awaiter(this, void 0, void 0, function () {
         var result;

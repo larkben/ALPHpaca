@@ -1,5 +1,5 @@
 {
-  "version": "v2.5.7",
+  "version": "v2.5.9",
   "name": "Buildtoken",
   "bytecodeTemplate": "0101030002001013c40de0b6b3a7640000170016001701b41601a2{1}{2}{3}{4}100d{0}010018",
   "fieldsSig": {

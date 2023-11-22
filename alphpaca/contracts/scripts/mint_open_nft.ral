@@ -1,0 +1,11 @@
+TxScript MintOpenNFT(
+    nftCollectionId: ByteVec,
+    uri: ByteVec,
+    royalty: Bool
+) {
+    if (royalty) {
+        NFTOpenCollectionWithRoyalty(nftCollectionId).mint{callerAddress!() -> ALPH: 1 alph}(uri)
+    } else {
+        NFTOpenCollection(nftCollectionId).mint{callerAddress!() -> ALPH: 1 alph}(uri)
+    }
+}

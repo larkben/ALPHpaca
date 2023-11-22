@@ -1,5 +1,5 @@
 {
-  "version": "v2.5.7",
+  "version": "v2.5.9",
   "name": "Withdrawlassets",
   "bytecodeTemplate": "010103000000040c0c{0}0108",
   "fieldsSig": {

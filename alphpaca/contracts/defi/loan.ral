@@ -1,0 +1,74 @@
+Contract Loan (
+    want: ByteVec,
+    wamount: U256,
+    collateral: ByteVec,
+    mut amount: U256,                       // Updateable collateral amount under new terms
+    mut interest: U256,                     // Updateable terms means new timeframes
+    mut time: U256,                         // New Time Frames means updated time
+    owner: Address,
+    // Loaner Variables
+    mut extend: U256,                       // New temp timeframe
+    mut tempinterest: U256,                 // Adjustable interest
+    mut tempcollateral: U256,               // New Temp Collateral
+    mut loaner: Address                     // Loaner is not set until contract confirmation
+) {
+    // Events
+
+    // Enums
+    enum ErrorSub {
+        Invalid = 1
+    }
+
+    pub fn getWant() -> ByteVec {
+        return want
+    }
+
+    pub fn getWantAmount() -> U256 {
+        return wamount
+    }
+
+    pub fn getCollateral() -> Bytevec {
+        return collateral
+    }
+
+    pub fn getCollateralAmount() -> U256 {
+        return amount
+    }
+
+    pub fn getInterest() -> U256 {
+        return interest
+    }
+
+    pub fn getTime() -> U256 {
+        return time
+    }
+
+    pub fn getOwner() -> Address {
+        return owner
+    }
+
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn acceptloan() { // User wants to accept loan terms - updates loaner and assets transfer, time starts
+
+    }
+
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn payback() { // User wants to pay loaner to get collateral - pays back loaner with interest
+
+    }
+
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn redeem() { // Loaner collects collateral, user failed to pay loan in time
+
+    }
+
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn loanextendset() { // Loaner can set extensions providing they accept the terms
+
+    }
+
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn loanextend() {  // User can choose to accept loan extension
+
+    }
+}

@@ -1,0 +1,47 @@
+Contract Lend (
+    owner: Address,             // Developer Address
+    ntoken: ByteVec,            // Native Token
+    tfees: U256,                // Token Fees
+    fees: U256,                 // Regular Fees 2% and 0.05 Fee For Listings Discounts with PACA
+    contracts: U256             // Contracts Made
+) {
+    // Events
+
+    // Error Codes
+    enum Error {
+        Invalid = 1
+    }
+
+    pub fn getNToken() -> ByteVec {
+        return ntoken
+    }
+
+    pub fn getNTokenFee() -> ByteVec {
+        return tfees
+    }
+
+    pub fn getFee() -> ByteVec {
+        return fees
+    }
+
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn loan(want: ByteVec, wamount: U256, collateral: ByteVec, amount: U256, interest: U256, time: U256) -> () { // ALPH Fees (User to User)
+        // Create Sub Contract
+        let loanee = callerAddress!()
+
+        let (encodeImmutableFields, encodeMutableFields) = Token.encodeFields!(symbol, name, decimals, tokenTotal, minter)
+
+        let newloan = createSubContract!
+    }
+
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn pacaloan() -> () { // PACA Discount
+
+    }
+
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn personalloan() -> () { // Dapp to User (Much Higher Collateral Required) USDT / ALPH + AYIN / ALPH
+        
+    }
+
+} 

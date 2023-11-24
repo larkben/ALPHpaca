@@ -1,15 +1,18 @@
 Contract Lend (
-    owner: Address,             // Developer Address
-    ntoken: ByteVec,            // Native Token
-    tfees: U256,                // Token Fees
-    fees: U256,                 // Regular Fees 2% and 0.05 Fee For Listings Discounts with PACA
-    contracts: U256             // Contracts Made
+    owner: Address,                 // Developer Address
+    ntoken: ByteVec,                // Native Token
+    mut tfees: U256,                // Native Token Fees
+    mut fees: U256,                 // Regular Fees 2% and 0.05 Fee For Listings Discounts with PACA
+    mut contracts: U256,            // Contracts Made
+    mut funds: U256,                // ALPH in contract
+    mut nfunds: U256                // PACA in contract
 ) {
     // Events
+    event Removed(reciever: Address, amount: U256)
 
     // Error Codes
     enum Error {
-        Invalid = 1
+        InvalidCaller = 1
     }
 
     pub fn getNToken() -> ByteVec {
@@ -36,12 +39,42 @@ Contract Lend (
 
     @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
     pub fn pacaloan() -> () { // PACA Discount
+        let loanee = callerAddress!()
 
+        let (encodeImmutableFields, encodeMutableFields) = Token.encodeFields!(symbol, name, decimals, tokenTotal, minter)
+
+        let newloan = createSubContract!
     }
 
     @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
     pub fn personalloan() -> () { // Dapp to User (Much Higher Collateral Required) USDT / ALPH + AYIN / ALPH
-        
+        let loanee = callerAddress!()
+
+        let (encodeImmutableFields, encodeMutableFields) = Token.encodeFields!(symbol, name, decimals, tokenTotal, minter)
+
+        let newloan = createSubContract!
+    }
+
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn removealph() -> () { // Dapp to User (Much Higher Collateral Required) USDT / ALPH + AYIN / ALPH
+        let caller = callerAddress!()
+
+        assert!(caller == owner, Error.InvalidCaller)
+
+        transferTokenFromSelf!(owner, alph, funds)
+
+        emit Removed(owner, funds)
+    }
+
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn removepaca() -> () { // Dapp to User (Much Higher Collateral Required) USDT / ALPH + AYIN / ALPH
+        let caller = callerAddress!()
+
+        assert!(caller == owner, Error.InvalidCaller)
+
+        transferTokenFromSelf!(owner, getNToken, nfunds)
+
+        emit Removed(owner, nfunds)
     }
 
 } 

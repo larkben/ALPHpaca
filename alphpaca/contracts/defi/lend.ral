@@ -5,10 +5,14 @@ Contract Lend (
     mut fees: U256,                 // Regular Fees 2% and 0.05 Fee For Listings Discounts with PACA
     mut contracts: U256,            // Contracts Made
     mut funds: U256,                // ALPH in contract
-    mut nfunds: U256                // PACA in contract
+    mut nfunds: U256,               // PACA in contract
+    // Pool Loan
+    pool: ByteVec,
+    loan: ByteVec
 ) {
     // Events
     event Removed(reciever: Address, amount: U256)
+    event LoanCreated(creator: Address, loanid: ByteVec, token: ByteVec, amount: U256, wtoken: ByteVec, wamount: U256, funds: U256, nfunds: U256)
 
     // Error Codes
     enum Error {
@@ -28,29 +32,64 @@ Contract Lend (
     }
 
     @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
-    pub fn loan(want: ByteVec, wamount: U256, collateral: ByteVec, amount: U256, interest: U256, time: U256) -> () { // ALPH Fees (User to User)
+    pub fn loan(want: ByteVec, wamount: U256, collateral: ByteVec, amount: U256, interest: U256, time: U256) -> (ByteVec) { // ALPH Fees (User to User)
         // Create Sub Contract
         let loanee = callerAddress!()
 
-        let (encodeImmutableFields, encodeMutableFields) = Token.encodeFields!(symbol, name, decimals, tokenTotal, minter)
+        let (encodeImmutableFields, encodeMutableFields) = Loan.encodeFields!(want, wamount, collateral, amount, interest, time, loanee, time, interest, amount, loanee)
 
-        let newloan = createSubContract!
+        let newloan = createContract!{loanee -> ALPH: 1 alph}(
+            loan,
+            encodeImmutableFields,
+            encodeMutableFields,
+        )
+
+        // Transfer Assets
+        let loanaddress = contractIdToAddress!(newloan)
+
+        transferToken!(loanee, loanaddress, collateral, amount) // Assets Transferred
+
+        // Fee Collection
+        transferToken!(loanee, selfAddress!(), alph, getFee())
+
+        emit LoanCreated(loanee, newloan, collateral, amount, want, wamount, funds, nfunds)
+
+        return newloan
     }
 
     @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
     pub fn pacaloan() -> () { // PACA Discount
+        // Create Sub Contract
         let loanee = callerAddress!()
 
-        let (encodeImmutableFields, encodeMutableFields) = Token.encodeFields!(symbol, name, decimals, tokenTotal, minter)
+        let (encodeImmutableFields, encodeMutableFields) = Loan.encodeFields!(want, wamount, collateral, amount, interest, time, loanee, time, interest, amount, loanee)
 
-        let newloan = createSubContract!
+        let newloan = createContract!{loanee -> ALPH: 1 alph}(
+            loan,
+            encodeImmutableFields,
+            encodeMutableFields,
+        )
+
+        // Transfer Assets
+        let loanaddress = contractIdToAddress!(newloan)
+
+        transferToken!(loanee, loanaddress, collateral, amount) // Assets Transferred
+
+        // Fee Collection
+        transferToken!(loanee, selfAddress!(), getNToken(), getNTokenFee())
+
+        emit LoanCreated(loanee, newloan, collateral, amount, want, wamount, funds, nfunds)
+
+        return newloan
     }
 
     @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
-    pub fn personalloan() -> () { // Dapp to User (Much Higher Collateral Required) USDT / ALPH + AYIN / ALPH
-        let loanee = callerAddress!()
+    pub fn createpool() -> () { // Dapp to User (Much Higher Collateral Required) USDT / ALPH + AYIN / ALPH
+        let caller = callerAddress!()
 
-        let (encodeImmutableFields, encodeMutableFields) = Token.encodeFields!(symbol, name, decimals, tokenTotal, minter)
+        assert!(caller == owner, Error.InvalidCaller)
+
+        let (encodeImmutableFields, encodeMutableFields) = Pool.encodeFields!(symbol, name, decimals, tokenTotal, minter)
 
         let newloan = createSubContract!
     }

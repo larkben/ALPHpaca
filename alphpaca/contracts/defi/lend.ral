@@ -84,14 +84,27 @@ Contract Lend (
     }
 
     @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
-    pub fn createpool() -> () { // Dapp to User (Much Higher Collateral Required) USDT / ALPH + AYIN / ALPH
+    pub fn createpool(wtoken: ByteVec, wamount: U256, token: ByteVec, amount: U256, interest: U256) -> (ByteVec) { // Dapp to User (Much Higher Collateral Required) USDT / ALPH + AYIN / ALPH
         let caller = callerAddress!()
 
         assert!(caller == owner, Error.InvalidCaller)
 
-        let (encodeImmutableFields, encodeMutableFields) = Pool.encodeFields!(symbol, name, decimals, tokenTotal, minter)
+        let startliquid = 0
 
-        let newloan = createSubContract!
+        let (encodeImmutableFields, encodeMutableFields) = Pool.encodeFields!(caller, token, amount, wtoken, wamount, interest, startliquid)
+
+        let newpool = createContract!{loanee -> ALPH: 1 alph}(
+            pool,
+            encodeImmutableFields,
+            encodeMutableFields,
+        )
+
+        // Transfer Assets
+        let pooladdress = contractIdToAddress!(newpool)
+
+        transferToken!(caller, loanaddress, wtoken, wamount) // Assets Transferred
+
+        return newpool
     }
 
     @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)

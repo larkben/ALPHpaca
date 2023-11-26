@@ -1,0 +1,10 @@
+TxScript Sellvirl (
+    contract: Viral,
+    amount: U256
+) {
+    let newamount = amount
+
+    let token = contract.getTokenId()
+
+    contract.buyvirl{callerAddress!() -> token: newamount}(amount)
+}

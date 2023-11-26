@@ -1,0 +1,90 @@
+// VIRL ICO Contract
+
+Contract Viral (
+    tokenId: ByteVec,                   // VIRL Token
+    mut balance: U256,                  // VIRL Balance
+    mut alphbalance: U256,              // ALPH Balance
+    pricevirl: U256,                    // VIRL ICO Price
+    owner: Address                      // Token Owner
+) {
+
+    event Sell(from: Address, amount: U256, balvirl: U256)
+    event Buy(to: Address, amount: U256, balalph: U256, balvirl: U256)
+    event WithdrawAlph(to: Address)
+
+    enum ErrorCodes {
+        InvalidCaller = 3
+    }
+
+    pub fn getTokenId() -> ByteVec {
+        return tokenId
+    }
+
+    pub fn getBalance() -> U256 {
+        return balance
+    }
+
+    pub fn getSymbol() -> ByteVec {
+        return tokenId
+    }
+
+    pub fn getName() -> ByteVec {
+        return tokenId
+    }
+
+    pub fn tokenPrice(price: U256, amount: U256) -> U256 {
+        let total = price * amount
+        return total
+    }
+
+    pub fn getPrice() -> U256 {
+        return pricevirl
+    }
+
+    pub fn getAlphBalance() -> U256 {
+        return alphbalance
+    }
+
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn buyvirl(amount: U256) -> () {
+
+        let purchase = tokenPrice(getPrice(), amount)
+
+        transferToken!(callerAddress!(), selfAddress!(), ALPH, purchase)              // Get Payment
+
+        transferToken!(selfAddress!(), callerAddress!(), getTokenId(), amount)        // Send Tokens 
+
+        alphbalance = alphbalance + purchase
+
+        balance = balance - amount
+
+        emit Buy(callerAddress!(), amount, alphbalance, balance)
+    }
+
+    @using(assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn sell(amount: U256) -> () {
+
+        let caller = callerAddress!()
+
+        balance = balance + amount
+
+        transferToken!(caller, selfAddress!(), getTokenId(), amount)
+
+        emit Sell(caller, amount, amount)
+    }
+
+    @using(assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn removealph() -> () {
+        
+        let caller = callerAddress!()
+
+        assert!(caller == owner, ErrorCodes.InvalidCaller)
+
+        alphbalance = alphbalance - alphbalance
+
+        transferTokenFromSelf!(owner, ALPH, alphbalance)
+
+        emit WithdrawAlph(caller)
+    }
+
+}

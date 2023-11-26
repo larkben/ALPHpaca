@@ -1,23 +1,25 @@
 // This is for the scenario where someone to create a collection and starts
 // to mint NFTs one-by-one
+
+// Minting ALPHpaca
 Abstract Contract NFTOpenCollectionBase(
-    nftTemplateId: ByteVec,
-    collectionUri: ByteVec,
-    collectionOwner: Address, // Only owner can mint
-    mut totalSupply: U256
+    nftTemplateId: ByteVec,                                         // Collection Name
+    collectionUri: ByteVec,                                         // Base Collection Image
+    collectionOwner: Address,                                       // Owner of Collection
+    mut totalSupply: U256,                                          // Total Supply
+    maxSupply: U256                                                 // Max ALPHpacas
 ) extends NFTCollectionBase(collectionUri, totalSupply) {
     event Mint(minter: Address, index: U256)
 
     @using(preapprovedAssets = true, updateFields = true)
     pub fn mint(nftUri: ByteVec) -> (ByteVec) {
-        let minter = callerAddress!()
-        checkCaller!(minter == collectionOwner, ErrorCodes.CollectionOwnerAllowedOnly)
+        let minter = callerAddress!()                               // Modified so anyone can mint 
         let nftIndex = totalSupply
         let (encodeImmutableFields, encodeMutableFields) = NFT.encodeFields!(nftUri, selfContractId!(), nftIndex)
 
         let contractId = copyCreateSubContractWithToken!{minter -> ALPH: 1 alph}(
-            toByteVec!(nftIndex),
-            nftTemplateId,
+            toByteVec!(nftIndex),                                   // URI Field
+            nftTemplateId,                                          // 
             encodeImmutableFields,
             encodeMutableFields,
             1,

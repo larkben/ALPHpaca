@@ -1,4 +1,6 @@
-import "std/nft_interface"
+// ALPHpaca
+
+import "std/nft_interface" // INFT
 
 Contract NFT(
   tokenUri: ByteVec,

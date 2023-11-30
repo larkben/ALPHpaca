@@ -1,0 +1,35 @@
+// Protocol Contract
+
+Contract Createswap (
+    owner: Address,
+    contract: ByteVec,
+    paca: ByteVec,                                       // Protocol Token Fee
+    pacafee: U256,
+    alphfee: U256
+) {
+    //TODO
+    //* Change Fee Functions - need to be dynamic
+    //* Init Swap Contract (PACA and ALPH)
+
+    //! Emits / Logging ( Should emit valid info to form sql query and push required contract data to allow all contr
+    //! acts to be visible )
+    
+    // Events
+
+    // Error Codes
+
+    // Public Functions
+    pub fn getTokenId() -> ByteVec {
+        return paca
+    }
+
+    pub fn getPacaFee() -> U256 {
+        return pacafee
+    }
+
+    pub fn getAlphFee() -> U256 {
+
+    }
+    // Contract Functions
+
+}

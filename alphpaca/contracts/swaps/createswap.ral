@@ -28,8 +28,30 @@ Contract Createswap (
     }
 
     pub fn getAlphFee() -> U256 {
-
+        return alphfee
     }
     // Contract Functions
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn createswappaca(token: ByteVec, amount: U256, tradetoken: ByteVec, tamount: U256) -> ByteVec {
 
+        caller = callerAddress!()
+
+        
+
+    }
+
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn createswapalph() -> ByteVec {
+        
+    }
+
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn removepaca() -> ByteVec {
+        
+    }
+
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
+    pub fn removealph() -> ByteVec {
+        
+    }
 }

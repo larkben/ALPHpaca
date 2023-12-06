@@ -9,11 +9,6 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { AlephiumConnectButton } from '@alephium/web3-react'
 
-import WhitePaper from '@/pages/whitepaper'
-import pacaOne from "../assets/10.png"
-import pacaTwo from "../assets/59.png"
-import pacaThree from "../assets/72.png"
-import pacaFour from "../assets/139.png"
 import { AlephiumWalletProvider } from '@alephium/web3-react';
 import { NodeProvider } from '@alephium/web3';
 
@@ -132,9 +127,24 @@ export default function HomePage() {
               {showContent && (
                 <div>
                   <div className={styles.horizontalLinks}>
-                    <Link className={`${styles.horizontalLink} ${styles.showBorder} ${styles.textNFT}`} style={{padding: 25, color: "black", backgroundColor: "white", fontSize: 20, margin: 20}} href="/token_create"> Token Builder </Link>
-
-                    <Link className={`${styles.horizontalLink} ${styles.showBorder} ${styles.textNFT}`} style={{padding: 25, color: "black", backgroundColor: "white", fontSize: 20, margin: 20}} href="https://www.youtube.com/watch?v=Hl8-Jj_trT4&list=PL7hY7WrcPQBp0d-IEDIcvDYGqzwJjVv67"> Building on Alph? </Link>      
+                    <div className={styles.dappcard}>
+                    <h3 style={{color: 'white', paddingBottom: 20, textAlign: 'center'}}> Token Builder </h3>
+                      <div className={styles.dapp}>
+                        <Link className={`${styles.horizontalLink} ${styles.showBorder} ${styles.textNFT}`} style={{padding: 25, color: "black", backgroundColor: "white", fontSize: 20, margin: 20}} href="/token_create"> Token Builder </Link>
+                      </div>
+                    </div>
+                    <div className={styles.dappcard}>
+                    <h3 style={{color: 'white', paddingBottom: 20, textAlign: 'center'}}> A Youtube Series </h3>
+                      <div className={styles.dapp}>
+                        <Link className={`${styles.horizontalLink} ${styles.showBorder} ${styles.textNFT}`} style={{padding: 25, color: "black", backgroundColor: "white", fontSize: 20, margin: 20}} href="https://www.youtube.com/watch?v=Hl8-Jj_trT4&list=PL7hY7WrcPQBp0d-IEDIcvDYGqzwJjVv67"> Building on Alph? </Link>
+                      </div>  
+                    </div>
+                    <div className={styles.dappcard}>
+                      <h3 style={{color: 'white', paddingBottom: 20, textAlign: 'center'}}> Viral and Number Go Up</h3>
+                      <div className={styles.dapp}>
+                        <Link className={`${styles.horizontalLink} ${styles.showBorder} ${styles.textNFT}`} style={{padding: 25, color: "black", backgroundColor: "white", fontSize: 20, margin: 20}} href=""> Token ICO's </Link>
+                      </div>  
+                    </div>
                   </div>
                 </div>
               )}

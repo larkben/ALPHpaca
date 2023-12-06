@@ -72,7 +72,7 @@ class Factory extends ContractFactory<
   CreateTokenTypes.Fields
 > {
   getInitialFieldsWithDefaultValues() {
-    return;
+    return this.contract.getInitialFieldsWithDefaultValues() as CreateTokenTypes.Fields;
   }
 
   eventIndex = { Destroy: 0, CreateToken: 1 };

@@ -1,5 +1,5 @@
 {
-  "fullNodeVersion": "v2.5.9",
+  "fullNodeVersion": "v2.5.7",
   "compilerOptionsUsed": {
     "ignoreUnusedConstantsWarnings": false,
     "ignoreUnusedVariablesWarnings": false,
@@ -28,6 +28,13 @@
       "sourceCodeHash": "f049982c9496d5040e409db8a453bc44fb6fdcd65ae9db81eda77216712ba5b1",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "7d3c025e9ac56c8cb53c182134dc0a455987cc788745a4052730084e30811658",
+      "warnings": []
+    },
+    "Buyvirl": {
+      "sourceFile": "scripts/viral_buy.ral",
+      "sourceCodeHash": "bc9ccfb86d4ece45391dd02c74c5c9c662b8b78f916dce217e43ec8f829a2401",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
       "warnings": []
     },
     "CreateOpenCollection": {
@@ -254,6 +261,20 @@
       "codeHashDebug": "4cdc890635635f64a7697b2e73a35fa5a0faf74ebfe2fb8bdea16d4e24302b88",
       "warnings": []
     },
+    "Reedeemalph": {
+      "sourceFile": "scripts/viral_alphdraw.ral",
+      "sourceCodeHash": "09929c8d2211004755bd4e10538bddda1aaaa47b701470965b39faede2bb8e0a",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
+      "warnings": []
+    },
+    "Sellvirl": {
+      "sourceFile": "scripts/viral_sell.ral",
+      "sourceCodeHash": "3f035ee4933f4f33397670cac3be604f7699d2f5fd41b56732f39233d1e3a7e8",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
+      "warnings": []
+    },
     "Sendout": {
       "sourceFile": "scripts/withdraw.ral",
       "sourceCodeHash": "bf59ec6bec02c4215901434da53d8078a0dad0909ba40d83042fcf298fa9b87f",
@@ -273,6 +294,13 @@
       "sourceCodeHash": "135b04fe1d2f2159f536e686fddff9fa5e33119faea0c4ad766a1c91cb82cefe",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "",
+      "warnings": []
+    },
+    "Viral": {
+      "sourceFile": "ico/virl.ral",
+      "sourceCodeHash": "a45282df7ae0cc47e050ff91c8a5987c68a454a0d198cc6e6d34882ad04154ee",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "d87d6c74c21a7bec6cba00e9a0388ca81c5a71518b8efb77f43b5160cfdd4456",
       "warnings": []
     },
     "WithdrawFromOpenCollection": {

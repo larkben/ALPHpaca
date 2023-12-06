@@ -13,6 +13,7 @@ import {
 } from "@alephium/web3";
 import { default as BuildtokenScriptJson } from "../scripts/Buildtoken.ral.json";
 import { default as BurnScriptJson } from "../scripts/Burn.ral.json";
+import { default as BuyvirlScriptJson } from "../scripts/Buyvirl.ral.json";
 import { default as CreateOpenCollectionScriptJson } from "../scripts/CreateOpenCollection.ral.json";
 import { default as CreateOpenCollectionWithRoyaltyScriptJson } from "../scripts/CreateOpenCollectionWithRoyalty.ral.json";
 import { default as CreatePublicSaleCollectionSequentialScriptJson } from "../scripts/CreatePublicSaleCollectionSequential.ral.json";
@@ -25,6 +26,8 @@ import { default as MintBatchSequentialScriptJson } from "../scripts/MintBatchSe
 import { default as MintNextSequentialScriptJson } from "../scripts/MintNextSequential.ral.json";
 import { default as MintOpenNFTScriptJson } from "../scripts/MintOpenNFT.ral.json";
 import { default as MintSpecificScriptJson } from "../scripts/MintSpecific.ral.json";
+import { default as ReedeemalphScriptJson } from "../scripts/Reedeemalph.ral.json";
+import { default as SellvirlScriptJson } from "../scripts/Sellvirl.ral.json";
 import { default as SendoutScriptJson } from "../scripts/Sendout.ral.json";
 import { default as TopupScriptJson } from "../scripts/Topup.ral.json";
 import { default as WithdrawFromOpenCollectionScriptJson } from "../scripts/WithdrawFromOpenCollection.ral.json";
@@ -43,6 +46,10 @@ export const Burn = new ExecutableScript<{
   contract: HexString;
   amount: bigint;
 }>(Script.fromJson(BurnScriptJson));
+export const Buyvirl = new ExecutableScript<{
+  contract: HexString;
+  amount: bigint;
+}>(Script.fromJson(BuyvirlScriptJson));
 export const CreateOpenCollection = new ExecutableScript<{
   openCollectionTemplateId: HexString;
   nftTemplateId: HexString;
@@ -120,6 +127,14 @@ export const MintSpecific = new ExecutableScript<{
   nftCollectionId: HexString;
   royalty: boolean;
 }>(Script.fromJson(MintSpecificScriptJson));
+export const Reedeemalph = new ExecutableScript<{
+  contract: HexString;
+  amount: bigint;
+}>(Script.fromJson(ReedeemalphScriptJson));
+export const Sellvirl = new ExecutableScript<{
+  contract: HexString;
+  amount: bigint;
+}>(Script.fromJson(SellvirlScriptJson));
 export const Sendout = new ExecutableScript<{
   contract: HexString;
   amount: bigint;

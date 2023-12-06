@@ -14,4 +14,5 @@ export * from "./NFTPublicSaleCollectionRandomWithRoyalty";
 export * from "./NFTPublicSaleCollectionSequential";
 export * from "./NFTPublicSaleCollectionSequentialWithRoyalty";
 export * from "./Token";
+export * from "./Viral";
 export * from "./scripts";

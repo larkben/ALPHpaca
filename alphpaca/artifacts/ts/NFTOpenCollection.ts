@@ -77,7 +77,7 @@ class Factory extends ContractFactory<
   NFTOpenCollectionTypes.Fields
 > {
   getInitialFieldsWithDefaultValues() {
-    return;
+    return this.contract.getInitialFieldsWithDefaultValues() as NFTOpenCollectionTypes.Fields;
   }
 
   eventIndex = { Mint: 0 };

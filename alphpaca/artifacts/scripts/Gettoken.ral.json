@@ -1,5 +1,5 @@
 {
-  "version": "v2.5.9",
+  "version": "v2.5.7",
   "name": "Gettoken",
   "bytecodeTemplate": "010103000100180c0d{0}01041700b47a0c0d{0}0100{1}a30c0d{0}01011600a3{1}0d0c{0}0107",
   "fieldsSig": {

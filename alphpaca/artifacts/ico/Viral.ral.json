@@ -1,0 +1,220 @@
+{
+  "version": "v2.5.7",
+  "name": "Viral",
+  "bytecode": "050a09121b40244034403d40464077409740b7010000000102ce0002010000000102a00002010000000102ce0002010000000102ce0002010002030106160016012c1702160202010000000102ce0102010000000102a0010201010102001b0005160000041701b4b21601a7b2b400001600aaa00116012aa101a00016002ba10006b41600a001a00061010201020010b41701a00016002aa1001601b200001600aa0516011600160060010200010011b417001600ce02450f7ba001a0012ba101ce02a001a80716005e",
+  "codeHash": "d87d6c74c21a7bec6cba00e9a0388ca81c5a71518b8efb77f43b5160cfdd4456",
+  "fieldsSig": {
+    "names": [
+      "tokenId",
+      "balance",
+      "alphbalance",
+      "pricevirl",
+      "owner"
+    ],
+    "types": [
+      "ByteVec",
+      "U256",
+      "U256",
+      "U256",
+      "Address"
+    ],
+    "isMutable": [
+      false,
+      true,
+      true,
+      false,
+      false
+    ]
+  },
+  "eventsSig": [
+    {
+      "name": "Sell",
+      "fieldNames": [
+        "from",
+        "amount",
+        "balvirl"
+      ],
+      "fieldTypes": [
+        "Address",
+        "U256",
+        "U256"
+      ]
+    },
+    {
+      "name": "Buy",
+      "fieldNames": [
+        "to",
+        "amount",
+        "balalph",
+        "balvirl"
+      ],
+      "fieldTypes": [
+        "Address",
+        "U256",
+        "U256",
+        "U256"
+      ]
+    },
+    {
+      "name": "WithdrawAlph",
+      "fieldNames": [
+        "to"
+      ],
+      "fieldTypes": [
+        "Address"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "getTokenId",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "ByteVec"
+      ]
+    },
+    {
+      "name": "getBalance",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "U256"
+      ]
+    },
+    {
+      "name": "getSymbol",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "ByteVec"
+      ]
+    },
+    {
+      "name": "getName",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "ByteVec"
+      ]
+    },
+    {
+      "name": "tokenPrice",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [
+        "price",
+        "amount"
+      ],
+      "paramTypes": [
+        "U256",
+        "U256"
+      ],
+      "paramIsMutable": [
+        false,
+        false
+      ],
+      "returnTypes": [
+        "U256"
+      ]
+    },
+    {
+      "name": "getPrice",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "U256"
+      ]
+    },
+    {
+      "name": "getAlphBalance",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "U256"
+      ]
+    },
+    {
+      "name": "buyvirl",
+      "usePreapprovedAssets": true,
+      "useAssetsInContract": true,
+      "isPublic": true,
+      "paramNames": [
+        "amount"
+      ],
+      "paramTypes": [
+        "U256"
+      ],
+      "paramIsMutable": [
+        false
+      ],
+      "returnTypes": []
+    },
+    {
+      "name": "sell",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": true,
+      "isPublic": true,
+      "paramNames": [
+        "amount"
+      ],
+      "paramTypes": [
+        "U256"
+      ],
+      "paramIsMutable": [
+        false
+      ],
+      "returnTypes": []
+    },
+    {
+      "name": "removealph",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": true,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": []
+    }
+  ],
+  "constants": [],
+  "enums": [
+    {
+      "name": "ErrorCodes",
+      "fields": [
+        {
+          "name": "InvalidCaller",
+          "value": {
+            "type": "U256",
+            "value": "3"
+          }
+        }
+      ]
+    }
+  ]
+}

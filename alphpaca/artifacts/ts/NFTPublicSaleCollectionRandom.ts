@@ -96,7 +96,7 @@ class Factory extends ContractFactory<
   NFTPublicSaleCollectionRandomTypes.Fields
 > {
   getInitialFieldsWithDefaultValues() {
-    return;
+    return this.contract.getInitialFieldsWithDefaultValues() as NFTPublicSaleCollectionRandomTypes.Fields;
   }
 
   eventIndex = { Mint: 0 };

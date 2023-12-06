@@ -16,6 +16,7 @@ import {
   NFTPublicSaleCollectionSequential,
   NFTPublicSaleCollectionSequentialWithRoyalty,
   Token,
+  Viral,
 } from ".";
 
 let contracts: ContractFactory<any>[] | undefined = undefined;
@@ -34,6 +35,7 @@ export function getContractByCodeHash(codeHash: string): Contract {
       NFTPublicSaleCollectionSequential,
       NFTPublicSaleCollectionSequentialWithRoyalty,
       Token,
+      Viral,
     ];
   }
   const c = contracts.find(

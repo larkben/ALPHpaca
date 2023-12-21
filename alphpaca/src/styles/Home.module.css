@@ -77,45 +77,10 @@
 
 }
 
-.statsBar {
-    display: table;
-    margin-top: 10px;
-    margin-left: 25px;
-    width: auto; /* For cells of equal size */
-    background-color: #1d1d1d;
-    font-family: 'Tektur', cursive;
-    color: white;
-}
+/* Wallet Connect */
 
-.statsPrice {
-    display: table-cell;
-    text-align: center;
-    color: white;
-    font-family: 'Tektur', cursive;
-    border-radius: 25px;
-    padding: 1px;
-    float: left
-}
-
-.statsConnect {
-    display: table-cell;
-    text-align: center;
-    color: white;
-    font-family: 'Tektur', cursive;
-    border-radius: 25px;
-    padding: 1px;
-    float: right;
-    margin: 8px;
-    margin-right: 16px;
-    margin-left: 35px;
-}
-
-.statsDescription {
-    max-width: 300px;
-    text-align: center;
-    font-family: 'Tektur', cursive;
-    color: white;
-    padding-left: 8px;
+.walletconnect {
+    margin-left: 50px;
 }
 
 /* DAPPS */
@@ -323,4 +288,10 @@
 .buttonSite:active {
   background-color: #0039D7;
   border-color: #0039D7;
+}
+
+/* Game Window */
+
+.threeindexjs {
+    max-height: 100px;
 }

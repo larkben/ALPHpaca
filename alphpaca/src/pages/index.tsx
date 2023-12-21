@@ -12,8 +12,10 @@ import { AlephiumConnectButton } from '@alephium/web3-react'
 import { AlephiumWalletProvider } from '@alephium/web3-react';
 import { NodeProvider } from '@alephium/web3';
 
-const API_KEY = "q4YJcksGa1ISzWPspxpSlKppgoHzodnpyWANx8nxtsUIFhtJ";
-const nodeProvider = new NodeProvider('http://98.227.84.182:12973', API_KEY);
+//const API_KEY = "q4YJcksGa1ISzWPspxpSlKppgoHzodnpyWANx8nxtsUIFhtJ";
+//const nodeProvider = new NodeProvider('http://98.227.84.182:12973', API_KEY);
+import { GameWindow } from '@/components/GameWindow';
+import { PinBallLottery, TokenFaucetConfig } from '@/services/utils';
 
 export default function HomePage() {
   
@@ -53,25 +55,7 @@ export default function HomePage() {
     };
 
     useEffect(() => {
-        async function fetchAlphPrice() {
-            const response = await fetch('https://api.coingecko.com/api/v3/coins/alephium?tickers=true&market_data=true');
-            const data = await response.json();
-            const alphPrice = data.market_data.current_price.usd;
-
-            setAlphPrice(alphPrice)
-        }
-
-        async function fetchBlockHeight() {
-          let blockHeight = await nodeProvider.blockflow.getBlockflowChainInfo({
-            fromGroup: 0,
-            toGroup: 0
-          })
-
-          setBlockHeight(blockHeight.currentHeight)
-        }
-
-        fetchAlphPrice();
-        fetchBlockHeight();
+        
     }, []);
 
   return (
@@ -79,12 +63,9 @@ export default function HomePage() {
         <style>
           @import url(&quot;https://fonts.googleapis.com/css2?family=Tektur&display=swap&quot;);
         </style>
-        <div className={`${styles.showBorder} ${styles.statsBar}`}>
-          <p className={styles.statsPrice} style={{paddingLeft: 15, width: 250}}> Alephium Price: <i style={{color: 'pink'}}> {alphPrice} </i> </p>
-          <p className={styles.statsPrice} style={{paddingLeft: 15, width: 250}}> Block Height: <i style={{color: 'pink'}}> {blockHeight} </i> </p>
-          <div className={styles.statsConnect}>
-            <AlephiumConnectButton></AlephiumConnectButton>
-          </div>
+        <GameWindow config={TokenFaucetConfig}></GameWindow>
+        <div className={styles.walletconnect}>
+          <AlephiumConnectButton></AlephiumConnectButton>
         </div>
         <br/>
         <div className={styles.NFTheader}>
@@ -116,54 +97,13 @@ export default function HomePage() {
         <div className={styles.uiHub}>
           <div className={`${styles.showBorder} ${styles.uiNav}`} style={{height: 300}}>
             <table className={styles.uiNavItems}>
-              <tr> <button className={styles.buttonSite} onClick={toggleContent}>Dapps</button> </tr>
-              <tr> <button className={styles.buttonSite} onClick={toggleMint}>Coming Soon: Mint</button> </tr>
-              <tr> <button className={styles.buttonSite} onClick={toggleBuild}>Building on ALPH?</button> </tr>
-              <tr> <button className={styles.buttonSite} onClick={toggleAbout}>About</button> </tr>
+              <tr> <button className={styles.buttonSite} onClick={toggleContent}>Token Creator</button> </tr>
+              <tr> <button className={styles.buttonSite} onClick={toggleMint}>Swaps</button> </tr>
+              <tr> <button className={styles.buttonSite} onClick={toggleBuild}>Youtube</button> </tr>
+              <tr> <button className={styles.buttonSite} onClick={toggleAbout}>Coming Soon!</button> </tr>
             </table>
           </div>
-          <div className={`${styles.showBorder} ${styles.uiContent}`} style={{height: 300}}>
-            <div>
-              {showContent && (
-                <div>
-                  <div className={styles.horizontalLinks}>
-                    <div className={styles.dappcard}>
-                    <h3 style={{color: 'white', paddingBottom: 20, textAlign: 'center'}}> Token Builder </h3>
-                      <div className={styles.dapp}>
-                        <Link className={`${styles.horizontalLink} ${styles.showBorder} ${styles.textNFT}`} style={{padding: 25, color: "black", backgroundColor: "white", fontSize: 20, margin: 20}} href="/token_create"> Token Builder </Link>
-                      </div>
-                    </div>
-                    <div className={styles.dappcard}>
-                    <h3 style={{color: 'white', paddingBottom: 20, textAlign: 'center'}}> A Youtube Series </h3>
-                      <div className={styles.dapp}>
-                        <Link className={`${styles.horizontalLink} ${styles.showBorder} ${styles.textNFT}`} style={{padding: 25, color: "black", backgroundColor: "white", fontSize: 20, margin: 20}} href="https://www.youtube.com/watch?v=Hl8-Jj_trT4&list=PL7hY7WrcPQBp0d-IEDIcvDYGqzwJjVv67"> Building on Alph? </Link>
-                      </div>  
-                    </div>
-                    <div className={styles.dappcard}>
-                      <h3 style={{color: 'white', paddingBottom: 20, textAlign: 'center'}}> Viral and Number Go Up</h3>
-                      <div className={styles.dapp}>
-                        <Link className={`${styles.horizontalLink} ${styles.showBorder} ${styles.textNFT}`} style={{padding: 25, color: "black", backgroundColor: "white", fontSize: 20, margin: 20}} href=""> Token ICO's </Link>
-                      </div>  
-                    </div>
-                  </div>
-                </div>
-              )}
-              {showMint && (
-                <div>
-                </div>
-              )}
-              {showBuild && (
-                <div>
-                </div>
-              )}
-              {showAbout && (
-                <div>
-                </div>
-              )}
-            </div>
-          </div>
         </div>
-
         <br/>
       </div>
   )

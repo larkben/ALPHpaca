@@ -4,7 +4,7 @@
 
 .alphpacaTitleGlow {
     text-shadow: 0 0 5px #005bd1;
-    font-size: 100px;
+    font-size: 300%;
     margin-bottom: 5px;
     margin-left: 50px;
     margin-top: 5px;
@@ -13,7 +13,7 @@
 }
 
 .pacaDescript {
-    font-size: 25px;
+    font-size: 100%;
     margin-left: 50px;
     margin-top: 1px;
     color: white;
@@ -65,7 +65,7 @@
 
 .uiContent {
     float: right;
-    width: 1200px;
+    width: 600px;
     background-color: rgba(2, 65, 142, 0.811);
 }
 
@@ -74,13 +74,21 @@
     color: white;
     margin-left: 50px;
     margin-bottom: 15px;
-
+    font-size: 75%;
 }
 
 /* Wallet Connect */
 
 .walletconnect {
     margin-left: 50px;
+}
+
+@media (max-width: 768px) {
+    /* Styles for mobile devices */
+    .buttonSite, .statsPrice, .NFTheader, .movingText {
+      /* Adjust font sizes, margins, paddings for smaller screens */
+    }
+    /* Other responsive styles */
 }
 
 /* DAPPS */

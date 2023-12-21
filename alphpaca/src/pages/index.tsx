@@ -63,9 +63,17 @@ export default function HomePage() {
         <style>
           @import url(&quot;https://fonts.googleapis.com/css2?family=Tektur&display=swap&quot;);
         </style>
+<<<<<<< Updated upstream
         <GameWindow config={TokenFaucetConfig}></GameWindow>
         <div className={styles.walletconnect}>
           <AlephiumConnectButton></AlephiumConnectButton>
+=======
+        <div className={`${styles.showBorder} ${styles.statsBar}`}>
+          <p className={styles.statsPrice} style={{paddingLeft: 15, width: 250}}> Alephium Price: <i style={{color: 'pink'}}> {alphPrice} </i> </p>
+          <div className={styles.statsConnect}>
+            <AlephiumConnectButton></AlephiumConnectButton>
+          </div>
+>>>>>>> Stashed changes
         </div>
         <br/>
         <div className={styles.NFTheader}>
@@ -89,11 +97,11 @@ export default function HomePage() {
                 1000
             ]}
             speed={30}
-            style={{ fontSize: '50px' }}
             repeat={Infinity}
           />
         </div>
 
+<<<<<<< Updated upstream
         <div className={styles.uiHub}>
           <div className={`${styles.showBorder} ${styles.uiNav}`} style={{height: 300}}>
             <table className={styles.uiNavItems}>
@@ -104,6 +112,19 @@ export default function HomePage() {
             </table>
           </div>
         </div>
+=======
+        <div>
+          <div className={styles.horizontalLinks}>
+            <div className={styles.dappcard}>
+              <h3 style={{color: 'white', paddingBottom: 20, textAlign: 'center'}}> Token Builder </h3>
+              <div className={styles.dapp}>
+                <Link className={`${styles.horizontalLink} ${styles.showBorder} ${styles.textNFT}`} style={{padding: 25, color: "black", backgroundColor: "white", fontSize: 20, margin: 20}} href="/token_create"> Token Builder </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+>>>>>>> Stashed changes
         <br/>
       </div>
   )

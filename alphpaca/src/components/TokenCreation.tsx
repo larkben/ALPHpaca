@@ -1,26 +1,29 @@
+// Component Token Create
 import React from 'react'
 import { FC, useState } from 'react'
 import styles from '../styles/Home.module.css'
+import Link from 'next/link'
+
+// Alephium imports
 import { BuildToken, BurnTokenContract } from '@/services/token.service'
 import { TxStatus } from './TxStatus'
 import { useAlephiumConnectContext } from '@alephium/web3-react'
 import { node } from '@alephium/web3'
 import { TokenFaucetConfig} from '@/services/utils'
-import Link from 'next/link'
 
+// Token Creation
 export const TokenAutomationCreate: FC<{
   config: TokenFaucetConfig
 }> = ({ config }) => {
   const context = useAlephiumConnectContext()
   const addressGroup = config.groupIndex
   const [ongoingTxId, setOngoingTxId] = useState<string>()
+
+  // Token Variables
   const [symbol, setSymbol] = useState<string>("")
   const [name, setName] = useState<string>("")
   const [decimals, setDecimals] = useState('')
   const [supply, setSupply] = useState('')
-
-  const [amount, setAmount] = useState('')
-  const [token, setToken] = useState<string>("")
 
   // Handle of TokenCreation
   const handleBuildTokenSubmit = async (e: React.FormEvent) => {
@@ -28,14 +31,6 @@ export const TokenAutomationCreate: FC<{
     if (context.signerProvider) {
       const result = await BuildToken(context.signerProvider, symbol, name, decimals, supply)
       setOngoingTxId(result.txId)
-    }
-  }
-
-  // Burning Token
-  const handleBurnToken = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (context.signerProvider) {
-      const result = await BurnTokenContract(context.signerProvider, amount)
     }
   }
 
@@ -103,30 +98,7 @@ export const TokenAutomationCreate: FC<{
                 onChange={(e) => setSupply(e.target.value)}
             />
             <br/>
-            <br/>
             <input className={styles.button} type="submit" disabled={!!ongoingTxId} value="Create Token" />
-          </>
-        </form>
-      </div>
-
-      <div style={{color: 'black'}} >
-        <form onSubmit={handleBurnToken} style={{alignContent: 'center', textAlign: 'center'}}>
-          <>
-            <h2 className={styles.title} style={{color: 'black', textAlign: 'center'}}> Alephium Token Burner ({config.network})</h2>
-            {/*<p>PublicKey: {context.account?.publicKey ?? '???'}</p>*/}
-            <p style={{color: 'black', textAlign: 'center'}}> Burn your token + gas fees, there is no reverses all funds lost are lost. </p>
-            <label htmlFor="amount">Amount :</label>
-            <input
-                className={styles.inputToken}
-                type="number"
-                id="amount"
-                name="amount"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-            />
-            <br/>
-            <br/>
-            <input className={styles.button} type="submit" disabled={!!ongoingTxId} value="Burn Token" />
           </>
         </form>
       </div>

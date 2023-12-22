@@ -1,0 +1,30 @@
+.navbar {
+    background-color: #007bff; /* Blue color */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Tektur', cursive;
+}
+  
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+  
+.navItems {
+    list-style: none;
+    display: flex;
+}
+  
+.navItems li {
+    margin-left: 20px;
+}
+  
+.navItems a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+  

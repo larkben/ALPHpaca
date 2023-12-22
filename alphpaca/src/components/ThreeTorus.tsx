@@ -4,7 +4,7 @@ import { FC, useEffect, useRef } from 'react';
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
-// Alephium Imports
+// Alephium Imports ~ not needed just yet, just wanted to see if implementation was possible and it is
 import { TxStatus } from './TxStatus'
 import { useAlephiumConnectContext } from '@alephium/web3-react'
 import { node } from '@alephium/web3'
@@ -13,7 +13,7 @@ import { TokenFaucetConfig } from '@/services/utils'
 // three.js
 import * as THREE from 'three';
 
-export const GameWindow: FC<{
+export const ThreeTorus: FC<{
   config: TokenFaucetConfig
 }> = ({ config }) => {
   const context = useAlephiumConnectContext()

@@ -2,6 +2,11 @@
     background-color: #080808;
 }
 
+.link {
+    text-decoration: none;
+    color: white;
+}
+
 .alphpacaTitleGlow {
     text-shadow: 0 0 5px #005bd1;
     font-size: 300%;

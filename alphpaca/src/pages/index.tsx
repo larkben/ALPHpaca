@@ -1,21 +1,23 @@
+// Page index.tsx
 import React from 'react'
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Image from 'next/image';
-
-import '@alephium/web3'
 import { TypeAnimation } from 'react-type-animation';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { AlephiumConnectButton } from '@alephium/web3-react'
 
+// Alephium Imports
+import { AlephiumConnectButton } from '@alephium/web3-react'
 import { AlephiumWalletProvider } from '@alephium/web3-react';
 import { NodeProvider } from '@alephium/web3';
 
 //const API_KEY = "q4YJcksGa1ISzWPspxpSlKppgoHzodnpyWANx8nxtsUIFhtJ";
 //const nodeProvider = new NodeProvider('http://98.227.84.182:12973', API_KEY);
-import { GameWindow } from '@/components/GameWindow';
-import { PinBallLottery, TokenFaucetConfig } from '@/services/utils';
+
+// Graphics
+import { ThreeTorus } from '@/components/ThreeTorus';
+import { TokenFaucetConfig } from '@/services/utils';
 
 export default function HomePage() {
   
@@ -63,17 +65,9 @@ export default function HomePage() {
         <style>
           @import url(&quot;https://fonts.googleapis.com/css2?family=Tektur&display=swap&quot;);
         </style>
-<<<<<<< Updated upstream
-        <GameWindow config={TokenFaucetConfig}></GameWindow>
+        <ThreeTorus config={TokenFaucetConfig}></ThreeTorus>
         <div className={styles.walletconnect}>
           <AlephiumConnectButton></AlephiumConnectButton>
-=======
-        <div className={`${styles.showBorder} ${styles.statsBar}`}>
-          <p className={styles.statsPrice} style={{paddingLeft: 15, width: 250}}> Alephium Price: <i style={{color: 'pink'}}> {alphPrice} </i> </p>
-          <div className={styles.statsConnect}>
-            <AlephiumConnectButton></AlephiumConnectButton>
-          </div>
->>>>>>> Stashed changes
         </div>
         <br/>
         <div className={styles.NFTheader}>
@@ -101,30 +95,16 @@ export default function HomePage() {
           />
         </div>
 
-<<<<<<< Updated upstream
         <div className={styles.uiHub}>
           <div className={`${styles.showBorder} ${styles.uiNav}`} style={{height: 300}}>
             <table className={styles.uiNavItems}>
-              <tr> <button className={styles.buttonSite} onClick={toggleContent}>Token Creator</button> </tr>
-              <tr> <button className={styles.buttonSite} onClick={toggleMint}>Swaps</button> </tr>
-              <tr> <button className={styles.buttonSite} onClick={toggleBuild}>Youtube</button> </tr>
-              <tr> <button className={styles.buttonSite} onClick={toggleAbout}>Coming Soon!</button> </tr>
+              <tr> <button className={styles.buttonSite}> <Link href="/token_create" className={styles.link}> Token Creator </Link></button> </tr>
+              <tr> <button className={styles.buttonSite}> <Link href="/swaps" className={styles.link}> Swaps </Link></button> </tr>
+              <tr> <button className={styles.buttonSite}> <Link href="/" className={styles.link}> Minting </Link></button> </tr>
+              <tr> <button className={styles.buttonSite}> <Link href="/" className={styles.link}> Coming Soon! </Link></button> </tr>
             </table>
           </div>
         </div>
-=======
-        <div>
-          <div className={styles.horizontalLinks}>
-            <div className={styles.dappcard}>
-              <h3 style={{color: 'white', paddingBottom: 20, textAlign: 'center'}}> Token Builder </h3>
-              <div className={styles.dapp}>
-                <Link className={`${styles.horizontalLink} ${styles.showBorder} ${styles.textNFT}`} style={{padding: 25, color: "black", backgroundColor: "white", fontSize: 20, margin: 20}} href="/token_create"> Token Builder </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-        
->>>>>>> Stashed changes
         <br/>
       </div>
   )

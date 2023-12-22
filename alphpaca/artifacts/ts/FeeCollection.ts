@@ -103,7 +103,7 @@ class Factory extends ContractFactory<
   FeeCollectionTypes.Fields
 > {
   getInitialFieldsWithDefaultValues() {
-    return this.contract.getInitialFieldsWithDefaultValues() as FeeCollectionTypes.Fields;
+    return;
   }
 
   eventIndex = {

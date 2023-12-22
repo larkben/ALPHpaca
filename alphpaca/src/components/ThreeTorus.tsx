@@ -22,7 +22,8 @@ export const ThreeTorus: FC<{
   const mountRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!mountRef.current) return;
+    const currentRef = mountRef.current; // Capture the current ref value
+    if (!currentRef) return;
 
     // Scene setup
     const scene = new THREE.Scene();
@@ -71,9 +72,9 @@ export const ThreeTorus: FC<{
 
     // Cleanup function
     return () => {
-        if (mountRef.current) {
-            mountRef.current.removeChild(renderer.domElement);
-        }
+      if (currentRef) { // Use the captured ref value
+          currentRef.removeChild(renderer.domElement);
+      }
     };
     
   }, []); // Empty dependency array ensures this runs once on mount

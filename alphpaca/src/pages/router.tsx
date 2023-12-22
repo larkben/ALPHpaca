@@ -47,7 +47,7 @@ export default function Router() {
   const route = routes.find(route => route.path === pathname)
 
   if (!route) {
-    return <div>Page not found, ALPHpaca's pulled the plug.</div>
+    return <div>Page not found, ALPHpaca&apos;s pulled the plug.</div>
   }
 
   const { component: Component } = route

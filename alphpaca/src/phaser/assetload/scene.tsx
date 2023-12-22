@@ -16,7 +16,7 @@ export class Example extends Phaser.Scene
 
     create ()
     {
-        const text = this.add.text(350, 270, '', { font: '16px Courier', fill: '#00ff00' });
+        const text = this.add.text(350, 270, '', { font: '16px Courier', color: '#00ff00' });
         const gem = this.add.image(300, 300, 'gem');
 
         //  Store some data about this Gem:

@@ -98,7 +98,7 @@ export namespace ViralTypes {
 
 class Factory extends ContractFactory<ViralInstance, ViralTypes.Fields> {
   getInitialFieldsWithDefaultValues() {
-    return this.contract.getInitialFieldsWithDefaultValues() as ViralTypes.Fields;
+    return;
   }
 
   eventIndex = { Sell: 0, Buy: 1, WithdrawAlph: 2 };

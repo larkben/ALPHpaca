@@ -15,13 +15,14 @@ import { NodeProvider } from '@alephium/web3';
 // Components
 import { Navbar } from '@/components/NavBar';
 import dynamic from 'next/dynamic';
-import { PhaserGame } from '@/components/GameWindow';
+
+const GameWindow = dynamic(() => import('../components/GameWindow'), { ssr: false });
 
 export default function ALPHpaca() {
     return (
         <div>
             <Navbar />
-            <PhaserGame />
+            <GameWindow />
         </div>
     );
 }

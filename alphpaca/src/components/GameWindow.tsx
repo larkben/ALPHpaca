@@ -1,11 +1,11 @@
-// @refresh reset
-
 // components/PhaserGame.js
-import dynamic from 'next/dynamic';
 import React, { useEffect, useRef } from 'react';
 import Phaser, { Game } from 'phaser';
+import styles from "../styles/GameWindow.module.css";
 
-export const PhaserGame = () => {
+import { Example } from '@/phaser/assetload/scene';
+
+const PhaserGame = () => {
     const gameRef = useRef<Phaser.Game | null>(null);
     console.log("Initializing Phaser game");
   
@@ -13,15 +13,16 @@ export const PhaserGame = () => {
       import('phaser').then(Phaser => {
         const config = {
           type: Phaser.AUTO,
-          width: 800,
-          height: 600,
+          width: 700,
+          height: 800,
           parent: 'phaser-container', // Use the ID of the container
+          scene: Example
         };
   
         // Create and store the game instance
         gameRef.current = new Phaser.Game(config);
       });
-  
+      
       return () => {
         if (gameRef.current) {
           gameRef.current.destroy(true); // Destroy the game instance on cleanup
@@ -30,7 +31,11 @@ export const PhaserGame = () => {
       };
     }, []);
   
-    return <div id="phaser-container"></div>; // Assign the ID here
-  };
-  
-  export default dynamic(() => Promise.resolve(PhaserGame), { ssr: false });
+    return (
+      <div className={styles.container}>
+        <div id="phaser-container"></div>
+      </div> // Assign the ID here
+    )
+};
+
+export default PhaserGame

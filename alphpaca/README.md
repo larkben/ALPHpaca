@@ -1,15 +1,6 @@
-This is a Alephium template project for the
-[Next.js](https://nextjs.org/) framework, it is bootstrapped with the
-following command:
+## ALPHpaca's Homepage
 
-```
-npx @alephium/cli init $project-name --template next
-```
-
-This template project demonstrates how to implement a simple token
-faucet and expose it with a Web UI using Next.js.
-
-## Getting Started
+By downloading and or forking this site for your own personal use you run the risk of not fully understanding the code; possibly even resulting in extreme cases of a loss of funds.
 
 ### Install
 
@@ -17,24 +8,20 @@ faucet and expose it with a Web UI using Next.js.
 npm install
 ```
 
-### Start a local devnet for testing and development
+### Install and Run Docker
 
 ```
-npx @alephium/cli@latest devnet start
+make start-devnet
 ```
 
 ### Deploy the token faucet contract
 
 ```bash
-# In this case devnet
-npx @alephium/cli deploy -n devnet
+# deploys to devnet check package.json for extra commands extending to other networks
+npx @alephium/cli deploy -n devnet 
 ```
 
-This will compile and deploy the token faucet contracts to all of the
-4 groups on devnet.
-
-Before deployment, you might want to just compile and test the
-contracts first:
+## Compilation and Testing
 
 ```bash
 # Compile
@@ -53,19 +40,4 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser
-to see the token faucet application.
-
-Download the [Alephium Extension Wallet](https://github.com/alephium/extension-wallet)
-to interact with the application.
-
-## Learn More
-
-To learn more about smart contract development on Alephium, take a
-look at the following resources:
-
-- [Alephium Web3 SDK Guide](https://docs.alephium.org/dapps/alephium-web3/) - Learn about Alephium Web3 SDK
-- [Ralph Language](https://docs.alephium.org/ralph/getting-started) - A guide to the Ralph programming language
-
-You can check out the [Alephium GitHub
-repositories](https://github.com/alephium) for more information - your
-feedback and contributions are welcome!
+to see the ALPHpaca website.

@@ -20,41 +20,6 @@ import { ThreeTorus } from '@/components/ThreeTorus';
 import { TokenFaucetConfig } from '@/services/utils';
 
 export default function HomePage() {
-  
-    const [alphPrice, setAlphPrice] = useState(null);
-    const [blockHeight, setBlockHeight] = useState<number>();
-    const [showContent, setShowContent] = useState(true);
-    const [showMint, setShowMint] = useState(false);
-    const [showBuild, setShowBuild] = useState(false);
-    const [showAbout, setShowAbout] = useState(false);
-
-    const toggleContent = () => {
-      setShowContent(!showContent);
-      setShowMint(false);
-      setShowBuild(false);
-      setShowAbout(false);
-    };
-
-    const toggleMint = () => {
-      setShowMint(!showMint);
-      setShowContent(false);
-      setShowBuild(false);
-      setShowAbout(false);
-    };
-
-    const toggleBuild = () => {
-      setShowMint(false);
-      setShowContent(false);
-      setShowBuild(!showBuild);
-      setShowAbout(false);
-    };
-
-    const toggleAbout = () => {
-      setShowMint(false);
-      setShowContent(false);
-      setShowBuild(false);
-      setShowAbout(!showAbout);
-    };
 
     useEffect(() => {
         
@@ -62,13 +27,11 @@ export default function HomePage() {
 
   return (
       <div>
+
         <style>
           @import url(&quot;https://fonts.googleapis.com/css2?family=Tektur&display=swap&quot;);
         </style>
         <ThreeTorus config={TokenFaucetConfig}></ThreeTorus>
-        <div className={styles.walletconnect}>
-          <AlephiumConnectButton></AlephiumConnectButton>
-        </div>
         <br/>
         <div className={styles.NFTheader}>
         <h1 className={styles.alphpacaTitleGlow}> ALPHpaca&apos;s </h1>
@@ -101,7 +64,7 @@ export default function HomePage() {
               <tr> <button className={styles.buttonSite}> <Link href="/token_create" className={styles.link}> Token Creator </Link></button> </tr>
               <tr> <button className={styles.buttonSite}> <Link href="/swaps" className={styles.link}> Swaps </Link></button> </tr>
               <tr> <button className={styles.buttonSite}> <Link href="/" className={styles.link}> Minting </Link></button> </tr>
-              <tr> <button className={styles.buttonSite}> <Link href="/" className={styles.link}> Coming Soon! </Link></button> </tr>
+              <tr> <button className={styles.buttonSite}> <Link href="/alphpaca_farm" className={styles.link}> Coming Soon! </Link></button> </tr>
             </table>
           </div>
         </div>

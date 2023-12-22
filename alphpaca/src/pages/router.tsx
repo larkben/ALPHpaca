@@ -1,12 +1,15 @@
+// Router
+
+// Imports
 import { useRouter } from 'next/router'
 import Home from './index'
 import Swaps from './swaps'
-import Token from './token'
+import Token from './token_create'
 import Whitepaper from '../components/whitepaper'
 import Tools from './tools'
 import NFT from './swaps'
-import Faucet from './faucet'
 import TokenAuto from './token_create'
+import ALPHpaca from './alphpaca_farm'
 
 import React from 'react'
 
@@ -20,8 +23,8 @@ const routes = [
     component: Whitepaper
   },
   {
-    path: '/token',
-    component: Token
+    path: '/alphpaca_farm',
+    component: ALPHpaca
   },
   {
     path: '/tools',
@@ -30,10 +33,6 @@ const routes = [
   {
     path: '/swaps',
     component: Swaps
-  },
-  {
-    path: '/faucet',
-    component: Faucet
   },
   {
     path: '/token_create',
@@ -48,7 +47,7 @@ export default function Router() {
   const route = routes.find(route => route.path === pathname)
 
   if (!route) {
-    return <div>Page not found, sorry better luck next refresh.</div>
+    return <div>Page not found, ALPHpaca's pulled the plug.</div>
   }
 
   const { component: Component } = route

@@ -1,5 +1,11 @@
+// Component navbar.tsx
 import Link from 'next/link';
 import styles from '../styles/Navbar.module.css'
+
+// Alephium Imports
+import { AlephiumConnectButton } from '@alephium/web3-react'
+import { AlephiumWalletProvider } from '@alephium/web3-react';
+import { NodeProvider } from '@alephium/web3';
 
 export const Navbar = () => {
   return (
@@ -11,22 +17,22 @@ export const Navbar = () => {
       <ul className={styles.navItems}>
         <li>
           <Link href="/">
-            <a>Home</a>
+            Home
           </Link>
         </li>
         <li>
           <Link href="/Token Creator">
-            <a>Create Token</a>
+            Create Token
           </Link>
         </li>
         <li>
           <Link href="/Mint">
-            <a>Mint</a>
+            Mint
           </Link>
         </li>
         <li>
           <Link href="/">
-            <a>Coming Soon!</a>
+            Coming Soon!
           </Link>
         </li>
         {/* Add more navigation items here */}

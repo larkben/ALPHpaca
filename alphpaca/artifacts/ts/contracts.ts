@@ -6,8 +6,13 @@ import { Contract, ContractFactory } from "@alephium/web3";
 import {
   BurnToken,
   CreateToken,
+  Createswap,
   Faucet,
   FeeCollection,
+<<<<<<< Updated upstream
+=======
+  Swap,
+>>>>>>> Stashed changes
   Token,
   Viral,
 } from ".";
@@ -18,8 +23,13 @@ export function getContractByCodeHash(codeHash: string): Contract {
     contracts = [
       BurnToken,
       CreateToken,
+      Createswap,
       Faucet,
       FeeCollection,
+<<<<<<< Updated upstream
+=======
+      Swap,
+>>>>>>> Stashed changes
       Token,
       Viral,
     ];

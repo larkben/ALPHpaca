@@ -6,10 +6,16 @@
 
 Contract BurnToken (
 	mut tokensburned: U256,
-	tokenid: ByteVec           // PACA, used for name (ALPHpaca)
+	tokenid: ByteVec,          // PACA, used for name (ALPHpaca)
+	owner: Address
 ) {
 	// Events
 	event Burn(from: Address, amount: U256, token: ByteVec)
+	event Destroy(from: Address)
+
+	enum Error {
+		InvalidCaller = 0
+	}
 
 	pub fn getSymbol() -> ByteVec {
 		return tokenid
@@ -29,5 +35,15 @@ Contract BurnToken (
 		tokensburned = tokensburned + amount  // Added to total tokens burned
 
 		emit Burn(caller, amount, tokenid)
+	}
+
+	pub fn destroy() -> () {
+		let caller = callerAddress!()
+
+		assert!(caller == owner, Error.InvalidCaller)
+
+		destroySelf!(owner)
+
+		emit Destroy(caller)
 	}
 }

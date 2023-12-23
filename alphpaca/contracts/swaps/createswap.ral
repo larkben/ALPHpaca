@@ -4,19 +4,17 @@ Contract Createswap (
     owner: Address,
     contract: ByteVec,
     paca: ByteVec,                                       // Protocol Token Fee
-    pacafee: U256,
-    alphfee: U256
+    mut pacafee: U256,
+    mut alphfee: U256
 ) {
-    //TODO
-    //* Change Fee Functions - need to be dynamic
-    //* Init Swap Contract (PACA and ALPH)
-
-    //! Emits / Logging ( Should emit valid info to form sql query and push required contract data to allow all contr
-    //! acts to be visible )
-    
     // Events
+    event Swap(tokeno: ByteVec, amto: U256, tokenw: ByteVec, amtw: U256, contract: ByteVec)
+    event Destroy(who: Address)
 
     // Error Codes
+    enum ErrorCodes {
+        InvalidCaller = 1
+    }
 
     // Public Functions
     pub fn getTokenId() -> ByteVec {
@@ -30,28 +28,74 @@ Contract Createswap (
     pub fn getAlphFee() -> U256 {
         return alphfee
     }
+
+    pub fn getPacaToken() -> ByteVec {
+        return paca
+    }
+
     // Contract Functions
-    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
-    pub fn createswappaca(token: ByteVec, amount: U256, tradetoken: ByteVec, tamount: U256) -> ByteVec {
-
-        caller = callerAddress!()
-
+    @using(preapprovedAssets = true, assetsInContract = false, updateFields = false, checkExternalCaller = false)
+    pub fn createswappaca(tokenOffered: ByteVec, tokenOfferedAmt: U256, tokenWanted: ByteVec, tokenWantedAmt: U256) -> () {
         
+        let minter = callerAddress!()
 
+        let (encodeImmutableFields, encodeMutableFields) = Swap.encodeFields!(tokenOffered, tokenOfferedAmt, tokenWanted, tokenWantedAmt, minter)
+
+        let contractID = copyCreateContract!{minter -> ALPH: 1 alph, tokenOffered: tokenOfferedAmt}(
+            contract,                                                                                  
+            encodeImmutableFields,
+            encodeMutableFields
+        )
+
+        transferToken!(minter, owner, getPacaToken(), getPacaFee())
+
+        emit Swap(tokenOffered, tokenOfferedAmt, tokenWanted, tokenWantedAmt, contractID)
     }
 
-    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
-    pub fn createswapalph() -> ByteVec {
+    @using(preapprovedAssets = true, assetsInContract = false, updateFields = false, checkExternalCaller = false)
+    pub fn createswapalph(tokenOffered: ByteVec, tokenOfferedAmt: U256, tokenWanted: ByteVec, tokenWantedAmt: U256) -> () {
         
+        let minter = callerAddress!()
+
+        let (encodeImmutableFields, encodeMutableFields) = Swap.encodeFields!(tokenOffered, tokenOfferedAmt, tokenWanted, tokenWantedAmt, minter)
+
+        let contractID = copyCreateContract!{minter -> ALPH: 1 alph, tokenOffered: tokenOfferedAmt}(
+            contract,                                                                                  
+            encodeImmutableFields,
+            encodeMutableFields
+        )
+
+        transferToken!(minter, owner, ALPH, getAlphFee())
+
+        emit Swap(tokenOffered, tokenOfferedAmt, tokenWanted, tokenWantedAmt, contractID)
     }
 
-    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
-    pub fn removepaca() -> ByteVec {
-        
+    @using(preapprovedAssets = false, assetsInContract = false, updateFields = true, checkExternalCaller = false)
+    pub fn feepaca(amount: U256) -> () {
+
+        pacafee = amount
+
+        //emit PacaFeeChange(pacafee)
     }
 
-    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
-    pub fn removealph() -> ByteVec {
+    @using(preapprovedAssets = false, assetsInContract = false, updateFields = true, checkExternalCaller = false)
+    pub fn feealph(amount: U256) -> () {
         
+        alphfee = amount
+
+        //emit AlphFeeChange(alphfee)
     }
+
+    @using(assetsInContract = true, updateFields = false, checkExternalCaller = true)
+    pub fn destroytokenswap() -> () {
+
+        let caller = callerAddress!()
+
+        checkCaller!(owner == caller, ErrorCodes.InvalidCaller)
+
+        destroySelf!(owner)
+
+        emit Destroy(owner)
+    }
+
 }

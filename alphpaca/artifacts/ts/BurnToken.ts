@@ -32,6 +32,7 @@ export namespace BurnTokenTypes {
   export type Fields = {
     tokensburned: bigint;
     tokenid: HexString;
+    owner: Address;
   };
 
   export type State = ContractState<Fields>;
@@ -41,6 +42,7 @@ export namespace BurnTokenTypes {
     amount: bigint;
     token: HexString;
   }>;
+  export type DestroyEvent = ContractEvent<{ from: Address }>;
 
   export interface CallMethodTable {
     getSymbol: {
@@ -74,7 +76,8 @@ class Factory extends ContractFactory<
     return;
   }
 
-  eventIndex = { Burn: 0 };
+  eventIndex = { Burn: 0, Destroy: 1 };
+  consts = { Error: { InvalidCaller: BigInt(0) } };
 
   at(address: string): BurnTokenInstance {
     return new BurnTokenInstance(address);
@@ -96,6 +99,11 @@ class Factory extends ContractFactory<
     ): Promise<TestContractResult<null>> => {
       return testMethod(this, "burntoken", params);
     },
+    destroy: async (
+      params: Omit<TestContractParams<BurnTokenTypes.Fields, never>, "testArgs">
+    ): Promise<TestContractResult<null>> => {
+      return testMethod(this, "destroy", params);
+    },
   };
 }
 
@@ -104,7 +112,7 @@ export const BurnToken = new Factory(
   Contract.fromJson(
     BurnTokenContractJson,
     "",
-    "7d3c025e9ac56c8cb53c182134dc0a455987cc788745a4052730084e30811658"
+    "f2def89f6c6812d5b48e2bc92ed1fc50520dfb84621676d9aa3e9e3b2bba609c"
   )
 );
 
@@ -131,6 +139,33 @@ export class BurnTokenInstance extends ContractInstance {
       this,
       options,
       "Burn",
+      fromCount
+    );
+  }
+
+  subscribeDestroyEvent(
+    options: EventSubscribeOptions<BurnTokenTypes.DestroyEvent>,
+    fromCount?: number
+  ): EventSubscription {
+    return subscribeContractEvent(
+      BurnToken.contract,
+      this,
+      options,
+      "Destroy",
+      fromCount
+    );
+  }
+
+  subscribeAllEvents(
+    options: EventSubscribeOptions<
+      BurnTokenTypes.BurnEvent | BurnTokenTypes.DestroyEvent
+    >,
+    fromCount?: number
+  ): EventSubscription {
+    return subscribeContractEvents(
+      BurnToken.contract,
+      this,
+      options,
       fromCount
     );
   }

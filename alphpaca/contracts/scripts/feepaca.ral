@@ -1,0 +1,7 @@
+TxScript FeePaca (
+    contract: Createswap,
+    amount: U256
+) {
+
+    contract.feepaca(amount)
+}

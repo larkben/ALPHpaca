@@ -1,0 +1,154 @@
+{
+  "version": "v2.5.7",
+  "name": "Swap",
+  "bytecode": "050709121b4024402d4050405c010000000102ce0002010000000102ce0102010000000102ce0202010000000102ce0302010000000102ce0402010100000013b4000400020003aab2b400000001aace04b005b1000000010002000373010200000005ce04b006b15e",
+  "codeHash": "7203c62f95e45ab6fa6b14a0c3f20480d255d86459ab1160ee4bae013a35be93",
+  "fieldsSig": {
+    "names": [
+      "token",
+      "amount",
+      "tradetoken",
+      "tamount",
+      "owner"
+    ],
+    "types": [
+      "ByteVec",
+      "U256",
+      "ByteVec",
+      "U256",
+      "Address"
+    ],
+    "isMutable": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "eventsSig": [
+    {
+      "name": "Success",
+      "fieldNames": [
+        "id",
+        "tone",
+        "aone",
+        "ttwo",
+        "atwo"
+      ],
+      "fieldTypes": [
+        "ByteVec",
+        "ByteVec",
+        "U256",
+        "ByteVec",
+        "U256"
+      ]
+    },
+    {
+      "name": "Cancel",
+      "fieldNames": [
+        "id"
+      ],
+      "fieldTypes": [
+        "ByteVec"
+      ]
+    },
+    {
+      "name": "Edit",
+      "fieldNames": [
+        "id",
+        "ttwo",
+        "atwo"
+      ],
+      "fieldTypes": [
+        "ByteVec",
+        "ByteVec",
+        "U256"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "getToken",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "ByteVec"
+      ]
+    },
+    {
+      "name": "getAmount",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "U256"
+      ]
+    },
+    {
+      "name": "getTradeToken",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "ByteVec"
+      ]
+    },
+    {
+      "name": "getTAmount",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "U256"
+      ]
+    },
+    {
+      "name": "getOwner",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "Address"
+      ]
+    },
+    {
+      "name": "confirmswap",
+      "usePreapprovedAssets": true,
+      "useAssetsInContract": true,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": []
+    },
+    {
+      "name": "cancelswap",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": true,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": []
+    }
+  ],
+  "constants": [],
+  "enums": []
+}

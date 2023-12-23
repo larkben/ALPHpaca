@@ -24,7 +24,7 @@ import {
   ContractInstance,
   getContractEventsCurrentCount,
 } from "@alephium/web3";
-import { default as CreateTokenContractJson } from "../CreateToken.ral.json";
+import { default as CreateTokenContractJson } from "../createtoken/CreateToken.ral.json";
 import { getContractByCodeHash } from "./contracts";
 
 // Custom types for the contract

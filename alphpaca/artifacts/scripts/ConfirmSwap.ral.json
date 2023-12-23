@@ -1,0 +1,28 @@
+{
+  "version": "v2.5.7",
+  "name": "ConfirmSwap",
+  "bytecodeTemplate": "010103000200120c0d{0}010217000c0d{0}01031701b416001601a30c0c{0}0105",
+  "fieldsSig": {
+    "names": [
+      "contract"
+    ],
+    "types": [
+      "ByteVec"
+    ],
+    "isMutable": [
+      false
+    ]
+  },
+  "functions": [
+    {
+      "name": "main",
+      "usePreapprovedAssets": true,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": []
+    }
+  ]
+}

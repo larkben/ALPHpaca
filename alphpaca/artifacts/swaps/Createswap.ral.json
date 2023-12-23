@@ -1,0 +1,214 @@
+{
+  "version": "v2.5.7",
+  "name": "Createswap",
+  "bytecode": "050909121b4024407340c040ca40d440eb010000000102ce0202010000000102a00002010000000102a00102010000000102ce020201030408004025b41704160016011602160316041305641300641706170516047a13c40de0b6b3a7640000a216001601a3ce0116051606af17071604ce0000030001aa05160016011602160316077301030408004024b41704160016011602160316041305641300641706170516047a13c40de0b6b3a7640000a216001601a3ce0116051606af17071604ce000002a70516001601160216031607730100010100021600a1000100010100021600a10101020001000cb41700ce001600450d7bce00b006ce005e",
+  "codeHash": "6a1c560468731e2eedd68a31fffd7c197fa39d3bf947233d1e060d12b4018bec",
+  "fieldsSig": {
+    "names": [
+      "owner",
+      "contract",
+      "paca",
+      "pacafee",
+      "alphfee"
+    ],
+    "types": [
+      "Address",
+      "ByteVec",
+      "ByteVec",
+      "U256",
+      "U256"
+    ],
+    "isMutable": [
+      false,
+      false,
+      false,
+      true,
+      true
+    ]
+  },
+  "eventsSig": [
+    {
+      "name": "Swap",
+      "fieldNames": [
+        "tokeno",
+        "amto",
+        "tokenw",
+        "amtw",
+        "contract"
+      ],
+      "fieldTypes": [
+        "ByteVec",
+        "U256",
+        "ByteVec",
+        "U256",
+        "ByteVec"
+      ]
+    },
+    {
+      "name": "Destroy",
+      "fieldNames": [
+        "who"
+      ],
+      "fieldTypes": [
+        "Address"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "getTokenId",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "ByteVec"
+      ]
+    },
+    {
+      "name": "getPacaFee",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "U256"
+      ]
+    },
+    {
+      "name": "getAlphFee",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "U256"
+      ]
+    },
+    {
+      "name": "getPacaToken",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": [
+        "ByteVec"
+      ]
+    },
+    {
+      "name": "createswappaca",
+      "usePreapprovedAssets": true,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [
+        "tokenOffered",
+        "tokenOfferedAmt",
+        "tokenWanted",
+        "tokenWantedAmt"
+      ],
+      "paramTypes": [
+        "ByteVec",
+        "U256",
+        "ByteVec",
+        "U256"
+      ],
+      "paramIsMutable": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "returnTypes": []
+    },
+    {
+      "name": "createswapalph",
+      "usePreapprovedAssets": true,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [
+        "tokenOffered",
+        "tokenOfferedAmt",
+        "tokenWanted",
+        "tokenWantedAmt"
+      ],
+      "paramTypes": [
+        "ByteVec",
+        "U256",
+        "ByteVec",
+        "U256"
+      ],
+      "paramIsMutable": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "returnTypes": []
+    },
+    {
+      "name": "feepaca",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [
+        "amount"
+      ],
+      "paramTypes": [
+        "U256"
+      ],
+      "paramIsMutable": [
+        false
+      ],
+      "returnTypes": []
+    },
+    {
+      "name": "feealph",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [
+        "amount"
+      ],
+      "paramTypes": [
+        "U256"
+      ],
+      "paramIsMutable": [
+        false
+      ],
+      "returnTypes": []
+    },
+    {
+      "name": "destroytokenswap",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": true,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": []
+    }
+  ],
+  "constants": [],
+  "enums": [
+    {
+      "name": "ErrorCodes",
+      "fields": [
+        {
+          "name": "InvalidCaller",
+          "value": {
+            "type": "U256",
+            "value": "1"
+          }
+        }
+      ]
+    }
+  ]
+}

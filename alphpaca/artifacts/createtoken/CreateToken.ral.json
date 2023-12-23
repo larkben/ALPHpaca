@@ -1,0 +1,96 @@
+{
+  "version": "v2.5.7",
+  "name": "CreateToken",
+  "bytecode": "02024048405f01030408011eb41704160016011602160316041406414c5048000113066413006417061705160413c40de0b6b3a7640000a2ce011605160616031604c7170706160416075f16070201020001000cb41700ce001600450d7bce00b005ce005e",
+  "codeHash": "7ed6793ccad176ce4c219e78b5957818968443e64427459cae59ead4c5e2dcb8",
+  "fieldsSig": {
+    "names": [
+      "owner",
+      "contract"
+    ],
+    "types": [
+      "Address",
+      "ByteVec"
+    ],
+    "isMutable": [
+      false,
+      false
+    ]
+  },
+  "eventsSig": [
+    {
+      "name": "Destroy",
+      "fieldNames": [
+        "user"
+      ],
+      "fieldTypes": [
+        "Address"
+      ]
+    },
+    {
+      "name": "CreateToken",
+      "fieldNames": [
+        "user",
+        "contract"
+      ],
+      "fieldTypes": [
+        "Address",
+        "ByteVec"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "buildtoken",
+      "usePreapprovedAssets": true,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [
+        "symbol",
+        "name",
+        "decimals",
+        "tokenTotal"
+      ],
+      "paramTypes": [
+        "ByteVec",
+        "ByteVec",
+        "U256",
+        "U256"
+      ],
+      "paramIsMutable": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "returnTypes": [
+        "ByteVec"
+      ]
+    },
+    {
+      "name": "destroycreator",
+      "usePreapprovedAssets": false,
+      "useAssetsInContract": true,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": []
+    }
+  ],
+  "constants": [],
+  "enums": [
+    {
+      "name": "ErrorCodes",
+      "fields": [
+        {
+          "name": "InvalidCaller",
+          "value": {
+            "type": "U256",
+            "value": "1"
+          }
+        }
+      ]
+    }
+  ]
+}

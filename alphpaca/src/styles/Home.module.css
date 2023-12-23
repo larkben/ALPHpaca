@@ -15,6 +15,7 @@
     margin-top: 5px;
     color: white;
     font-family: 'Tektur', cursive;
+    z-index: 2;
 }
 
 .pacaDescript {
@@ -82,18 +83,9 @@
     font-size: 75%;
 }
 
-/* Wallet Connect */
-
-.walletconnect {
-    margin-left: 50px;
-}
-
-@media (max-width: 768px) {
-    /* Styles for mobile devices */
-    .buttonSite, .statsPrice, .NFTheader, .movingText {
-      /* Adjust font sizes, margins, paddings for smaller screens */
-    }
-    /* Other responsive styles */
+.link {
+    text-decoration: none;
+    color: white;
 }
 
 /* DAPPS */
@@ -306,5 +298,6 @@
 /* Game Window */
 
 .threeindexjs {
-    max-height: 100px;
+    max-height: 200px;
+    z-index: 1;
 }

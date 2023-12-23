@@ -2,20 +2,15 @@
 
 Contract Swap (
     token: ByteVec,                                     // token wanting to trade
-    amount: Amount,                                     // amount
-    mut tradetoken: ByteVec,                            // token you want
-    mut tamount: U256,                                  // amount of that token
+    amount: U256,                                     // amount
+    tradetoken: ByteVec,                            // token you want
+    tamount: U256,                                  // amount of that token
     owner: Address
 ) {
     // Events
     event Success(id: ByteVec, tone: ByteVec, aone: U256, ttwo: ByteVec, atwo: U256)
     event Cancel(id: ByteVec)
     event Edit(id: ByteVec, ttwo: ByteVec, atwo: U256) // Can only edit the token / amount requested
-    // Error Codes
-
-    enum Error {
-        InvalidCaller = 1
-    }
 
     // Public Functions
     pub fn getToken() -> ByteVec {
@@ -30,32 +25,22 @@ Contract Swap (
         return tradetoken
     }
 
-    pub fn editTradeToken(tnew: ByteVec) {
-        tradetoken = tnew
-    }
-
     pub fn getTAmount() -> U256 {
         return tamount
     }
 
-    pub fn editTAmount(anew: U256) {
-        tamount = anew
-    }
-
     pub fn getOwner() -> Address {
-        reurn owner
+        return owner
     }
 
     // Contract Functions
-    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
-    pub fn confirmswap() -> ByteVec {
-        
-        caller = callerAddress!()
+    @using(preapprovedAssets = true, assetsInContract = true, updateFields = false, checkExternalCaller = false)
+    pub fn confirmswap() -> () {
 
         // Transfer Caller Assets  -> Owner
-        transferToken!(caller, getOwner(), getTradeToken(), getTAmount()) // Caller Sends Assets to Owner
+        transferToken!(callerAddress!(), getOwner(), getTradeToken(), getTAmount()) // Caller Sends Assets to Owner
         // Transfer Owner Assets -> Caller
-        transferToken!(selfAddress!(), caller, getToken(), getAmount()) // Contract send Owners assets to Caller
+        transferToken!(selfAddress!(), callerAddress!(), getToken(), getAmount()) // Contract send Owners assets to Caller
 
         // Contract is finalized
         destroySelf!(owner)
@@ -64,27 +49,13 @@ Contract Swap (
         emit Success(selfContractId!(), getToken(), getAmount(), getTradeToken(), getTAmount())
     }
 
-    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
-    pub fn cancelswap() -> ByteVec {
+    @using(preapprovedAssets = false, assetsInContract = true, updateFields = false, checkExternalCaller = false)
+    pub fn cancelswap() -> () {
 
         // Call Destroy
         destroySelf!(owner)
 
         emit Cancel(selfContractId!())
         
-    }
-
-    @using(preapprovedAssets = true, assetsInContract = true, updateFields = true, checkExternalCaller = false)
-    pub fn editoffer(ttoken: ByteVec, amt: U256) -> ByteVec {
-        
-        caller = callerAddress!()
-
-        assert!(caller == getOwner(), Error.InvalidCaller)
-
-        editTradeToken(ttoken)
-
-        editTAmount(amt)
-
-        emit Edit(selfContractId!(), getTradeToken(), getTAmount())
     }
 }

@@ -25,9 +25,9 @@
     },
     "BurnToken": {
       "sourceFile": "burn.ral",
-      "sourceCodeHash": "f049982c9496d5040e409db8a453bc44fb6fdcd65ae9db81eda77216712ba5b1",
+      "sourceCodeHash": "bb81bbb02b93f89fb8e8d22ae3d08f3e7734c9ab4ae05afc95122f0b88066f22",
       "bytecodeDebugPatch": "",
-      "codeHashDebug": "7d3c025e9ac56c8cb53c182134dc0a455987cc788745a4052730084e30811658",
+      "codeHashDebug": "f2def89f6c6812d5b48e2bc92ed1fc50520dfb84621676d9aa3e9e3b2bba609c",
       "warnings": []
     },
     "Buyvirl": {
@@ -37,44 +37,58 @@
       "codeHashDebug": "",
       "warnings": []
     },
-    "CreateOpenCollection": {
-      "sourceFile": "scripts/create_open_collection.ral",
-      "sourceCodeHash": "61305c1d907d342a63b6f27538d5460d501f3e520e000fa912506192d3ee41fe",
+    "CancelSwap": {
+      "sourceFile": "scripts/cancel_swap.ral",
+      "sourceCodeHash": "e259f835a2934fde782aa0546976643c05c2f0c83e4a276772de5ed7913cd98e",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "",
       "warnings": []
     },
-    "CreateOpenCollectionWithRoyalty": {
-      "sourceFile": "scripts/create_open_collection_with_royalty.ral",
-      "sourceCodeHash": "2345e06af03b32ac6edb2292d3053f54408401c1953a5354b5d98d34c883d0eb",
+    "ConfirmSwap": {
+      "sourceFile": "scripts/confirm_swap.ral",
+      "sourceCodeHash": "71e6b7523fef8f478f509c7dd3154b1bcbeda7f2d28fadf6005c9d4bce791550",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "",
       "warnings": []
     },
-    "CreatePublicSaleCollectionSequential": {
-      "sourceFile": "scripts/create_public_sale_collection_sequential.ral",
-      "sourceCodeHash": "007ef83801b19fc8d54572f4cb4f422f08c0e300af8085d95f98180aae03563d",
+    "Create": {
+      "sourceFile": "scripts/create_swap.ral",
+      "sourceCodeHash": "b4ea369a1b8193fbd8ad3efadd2c5dd12c6bcf4b66214a67a3b9c54e931b60f9",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "",
       "warnings": []
     },
-    "CreatePublicSaleCollectionSequentialWithRoyalty": {
-      "sourceFile": "scripts/create_public_sale_collection_sequential_with_royalty.ral",
-      "sourceCodeHash": "0de405465c941f616d4f3c4513bba704a7e0fd1c6a8c558cc778f3a423dc4f9b",
+    "CreateAlph": {
+      "sourceFile": "scripts/create_swapalph.ral",
+      "sourceCodeHash": "da381bc12e442646b1160143b0c884efe5b0a6505c8902cb5dbefce62990b123",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "",
       "warnings": []
     },
     "CreateToken": {
-      "sourceFile": "create_token.ral",
+      "sourceFile": "createtoken/create_token.ral",
       "sourceCodeHash": "1f75c67fc65f44672f0b66047fbbe2d7d4c999cc5ea4b175a0eced64133e1feb",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "7ed6793ccad176ce4c219e78b5957818968443e64427459cae59ead4c5e2dcb8",
       "warnings": []
     },
+    "Createswap": {
+      "sourceFile": "swaps/createswap.ral",
+      "sourceCodeHash": "ea18e7b6b0c9eb10de23eb2dcb46bc735a17497867805e4d4e42629f8d6170e7",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "6a1c560468731e2eedd68a31fffd7c197fa39d3bf947233d1e060d12b4018bec",
+      "warnings": []
+    },
     "Destroy": {
       "sourceFile": "scripts/destroy_faucet.ral",
       "sourceCodeHash": "0447e8824afa27dc76fdcaac5fac72247eb5b4aa93d5efc87da36d1450e1c4f7",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
+      "warnings": []
+    },
+    "DestroyTokenSwap": {
+      "sourceFile": "scripts/destroy_tokenswap.ral",
+      "sourceCodeHash": "8ae50e4974df1c50b394797928ad4d6168963f590414bf87da523252ac0df6ce",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "",
       "warnings": []
@@ -100,11 +114,25 @@
       "codeHashDebug": "8813de5a4adb21e4e0ea09357924ec19037b916ecfd6a228152238f8e9396d04",
       "warnings": []
     },
+    "FeeAlph": {
+      "sourceFile": "scripts/feealph.ral",
+      "sourceCodeHash": "1e12397dc597f5f2ce7c9da9cd1868b303a3ddeac7b43daff02e3bc210ebf8af",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
+      "warnings": []
+    },
     "FeeCollection": {
       "sourceFile": "test_fees.ral",
       "sourceCodeHash": "c57c6d50b3844a156c7fcf9bed5ad1e8656db4a33099ccd3771e6d9c739f34b8",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "037be2975a9253dfe116077fa5b404f46ce64a23e2ccefbf2905dce4b66a7a7c",
+      "warnings": []
+    },
+    "FeePaca": {
+      "sourceFile": "scripts/feepaca.ral",
+      "sourceCodeHash": "0029c3792abef12ccdb011ce80b3c16d6f95aacfedceac8a9b01dea531e17308",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "",
       "warnings": []
     },
     "Gettoken": {
@@ -119,146 +147,6 @@
       "sourceCodeHash": "6809cb06fb20fa7edf529461998beeebd12b1636d439612cca2f84214dbf4a20",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "",
-      "warnings": []
-    },
-    "INFT": {
-      "sourceFile": "../../../../.npm/_npx/f1b120e1b513c04c/node_modules/@alephium/web3/std/nft_interface.ral",
-      "sourceCodeHash": "7f7514adf9fee057049d1c162701725b3377c01a0a102e6f0f5cf747039926b6",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "",
-      "warnings": []
-    },
-    "INFTCollection": {
-      "sourceFile": "../../../../.npm/_npx/f1b120e1b513c04c/node_modules/@alephium/web3/std/nft_collection_interface.ral",
-      "sourceCodeHash": "738a3440b686d94c9f7db58f23e22b7512d229540392b426ecb190b82db3fb4f",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "",
-      "warnings": []
-    },
-    "INFTCollectionWithRoyalty": {
-      "sourceFile": "../../../../.npm/_npx/f1b120e1b513c04c/node_modules/@alephium/web3/std/nft_collection_with_royalty_interface.ral",
-      "sourceCodeHash": "6407fb10136b21e191c5cf1f695be89f9e427ce2b01c039dd525dac587f3fc05",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "",
-      "warnings": []
-    },
-    "INFTWithdrawableCollection": {
-      "sourceFile": "nft/nft_collection_with_withdraw_interface.ral",
-      "sourceCodeHash": "0ed3336b045fda434f09be6b953f2055d438f7ae2d80baa66338005b1d6457a9",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "",
-      "warnings": []
-    },
-    "MintBatchSequential": {
-      "sourceFile": "scripts/mint_batch_sequential.ral",
-      "sourceCodeHash": "c8f2041c63ac683e5c6ae85d95a1753c6ec3b57cd193eb8e7614ac8d4ba70c86",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "",
-      "warnings": []
-    },
-    "MintNextSequential": {
-      "sourceFile": "scripts/mint_next_sequential.ral",
-      "sourceCodeHash": "74f54a1fea71452583d897d4d354ea07c282bf4f7cdcd445b7facbd3d3b7b761",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "",
-      "warnings": []
-    },
-    "MintOpenNFT": {
-      "sourceFile": "scripts/mint_open_nft.ral",
-      "sourceCodeHash": "dc6542ff119bd55c8a99a7e57ec0746552a249f1d7793c7e7f13094276dab606",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "",
-      "warnings": []
-    },
-    "MintSpecific": {
-      "sourceFile": "scripts/mint_specific.ral",
-      "sourceCodeHash": "059aacb90dbc2b6ca1c00727355c41d054259d355d2095eafd5fa27feca7e916",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "",
-      "warnings": []
-    },
-    "NFT": {
-      "sourceFile": "nft/nft.ral",
-      "sourceCodeHash": "151acfcf777b6c6647753ba3853b77c9a4827af8864d68407db97dded1c549b1",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "7386b370672aff98393754e2785b59018eed34a07e7a7eab3d18b4289f627b72",
-      "warnings": []
-    },
-    "NFTCollectionBase": {
-      "sourceFile": "nft/nft_collection_base.ral",
-      "sourceCodeHash": "d9373fd63c7e11066f75d32fe971fbf7c3b41b952f9f967b0c9b70f66090a79e",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "",
-      "warnings": []
-    },
-    "NFTOpenCollection": {
-      "sourceFile": "nft/open/nft_open_collection.ral",
-      "sourceCodeHash": "db0f6a2cc27e735bff53dff47aa8f1af2a041fd595252c4a0a9c0f8bf968400a",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "3c7285b3db939cfa5f708874823d71815db8d30c54f49c8f8d6822f89addf25b",
-      "warnings": []
-    },
-    "NFTOpenCollectionBase": {
-      "sourceFile": "nft/open/nft_open_collection_base.ral",
-      "sourceCodeHash": "495309bad41b82f42e17242ff387c7a3d7c3489438531ea47b3a140513acb92a",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "",
-      "warnings": []
-    },
-    "NFTOpenCollectionWithRoyalty": {
-      "sourceFile": "nft/open/nft_open_collection_with_royalty.ral",
-      "sourceCodeHash": "bb642cbae1fa4797f0769feb924f579973cde89e63de74a36b95edd56e88d85b",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "0153ed557c8aa35fe084a2e4f8c721e154b275901cbd8055c629cfa26fb25e80",
-      "warnings": []
-    },
-    "NFTPublicSaleCollectionBase": {
-      "sourceFile": "nft/publicsale/nft_public_sale_collection_base.ral",
-      "sourceCodeHash": "61636618408880f90b522a118061ebf8a5be96d133905b219b6116e90c1f84fc",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "",
-      "warnings": []
-    },
-    "NFTPublicSaleCollectionRandom": {
-      "sourceFile": "nft/publicsale/random/nft_public_sale_collection_random.ral",
-      "sourceCodeHash": "4b8182a167ff30b7ea9582ff7eee9f0228d4aacaa7aac5e840e40ede33f62886",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "55317db571a2a8e63fb955b61f76d3fa602df3d8ad8e9c0ac7d0c13fff47ac2e",
-      "warnings": []
-    },
-    "NFTPublicSaleCollectionRandomBase": {
-      "sourceFile": "nft/publicsale/random/nft_public_sale_collection_random_base.ral",
-      "sourceCodeHash": "41b0f63677ee8b9bbd9c22d181085850501cd7d389fa55a8d50a226e1b202a4a",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "",
-      "warnings": []
-    },
-    "NFTPublicSaleCollectionRandomWithRoyalty": {
-      "sourceFile": "nft/publicsale/random/nft_public_sale_collection_random_with_royalty.ral",
-      "sourceCodeHash": "3b296771f2d73def1835a1d9f1ed0afd9876fb18864bf71a5befb027ac89e7a2",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "d723a046f7e3171257508a14b831c0a54bad8ab9cf3c5959775dc0736c9dec28",
-      "warnings": []
-    },
-    "NFTPublicSaleCollectionSequential": {
-      "sourceFile": "nft/publicsale/sequential/nft_public_sale_collection_sequential.ral",
-      "sourceCodeHash": "c91a068902fd88be4b6be7d0907595b0ca0710fd92ee03cd608f3cf79c1b5cbb",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "0465ef0b67a5ba3f4a06a375a64d19137b968b8e59618a8bb59b6792e10e6fd9",
-      "warnings": []
-    },
-    "NFTPublicSaleCollectionSequentialBase": {
-      "sourceFile": "nft/publicsale/sequential/nft_public_sale_collection_sequential_base.ral",
-      "sourceCodeHash": "ea2a8a0df79bcb010a88391fcf63252d8b99df34c44c86acf7bd9e0b1d01267f",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "",
-      "warnings": []
-    },
-    "NFTPublicSaleCollectionSequentialWithRoyalty": {
-      "sourceFile": "nft/publicsale/sequential/nft_public_sale_collection_sequential_with_royalty.ral",
-      "sourceCodeHash": "a0e9e8c4fea703e61d9a438872d5efde4678773b08194587546997b712ae9577",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "4cdc890635635f64a7697b2e73a35fa5a0faf74ebfe2fb8bdea16d4e24302b88",
       "warnings": []
     },
     "Reedeemalph": {
@@ -282,8 +170,15 @@
       "codeHashDebug": "",
       "warnings": []
     },
+    "Swap": {
+      "sourceFile": "swaps/swap.ral",
+      "sourceCodeHash": "655553ba1c78cb625996f8fa38d2cdcb06216a2c3621436d9740cc12fa5816a7",
+      "bytecodeDebugPatch": "",
+      "codeHashDebug": "7203c62f95e45ab6fa6b14a0c3f20480d255d86459ab1160ee4bae013a35be93",
+      "warnings": []
+    },
     "Token": {
-      "sourceFile": "token.ral",
+      "sourceFile": "createtoken/token.ral",
       "sourceCodeHash": "fcbdce030993275cfc162a2b970344a8e07a750122684f77ae7044756815f8db",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "9fb480d2534a9e8b5cf4b5ef005deeec049136f4462dfc72c56ad041a561526b",
@@ -301,27 +196,6 @@
       "sourceCodeHash": "a45282df7ae0cc47e050ff91c8a5987c68a454a0d198cc6e6d34882ad04154ee",
       "bytecodeDebugPatch": "",
       "codeHashDebug": "d87d6c74c21a7bec6cba00e9a0388ca81c5a71518b8efb77f43b5160cfdd4456",
-      "warnings": []
-    },
-    "WithdrawFromOpenCollection": {
-      "sourceFile": "scripts/withdraw_from_open_collection.ral",
-      "sourceCodeHash": "2ccfd44a5f00f5739cae8fa7ca505bf4716a610bb163cbf4a1a71794594c2d8c",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "",
-      "warnings": []
-    },
-    "WithdrawFromPublicSaleCollectionRandom": {
-      "sourceFile": "scripts/withdraw_from_public_sale_collection_random.ral",
-      "sourceCodeHash": "f10884867e350ba20332119d7ec1fa319f7837f032cd24c4a3cda7e2e6478ecb",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "",
-      "warnings": []
-    },
-    "WithdrawFromPublicSaleCollectionSequential": {
-      "sourceFile": "scripts/withdraw_from_public_sale_collection_sequential.ral",
-      "sourceCodeHash": "18d8c0d81cf0abd55625644d620f671cee3a9e33a72730754bf4eb1c9c58000b",
-      "bytecodeDebugPatch": "",
-      "codeHashDebug": "",
       "warnings": []
     },
     "Withdrawlassets": {

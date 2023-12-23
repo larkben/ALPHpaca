@@ -1,0 +1,12 @@
+TxScript Create (
+    contract: Createswap,
+    tokenoffered: ByteVec,
+    tokenofferedamt: U256,
+    tokenwanted: ByteVec,
+    tokenwantedamt: U256
+) {
+    let minimalAlphInContract = 1 alph
+    let approvedAlphAmount = minimalAlphInContract
+
+    contract.createswappaca{callerAddress!() -> ALPH: approvedAlphAmount, tokenoffered: tokenofferedamt}(tokenoffered, tokenofferedamt, tokenwanted, tokenwantedamt)
+}

@@ -1,0 +1,40 @@
+{
+  "version": "v2.5.7",
+  "name": "Create",
+  "bytecodeTemplate": "0101030002001313c40de0b6b3a7640000170016001701b47a1601a2{1}{2}a3{1}{2}{3}{4}100c{0}0104",
+  "fieldsSig": {
+    "names": [
+      "contract",
+      "tokenoffered",
+      "tokenofferedamt",
+      "tokenwanted",
+      "tokenwantedamt"
+    ],
+    "types": [
+      "ByteVec",
+      "ByteVec",
+      "U256",
+      "ByteVec",
+      "U256"
+    ],
+    "isMutable": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "functions": [
+    {
+      "name": "main",
+      "usePreapprovedAssets": true,
+      "useAssetsInContract": false,
+      "isPublic": true,
+      "paramNames": [],
+      "paramTypes": [],
+      "paramIsMutable": [],
+      "returnTypes": []
+    }
+  ]
+}

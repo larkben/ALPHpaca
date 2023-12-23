@@ -1,0 +1,7 @@
+TxScript FeeAlph (
+    contract: Createswap,
+    amount: U256
+) {
+
+    contract.feealph(amount)
+}

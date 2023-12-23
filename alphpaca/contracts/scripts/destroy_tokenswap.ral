@@ -1,0 +1,6 @@
+TxScript DestroyTokenSwap (
+    contract: Createswap
+) {
+
+    contract.destroytokenswap()
+}

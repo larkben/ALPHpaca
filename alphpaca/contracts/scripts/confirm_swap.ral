@@ -1,0 +1,8 @@
+TxScript ConfirmSwap (
+    contract: Swap
+) {
+    let token = contract.getTradeToken()
+    let tokenamt = contract.getTAmount()
+
+    contract.confirmswap{callerAddress!() -> token: tokenamt}()
+}

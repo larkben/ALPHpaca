@@ -14,13 +14,6 @@ import {
 import { default as BuildtokenScriptJson } from "../scripts/Buildtoken.ral.json";
 import { default as BurnScriptJson } from "../scripts/Burn.ral.json";
 import { default as BuyvirlScriptJson } from "../scripts/Buyvirl.ral.json";
-<<<<<<< Updated upstream
-=======
-import { default as CancelSwapScriptJson } from "../scripts/CancelSwap.ral.json";
-import { default as ConfirmSwapScriptJson } from "../scripts/ConfirmSwap.ral.json";
-import { default as CreateScriptJson } from "../scripts/Create.ral.json";
-import { default as CreateAlphScriptJson } from "../scripts/CreateAlph.ral.json";
->>>>>>> Stashed changes
 import { default as DestroyScriptJson } from "../scripts/Destroy.ral.json";
 import { default as DestroyTokenSwapScriptJson } from "../scripts/DestroyTokenSwap.ral.json";
 import { default as DestroytokenScriptJson } from "../scripts/Destroytoken.ral.json";
@@ -49,29 +42,6 @@ export const Buyvirl = new ExecutableScript<{
   contract: HexString;
   amount: bigint;
 }>(Script.fromJson(BuyvirlScriptJson));
-<<<<<<< Updated upstream
-=======
-export const CancelSwap = new ExecutableScript<{ contract: HexString }>(
-  Script.fromJson(CancelSwapScriptJson)
-);
-export const ConfirmSwap = new ExecutableScript<{ contract: HexString }>(
-  Script.fromJson(ConfirmSwapScriptJson)
-);
-export const Create = new ExecutableScript<{
-  contract: HexString;
-  tokenoffered: HexString;
-  tokenofferedamt: bigint;
-  tokenwanted: HexString;
-  tokenwantedamt: bigint;
-}>(Script.fromJson(CreateScriptJson));
-export const CreateAlph = new ExecutableScript<{
-  contract: HexString;
-  tokenoffered: HexString;
-  tokenofferedamt: bigint;
-  tokenwanted: HexString;
-  tokenwantedamt: bigint;
-}>(Script.fromJson(CreateAlphScriptJson));
->>>>>>> Stashed changes
 export const Destroy = new ExecutableScript<{ contract: HexString }>(
   Script.fromJson(DestroyScriptJson)
 );
@@ -113,9 +83,3 @@ export const Topup = new ExecutableScript<{
   contract: HexString;
   amount: bigint;
 }>(Script.fromJson(TopupScriptJson));
-<<<<<<< Updated upstream
-=======
-export const Withdrawlassets = new ExecutableScript<{ contract: HexString }>(
-  Script.fromJson(WithdrawlassetsScriptJson)
-);
->>>>>>> Stashed changes

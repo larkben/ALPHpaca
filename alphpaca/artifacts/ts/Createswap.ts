@@ -85,7 +85,7 @@ class Factory extends ContractFactory<
   CreateswapTypes.Fields
 > {
   getInitialFieldsWithDefaultValues() {
-    return this.contract.getInitialFieldsWithDefaultValues() as CreateswapTypes.Fields;
+    return;
   }
 
   eventIndex = { Swap: 0, Destroy: 1 };

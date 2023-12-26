@@ -9,10 +9,6 @@ import {
   Createswap,
   Faucet,
   FeeCollection,
-<<<<<<< Updated upstream
-=======
-  Swap,
->>>>>>> Stashed changes
   Token,
   Viral,
 } from ".";
@@ -26,10 +22,6 @@ export function getContractByCodeHash(codeHash: string): Contract {
       Createswap,
       Faucet,
       FeeCollection,
-<<<<<<< Updated upstream
-=======
-      Swap,
->>>>>>> Stashed changes
       Token,
       Viral,
     ];

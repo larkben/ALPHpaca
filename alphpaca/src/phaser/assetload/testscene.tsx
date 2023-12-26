@@ -1,8 +1,4 @@
-// Scene Loader
-import Phaser, { Game } from 'phaser';
-
-
-export default class PreLoader extends Phaser.Scene
+export default class TestScene extends Phaser.Scene
 {
     constructor ()
     {

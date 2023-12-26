@@ -7,10 +7,6 @@ export * from "./CreateToken";
 export * from "./Createswap";
 export * from "./Faucet";
 export * from "./FeeCollection";
-<<<<<<< Updated upstream
-=======
-export * from "./Swap";
->>>>>>> Stashed changes
 export * from "./Token";
 export * from "./Viral";
 export * from "./scripts";

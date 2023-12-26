@@ -18,7 +18,8 @@ const tokenBurn: DeployFunction<Settings> = async (
     // The initial states of the faucet contract
     initialFields: {
       tokensburned: 0n,
-      tokenid: "1516c410b54470d667e1315ce2faa81870c76c5c7a491e3e86eeec8366495502"
+      tokenid: "1516c410b54470d667e1315ce2faa81870c76c5c7a491e3e86eeec8366495502",
+      owner: "16gAmGuCysLjGxHK8TUENkvhbqvwZRb6BabUbsxLYkSkd"
     }
   })
   console.log('Burn contract id: ' + result.contractInstance.contractId)

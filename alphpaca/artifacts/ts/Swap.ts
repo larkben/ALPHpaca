@@ -91,7 +91,7 @@ export namespace SwapTypes {
 
 class Factory extends ContractFactory<SwapInstance, SwapTypes.Fields> {
   getInitialFieldsWithDefaultValues() {
-    return this.contract.getInitialFieldsWithDefaultValues() as SwapTypes.Fields;
+    return ;
   }
 
   eventIndex = { Success: 0, Cancel: 1, Edit: 2 };

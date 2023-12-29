@@ -98,7 +98,8 @@ export const TokenAutomationCreate: FC<{
                 onChange={(e) => setSupply(e.target.value)}
             />
             <br/>
-            <input className={styles.button} type="submit" disabled={!!ongoingTxId} value="Create Token" />
+            <br/>
+            <input className={styles.buttonDapp} type="submit" disabled={!!ongoingTxId} value="Create Token" />
           </>
         </form>
       </div>

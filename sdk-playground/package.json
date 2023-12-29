@@ -1,4 +1,5 @@
 {
+  "type":"module",
   "dependencies": {
     "@alephium/web3": "^0.21.0"
   }

@@ -12,9 +12,6 @@ import { AlephiumConnectButton } from '@alephium/web3-react'
 import { AlephiumWalletProvider } from '@alephium/web3-react';
 import { NodeProvider } from '@alephium/web3';
 
-//const API_KEY = "q4YJcksGa1ISzWPspxpSlKppgoHzodnpyWANx8nxtsUIFhtJ";
-//const nodeProvider = new NodeProvider('http://98.227.84.182:12973', API_KEY);
-
 // Graphics
 import { ThreeTorus } from '@/components/ThreeTorus';
 import { TokenFaucetConfig } from '@/services/utils';

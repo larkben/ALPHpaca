@@ -36,8 +36,8 @@ const PhaserGame = () => {
           parent: 'game-content',
           // orientation
           // localstoragename
-          width: 400,
-          height: 300,
+          width: 1366,
+          height: 768,
           // zoom
           // any other booleans
           pixelArt: true,

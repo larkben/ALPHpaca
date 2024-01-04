@@ -82,7 +82,7 @@ export namespace TokenTypes {
 
 class Factory extends ContractFactory<TokenInstance, TokenTypes.Fields> {
   getInitialFieldsWithDefaultValues() {
-    return;
+    return; // cli fix needs to be recompiled
   }
 
   eventIndex = { Destroy: 0 };

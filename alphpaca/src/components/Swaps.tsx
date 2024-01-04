@@ -33,7 +33,7 @@ export const SwapsCreation: FC<{
             {/* </form> */}
         </div>
         <div className={styles.contractsListContainer}>
-            {/* {contracts.map(contract => ( */}
+            {/* {contracts.map(contract => ( */} 
             // Render each contract here
             {/* ))} */}
       </div>

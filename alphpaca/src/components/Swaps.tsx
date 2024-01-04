@@ -29,7 +29,7 @@ export const SwapsCreation: FC<{
         <div className={styles.swapFormContainer}>
             <form onSubmit={handleSubmit}>
             {/* Form fields here */}
-            <button type="submit">Create Contract</button>
+            <button type="submit">Create Swap</button>
         </form>
         </div>
         <div className={styles.contractsListContainer}>

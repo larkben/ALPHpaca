@@ -1,6 +1,6 @@
 import { Deployer, DeployFunction, Network } from '@alephium/cli'
 import { Settings } from '../alephium.config'
-import { Burn, BurnToken } from '../artifacts/ts'
+import { BurnToken } from '../artifacts/ts'
 
 //! TestNet Token $PACA
 // 23ced1fcda7fb1f53641dc299cf49b12a89338c80d05534fc5b366d5b65acd02

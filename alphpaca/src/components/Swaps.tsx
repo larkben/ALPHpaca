@@ -27,15 +27,15 @@ export const SwapsCreation: FC<{
   return (
     <>
         <div className={styles.swapFormContainer}>
-            <form onSubmit={handleSubmit}>
-            {/* Form fields here */}
-            <button type="submit">Create Swap</button>
-        </form>
+            {/*<form onSubmit={handleSubmit}> */}
+                {/* Form fields here */}
+                <button type="submit">Create Swap</button>
+            {/* </form> */}
         </div>
         <div className={styles.contractsListContainer}>
-            {contracts.map(contract => (
+            {/* {contracts.map(contract => ( */}
             // Render each contract here
-            ))}
+            {/* ))} */}
       </div>
     </>
   )

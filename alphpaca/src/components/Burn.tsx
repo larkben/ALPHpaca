@@ -7,7 +7,7 @@ import Link from 'next/link'
 // Alephium Imports 
 import { BuildToken, BurnTokenContract } from '@/services/token.service'
 import { TxStatus } from './TxStatus'
-import { useAlephiumConnectContext } from '@alephium/web3-react'
+import { useWallet } from '@alephium/web3-react'
 import { node } from '@alephium/web3'
 import { TokenFaucetConfig} from '@/services/utils'
 
@@ -15,7 +15,7 @@ import { TokenFaucetConfig} from '@/services/utils'
 export const TokenAutomationCreate: FC<{
   config: TokenFaucetConfig
 }> = ({ config }) => {
-  const context = useAlephiumConnectContext()
+  const { signer, account } = useWallet()
   const addressGroup = config.groupIndex
   const [ongoingTxId, setOngoingTxId] = useState<string>()
 
@@ -25,8 +25,8 @@ export const TokenAutomationCreate: FC<{
   // Burning Token
   const handleBurnToken = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (context.signerProvider) {
-      const result = await BurnTokenContract(context.signerProvider, amount)
+    if (signer) {
+      const result = await BurnTokenContract(signer, amount)
     }
   }
 

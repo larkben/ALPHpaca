@@ -1,5 +1,5 @@
 {
-  "name": "alephium-nextjs-template",
+  "name": "alphpaca",
   "version": "0.1.0",
   "license": "GPL",
   "scripts": {
@@ -30,9 +30,12 @@
     "trailingComma": "none"
   },
   "dependencies": {
-    "@alephium/web3": "v0.17.0",
-    "@alephium/web3-react": "v0.17.0",
-    "@alephium/web3-wallet": "^0.27.5",
+    "@alephium/cli": "^0.28.1",
+    "@alephium/web3": "^0.28.1",
+    "@alephium/web3-test": "^0.28.1",
+    "@alephium/web3-wallet": "^0.28.1",
+    "@alephium/web3-react": "^0.28.1",
+    "@alephium/token-list": "0.0.11",
     "@next/font": "13.1.4",
     "@planetscale/database": "^1.10.0",
     "detect-browser": "^5.3.0",
@@ -54,8 +57,6 @@
     "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
-    "@alephium/cli": "^0.14.0",
-    "@alephium/web3-test": "v0.17.0",
     "@types/jest": "^27.5.1",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",

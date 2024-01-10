@@ -21,13 +21,13 @@ export const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link href="/Token Creator">
+          <Link href="/token_create">
             Create Token
           </Link>
         </li>
         <li>
           <Link href="/Mint">
-            Mint
+            Coming Soon!
           </Link>
         </li>
         <li>

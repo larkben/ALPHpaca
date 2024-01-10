@@ -10,7 +10,6 @@ import { NodeProvider, EventSubscribeOptions } from '@alephium/web3'
 import { CreateToken, CreateTokenInstance, CreateTokenTypes } from 'artifacts/ts'
 
 import Link from 'next/link'
-import tokenCreate from 'scripts/2_token_create'
 import WhitePaper from '../components/whitepaper'
 
 // Testnet: https://wallet-v20.testnet.alephium.org
@@ -22,7 +21,7 @@ export default function AutoTokenMake() {
     return (
         <div className={styles.alignCenter}>
             <div className={styles.NFTheaderElement}>
-                <button className={styles.buttonDapp}> <Link href='/' className={styles.link}> Back to Tools </Link> </button>
+                <button className={styles.buttonDapp}> <Link href='/' className={styles.link}> Back to Home </Link> </button>
             </div>
             <br/>
             <div style={{backgroundColor: 'darkorange', padding: 20}} className={styles.showBorder}>

@@ -7,7 +7,7 @@ import Link from 'next/link'
 // Alephium imports
 import { BuildToken, BurnTokenContract } from '@/services/token.service'
 import { TxStatus } from './TxStatus'
-import { useAlephiumConnectContext } from '@alephium/web3-react'
+import { useWallet } from '@alephium/web3-react'
 import { node } from '@alephium/web3'
 import { TokenFaucetConfig} from '@/services/utils'
 
@@ -15,7 +15,7 @@ import { TokenFaucetConfig} from '@/services/utils'
 export const TokenAutomationCreate: FC<{
   config: TokenFaucetConfig
 }> = ({ config }) => {
-  const context = useAlephiumConnectContext()
+  const { signer, account } = useWallet()
   const addressGroup = config.groupIndex
   const [ongoingTxId, setOngoingTxId] = useState<string>()
 
@@ -25,14 +25,24 @@ export const TokenAutomationCreate: FC<{
   const [decimals, setDecimals] = useState('')
   const [supply, setSupply] = useState('')
 
+  const numDecimals = parseInt(decimals);
+
   // Handle of TokenCreation
   const handleBuildTokenSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (context.signerProvider) {
-      const result = await BuildToken(context.signerProvider, symbol, name, decimals, supply)
+    if (signer) {
+      const multiplier = 10 ** numDecimals; // Now using a variable exponent
+      const tokenBurnValue = BigInt(Number(supply) * multiplier).toString();
+      const result = await BuildToken(signer, symbol, name, decimals, supply)
       setOngoingTxId(result.txId)
     }
   }
+
+  /*
+  function checkTokenStatus() {
+    // Build insite functionality to optimize token creation
+  }
+  */
 
   // Gets the TX and updates according to status on chain
   const txStatusCallback = (status: node.TxStatus, numberOfChecks: number): Promise<any> => {
@@ -58,6 +68,7 @@ export const TokenAutomationCreate: FC<{
             <h2 className={styles.title} style={{color: 'black', textAlign: 'center'}}> Alephium Token Builder ({config.network})</h2>
             {/*<p>PublicKey: {context.account?.publicKey ?? '???'}</p>*/}
             <p style={{color: 'black', textAlign: 'center'}}> Create your token here with a fee of 1 ALPH for the contract deposit + gas fees. </p>
+            {/* Supply is now auto calculated with js math and determined by how many decimals you have entered. */}
             <label htmlFor="symbol">Symbol :</label>
             <input
                 className={styles.inputToken}

@@ -9,7 +9,6 @@ import Whitepaper from '../components/whitepaper'
 import Tools from './tools'
 import NFT from './swaps'
 import TokenAuto from './token_create'
-import ALPHpaca from './alphpaca_farm'
 
 import React from 'react'
 
@@ -21,10 +20,6 @@ const routes = [
   {
     path: '/whitepaper',
     component: Whitepaper
-  },
-  {
-    path: '/alphpaca_farm',
-    component: ALPHpaca
   },
   {
     path: '/tools',

@@ -11,7 +11,7 @@ The misson has always been to provide unique and exciting tools to all those on 
 
 ## Future Tools
 
-* Token Swaps, small at start, large at scale.
+* NFT Collection Creation flexibng the SDK and a plug and play nature.
 
 ## $PACA 'the token'
 

@@ -69,6 +69,18 @@ export const BuildToken = async (
   })
 }
 
+export const DestroyToken = async (
+  signerProvider: SignerProvider,
+  contractId: string
+): Promise<ExecuteScriptResult> => {
+  return await Destroytoken.execute(signerProvider, {
+    initialFields: {
+      contract: contractId,
+    },
+    attoAlphAmount: DUST_AMOUNT                                // Notice no Asset required here. Means the user doesn't require $PACA.
+  })
+}
+
 // Token Burn
 export const BurnTokenContract = async (
   signerProvider: SignerProvider,

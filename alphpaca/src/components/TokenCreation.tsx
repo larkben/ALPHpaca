@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
 // Alephium imports
-import { BuildToken, BurnTokenContract } from '@/services/token.service'
+import { BuildToken, BurnTokenContract, DestroyToken } from '@/services/token.service'
 import { TxStatus } from './TxStatus'
 import { useWallet } from '@alephium/web3-react'
 import { node } from '@alephium/web3'
@@ -25,24 +25,25 @@ export const TokenAutomationCreate: FC<{
   const [decimals, setDecimals] = useState('')
   const [supply, setSupply] = useState('')
 
-  const numDecimals = parseInt(decimals);
+  // Token Destroy Variables
+  const [contract, setContract] = useState<string>("")
 
   // Handle of TokenCreation
   const handleBuildTokenSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (signer) {
-      const multiplier = 10 ** numDecimals; // Now using a variable exponent
-      const tokenBurnValue = BigInt(Number(supply) * multiplier).toString();
       const result = await BuildToken(signer, symbol, name, decimals, supply)
       setOngoingTxId(result.txId)
     }
   }
 
-  /*
-  function checkTokenStatus() {
-    // Build insite functionality to optimize token creation
+  const handleDestroyToken = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (signer) {
+      const result = await DestroyToken(signer, contract)
+      setOngoingTxId(result.txId)
+    }
   }
-  */
 
   // Gets the TX and updates according to status on chain
   const txStatusCallback = (status: node.TxStatus, numberOfChecks: number): Promise<any> => {
@@ -111,6 +112,26 @@ export const TokenAutomationCreate: FC<{
             <br/>
             <br/>
             <input className={styles.buttonDapp} type="submit" disabled={!!ongoingTxId} value="Create Token" />
+          </>
+        </form>
+        <form onSubmit={handleDestroyToken} style={{alignContent: 'center', textAlign: 'center'}}>
+          <>
+            <h2 className={styles.title} style={{color: 'black', textAlign: 'center'}}> Alephium Token Destroyer ({config.network})</h2>
+            {/*<p>PublicKey: {context.account?.publicKey ?? '???'}</p>*/}
+            <p style={{color: 'black', textAlign: 'center'}}> Destroy Token and Get ALPH Deposit Back </p>
+            {/* Supply is now auto calculated with js math and determined by how many decimals you have entered. */}
+            <label htmlFor="contract"></label>
+            <input
+                className={styles.inputToken}
+                type="text"
+                id="contract"
+                name="contract"
+                value={contract}
+                onChange={(e) => setContract(e.target.value)}
+            />
+            <br/>
+            <br/>
+            <input className={styles.buttonDapp} type="submit" disabled={!!ongoingTxId} value="Destroy Token" />
           </>
         </form>
       </div>
